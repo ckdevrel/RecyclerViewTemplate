@@ -34,8 +34,15 @@
     <instantiate from="src/app_package/RecyclerAdapter.java.ftl"
                        to="${escapeXmlAttribute(srcOut)}/${adapterClass}.java" />
 
+    <instantiate from="src/app_package/AbstractModel.java.ftl"
+                       to="${escapeXmlAttribute(srcOut)}/${adapterModelClass}.java" />
+
+
+
     <open file="${escapeXmlAttribute(srcOut)}/${adapterClass}.java" />
 
     <open file="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
+
+    <open file="${escapeXmlAttribute(srcOut)}/${adapterModelClass}.java" />
 
 </recipe>

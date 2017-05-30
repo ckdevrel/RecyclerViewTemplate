@@ -7,6 +7,7 @@ import android.support.v7.widget.RecyclerView;
 import butterknife.BindView;
 import butterknife.ButterKnife;
 import android.view.View;
+import java.util.ArrayList;
 
 <#if applicationPackage??>import ${applicationPackage}.R;</#if>
 <#if isSwipeRefreshLayout>
@@ -66,7 +67,9 @@ public class ${activityClass} extends ${(appCompat?has_content)?string('ActionBa
   //  }
 
     private void setAdapter(){
-          mAdapter = new ${adapterClass}();
+
+          ArrayList<${adapterModelClass}> modelList = new ArrayList<>();
+          mAdapter = new ${adapterClass}(${activityClass}.this, modelList);
           recyclerView.setHasFixedSize(true);
           // use a linear layout manager
           mLayoutManager = new LinearLayoutManager(this);

@@ -61,6 +61,15 @@
         help="The name of the adapter class to create" />
 
     <parameter
+        id="adapterModelClass"
+        name="Model Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="AbstractModel"
+        help="The name of the model class for adapter" />
+
+
+    <parameter
         id="features"
         name="RecyclerView Style"
         type="enum"
@@ -72,6 +81,7 @@
         <option id="headerandfooter">RecyclerView with Header and Footer</option>
 
     </parameter>
+
 
   <parameter
       id="isItemClick"

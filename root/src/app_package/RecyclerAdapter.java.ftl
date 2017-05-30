@@ -1,5 +1,6 @@
 package ${packageName};
 
+import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
@@ -8,15 +9,28 @@ import butterknife.BindView;
 import butterknife.ButterKnife;
 import android.widget.ImageView;
 import android.widget.TextView;
+import java.util.ArrayList;
 
 /**
  * A custom adapter to use with the RecyclerView widget.
  */
 public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${itemClass}> {
 
+    private Context mContext;
+    private ArrayList<${adapterModelClass}> modelList;
+
     <#if isItemClick>
     private OnItemClickListener mItemClickListener;
     </#if>
+
+    public ${adapterClass}(Context context, ArrayList<${adapterModelClass}> modelList) {
+            this.mContext = context;
+            this.modelList = modelList;
+    }
+
+    public void updateList(ArrayList<${adapterModelClass}> modelList) {
+            this.modelList = modelList;
+    }
 
     @Override
     public ${itemClass} onCreateViewHolder(ViewGroup viewGroup, int viewType) {
@@ -40,7 +54,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${item
     @Override
     public int getItemCount() {
 
-        return 0;
+        return modelList.size();
     }
 
     public class ${itemClass} extends RecyclerView.ViewHolder {
