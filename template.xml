@@ -75,17 +75,17 @@
 
   <parameter
       id="isItemClick"
-      name="isItemClick"
+      name="Need ItemClick"
       type="boolean"
       default="true"
       help="If true, recyclerview list item will be clickable" />
 
   <parameter
-      id="isSwipeRefreshLayoutEnable"
-      name="isSwipeRefreshLayoutEnable"
+      id="isSwipeRefreshLayout"
+      name="Need SwipeRefreshLayout"
       type="boolean"
       default="false"
-      help="If true, recyclerview list item will be clickable" />
+      help="If true, swipe refresh layout will be enabled" />
 
 	<parameter
         id="itemClass"

@@ -9,6 +9,9 @@ import butterknife.ButterKnife;
 import android.view.View;
 
 <#if applicationPackage??>import ${applicationPackage}.R;</#if>
+<#if isSwipeRefreshLayout>
+import android.support.v4.widget.SwipeRefreshLayout;
+</#if>
 
 
 public class ${activityClass} extends ${(appCompat?has_content)?string('ActionBar','')}Activity {
@@ -17,6 +20,14 @@ public class ${activityClass} extends ${(appCompat?has_content)?string('ActionBa
 
     @BindView(R.id.recycler_view)
     RecyclerView recyclerView;
+
+    <#if isSwipeRefreshLayout>
+    @BindView(R.id.swipe_refresh_recycler_list)
+    SwipeRefreshLayout swipeRefreshRecyclerList;
+
+    //private SwipeRefreshLayout swipeRefreshRecyclerList;
+
+    </#if>
 
     private ${adapterClass} mAdapter;
 
@@ -32,11 +43,27 @@ public class ${activityClass} extends ${(appCompat?has_content)?string('ActionBa
         // findViews();
 
         setAdapter();
+
+        <#if isSwipeRefreshLayout>
+        swipeRefreshRecyclerList.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {
+           @Override
+           public void onRefresh() {
+
+              // Do your stuff on refresh
+
+
+           }
+       });
+       </#if>
+
     }
 
-    private void findViews(){
-        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-    }
+  //  private void findViews(){
+  //      recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+  //      <#if isSwipeRefreshLayout>
+  //      swipeRefreshRecyclerList = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_recycler_list);
+        </#if>
+  //  }
 
     private void setAdapter(){
           mAdapter = new ${adapterClass}();

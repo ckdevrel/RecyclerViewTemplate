@@ -7,8 +7,5 @@
     <global id="srcOut" value="${srcDir}/${slashedPackageName(packageName)}" />
     <global id="resOut" value="${resDir}" />
     <global id="menuName" value="${classToResource(activityClass)}" />
-
-  
-
-	<global id="collection_name" value="${extractLetters(itemClass?lower_case)}" />
+	  <global id="collection_name" value="${extractLetters(itemClass?lower_case)}" />
 </globals>
