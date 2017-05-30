@@ -1,0 +1,117 @@
+<?xml version="1.0"?>
+<template
+    format="3"
+    revision="1"
+    name="RecyclerViewActivity"
+    minApi="7"
+    minBuildApi="14"
+    description="Creates a new Activity with custom RecyclerView Adapter.">
+
+    <category value="Activity" />
+
+    <parameter
+        id="activityClass"
+        name="Activity Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        suggest="${layoutToActivity(layoutActivityName)}"
+        default="RecyclerViewActivity"
+        help="The name of the activity class to create" />
+
+    <parameter
+        id="layoutActivityName"
+        name="Layout Name"
+        type="string"
+        constraints="layout|unique|nonempty"
+        suggest="${activityToLayout(activityClass)}"
+        default="activity_recycler_view"
+        help="The name of the layout to create for the activity" />
+
+    <parameter
+        id="activityTitle"
+        name="Title"
+        type="string"
+        constraints="nonempty"
+        default="RecyclerViewActivity"
+        suggest="${activityClass}"
+        help="The name of the activity. For launcher activities, the application title." />
+
+    <parameter
+        id="isLauncher"
+        name="Launcher Activity"
+        type="boolean"
+        default="false"
+        help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher" />
+
+
+
+    <parameter
+        id="packageName"
+        name="Package name"
+        type="string"
+        constraints="package"
+        default="com.mycompany.myapp" />
+
+    <parameter
+        id="adapterClass"
+        name="Adapter Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="RecyclerViewAdapter"
+        help="The name of the adapter class to create" />
+
+    <parameter
+        id="features"
+        name="RecyclerView Style"
+        type="enum"
+        default="simple"
+        help="Choose your own RecyclerView style" >
+        <option id="simple">Simple RecyclerView</option>
+        <option id="header">RecyclerView with Header</option>
+        <option id="footer">RecyclerView with Footer</option>
+        <option id="headerandfooter">RecyclerView with Header and Footer</option>
+
+    </parameter>
+
+  <parameter
+      id="isItemClick"
+      name="isItemClick"
+      type="boolean"
+      default="true"
+      help="If true, recyclerview list item will be clickable" />
+
+  <parameter
+      id="isSwipeRefreshLayoutEnable"
+      name="isSwipeRefreshLayoutEnable"
+      type="boolean"
+      default="false"
+      help="If true, recyclerview list item will be clickable" />
+
+	<parameter
+        id="itemClass"
+        name="Item Name"
+        type="string"
+        constraints="class|nonempty"
+        default="ViewHolder"
+        help="The name of the ViewHolder class to create" />
+
+    <parameter
+        id="layoutName"
+        name="Layout Row Name"
+        type="string"
+        constraints="layout|nonempty"
+        default="item_recycler_list"
+        help="The name of the row layout to use" />
+
+
+    <!-- 128x128 thumbnails relative to template.xml -->
+    <thumbs>
+        <!-- default thumbnail is required -->
+        <thumb>templates_adapter.png</thumb>
+
+    </thumbs>
+
+    <globals file="globals.xml.ftl" />
+    <execute file="recipe.xml.ftl" />
+
+</template>
