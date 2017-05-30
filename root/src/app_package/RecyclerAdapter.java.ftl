@@ -1,16 +1,15 @@
-package ${packageName};
+package ${packageName}.adapters;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
-
+import ${packageName}.R;
+import ${packageName}.models.${adapterModelClass};
 /**
  * A custom adapter to use with the RecyclerView widget.
  */
@@ -41,15 +40,18 @@ public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${item
     }
 
     @Override
-    public void onBindViewHolder(${itemClass} itemViewHolder, int position) {
+     public void onBindViewHolder(ViewHolder holder, int position) {
 
-        //Here you can fill your row view
+         //Here you can fill your row view
 
-      //  holder.itemTxtTitle.setText("");
-      //  holder.itemTxtMessage.setText("");
+           ${adapterModelClass} model = modelList.get(position);
 
+           if(model != null) {
+             holder.itemTxtTitle.setText(model.getTitle());
+             holder.itemTxtMessage.setText(model.getMessage());
+           }
 
-    }
+     }
 
     @Override
     public int getItemCount() {
@@ -59,21 +61,21 @@ public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${item
 
     public class ${itemClass} extends RecyclerView.ViewHolder {
 
-        // private ImageView imgUser;
-        // private TextView itemTxtTitle;
-        // private TextView itemTxtMessage;
+        private ImageView imgUser;
+        private TextView itemTxtTitle;
+        private TextView itemTxtMessage;
 
-         @BindView(R.id.img_user)
-         ImageView imgUser;
-         @BindView(R.id.item_txt_title)
-         TextView itemTxtTitle;
-         @BindView(R.id.item_txt_message)
-         TextView itemTxtMessage;
+        // @BindView(R.id.img_user)
+        // ImageView imgUser;
+        // @BindView(R.id.item_txt_title)
+        // TextView itemTxtTitle;
+        // @BindView(R.id.item_txt_message)
+        // TextView itemTxtMessage;
 
         public ${itemClass}(final View itemView) {
             super(itemView);
 
-            ButterKnife.bind(this, itemView);
+            // ButterKnife.bind(this, itemView);
 
             <#if isItemClick>
 
@@ -88,9 +90,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${item
             </#if>
 
 
-            // this.imgUser = (ImageView) itemView.findViewById(R.id.img_user);
-            // this.itemTxtTitle = (TextView) itemView.findViewById(R.id.item_txt_title);
-            // this.itemTxtMessage = (TextView) itemView.findViewById(R.id.item_txt_message);
+            this.imgUser = (ImageView) itemView.findViewById(R.id.img_user);
+            this.itemTxtTitle = (TextView) itemView.findViewById(R.id.item_txt_title);
+            this.itemTxtMessage = (TextView) itemView.findViewById(R.id.item_txt_message);
         }
     }
 

@@ -1,15 +1,21 @@
 <?xml version="1.0"?>
 <recipe>
 
-    <#if appCompat?has_content>
-      <dependency mavenUrl="com.android.support:appcompat-v7:25.3.1"/>
+    <!-- <#if appCompat?has_content>
+      <dependency mavenUrl="com.android.support:appcompat-v7:${buildApi}.+"/>
+    </#if> -->
+
+    <#if !(hasDependency('com.android.support:appcompat-v7'))>
+        <dependency mavenUrl="com.android.support:appcompat-v7:${buildApi}.+"/>
+    </#if>
+    <#if !(hasDependency('com.android.support:recyclerview-v7'))>
+
+        <dependency mavenUrl="com.android.support:recyclerview-v7:${buildApi}.+"/>
     </#if>
 
-    <dependency mavenUrl="com.android.support:recyclerview-v7:25.3.1"/>
+    <!-- <dependency mavenUrl="com.jakewharton:butterknife:8.5.1"/> -->
 
-    <dependency mavenUrl="com.jakewharton:butterknife:8.5.1"/>
-
-    <dependency mavenUrl="com.jakewharton:butterknife-compiler:8.5.1"/>
+    <!-- <dependency mavenUrl="com.jakewharton:butterknife-compiler:8.5.1"/> -->
 
 
     <merge from="AndroidManifest.xml.ftl"
@@ -29,13 +35,13 @@
 
     <!-- Decide which activity code to add -->
     <instantiate from="src/app_package/RecyclerActivity.java.ftl"
-                       to="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
+                       to="${escapeXmlAttribute(srcOut)}/activities/${activityClass}.java" />
 
     <instantiate from="src/app_package/RecyclerAdapter.java.ftl"
-                       to="${escapeXmlAttribute(srcOut)}/${adapterClass}.java" />
+                       to="${escapeXmlAttribute(srcOut)}/adapters/${adapterClass}.java" />
 
     <instantiate from="src/app_package/AbstractModel.java.ftl"
-                       to="${escapeXmlAttribute(srcOut)}/${adapterModelClass}.java" />
+                       to="${escapeXmlAttribute(srcOut)}/models/${adapterModelClass}.java" />
 
 
 

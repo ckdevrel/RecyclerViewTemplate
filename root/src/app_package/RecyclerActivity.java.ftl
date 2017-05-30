@@ -1,11 +1,9 @@
-package ${packageName};
+package ${packageName}.activities;
 
-import <#if appCompat?has_content>android.support.v7.app.ActionBarActivity<#else>android.app.Activity</#if>;
+import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
-import butterknife.BindView;
-import butterknife.ButterKnife;
 import android.view.View;
 import java.util.ArrayList;
 
@@ -13,20 +11,23 @@ import java.util.ArrayList;
 <#if isSwipeRefreshLayout>
 import android.support.v4.widget.SwipeRefreshLayout;
 </#if>
+import ${packageName}.R;
+import ${packageName}.adapters.${adapterClass};
+import ${packageName}.models.${adapterModelClass};
 
 
-public class ${activityClass} extends ${(appCompat?has_content)?string('ActionBar','')}Activity {
+public class ${activityClass} extends AppCompatActivity {
 
-    // private RecyclerView recyclerView;
+    private RecyclerView recyclerView;
 
-    @BindView(R.id.recycler_view)
-    RecyclerView recyclerView;
+    // @BindView(R.id.recycler_view)
+    // RecyclerView recyclerView;
 
     <#if isSwipeRefreshLayout>
-    @BindView(R.id.swipe_refresh_recycler_list)
-    SwipeRefreshLayout swipeRefreshRecyclerList;
+    // @BindView(R.id.swipe_refresh_recycler_list)
+    // SwipeRefreshLayout swipeRefreshRecyclerList;
 
-    //private SwipeRefreshLayout swipeRefreshRecyclerList;
+    private SwipeRefreshLayout swipeRefreshRecyclerList;
 
     </#if>
 
@@ -39,9 +40,9 @@ public class ${activityClass} extends ${(appCompat?has_content)?string('ActionBa
         super.onCreate(savedInstanceState);
         setContentView(R.layout.${layoutActivityName});
 
-        ButterKnife.bind(this);
+        // ButterKnife.bind(this);
 
-        // findViews();
+        findViews();
 
         setAdapter();
 
@@ -59,16 +60,33 @@ public class ${activityClass} extends ${(appCompat?has_content)?string('ActionBa
 
     }
 
-  //  private void findViews(){
-  //      recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
-  //      <#if isSwipeRefreshLayout>
-  //      swipeRefreshRecyclerList = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_recycler_list);
+  private void findViews(){
+       recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+       <#if isSwipeRefreshLayout>
+       swipeRefreshRecyclerList = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_recycler_list);
         </#if>
-  //  }
+    }
 
     private void setAdapter(){
 
           ArrayList<${adapterModelClass}> modelList = new ArrayList<>();
+
+         modelList.add(new ${adapterModelClass}("Android", "Hello "+" Android"));
+         modelList.add(new ${adapterModelClass}("Beta","Hello "+" Beta"));
+         modelList.add(new ${adapterModelClass}("Cupcake","Hello "+" Cupcake"));
+         modelList.add(new ${adapterModelClass}("Donut","Hello "+" Donut"));
+         modelList.add(new ${adapterModelClass}("Eclair","Hello "+" Eclair"));
+         modelList.add(new ${adapterModelClass}("Froyo","Hello "+" Froyo"));
+         modelList.add(new ${adapterModelClass}("Gingerbread","Hello "+" Gingerbread"));
+         modelList.add(new ${adapterModelClass}("Honeycomb","Hello "+" Honeycomb"));
+         modelList.add(new ${adapterModelClass}("Ice Cream Sandwich","Hello "+" Ice Cream Sandwich"));
+         modelList.add(new ${adapterModelClass}("Jelly Bean","Hello "+" Jelly Bean"));
+         modelList.add(new ${adapterModelClass}("KitKat","Hello "+" KitKat"));
+         modelList.add(new ${adapterModelClass}("Lollipop","Hello "+" Lollipop"));
+         modelList.add(new ${adapterModelClass}("Marshmallow","Hello "+" Marshmallow"));
+         modelList.add(new ${adapterModelClass}("Nougat","Hello "+" Nougat"));
+         modelList.add(new ${adapterModelClass}("Android O","Hello "+" Android O"));
+
           mAdapter = new ${adapterClass}(${activityClass}.this, modelList);
           recyclerView.setHasFixedSize(true);
           // use a linear layout manager

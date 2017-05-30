@@ -4,8 +4,7 @@
   xmlns:tools="http://schemas.android.com/tools"
   android:id="@+id/swipe_refresh_recycler_list"
   android:layout_width="match_parent"
-  android:layout_height="match_parent"
-  tools:context="${packageName}.${activityClass}">
+  android:layout_height="match_parent">
 
       <android.support.v7.widget.RecyclerView
           android:id="@+id/recyler_view"

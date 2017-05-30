@@ -5,5 +5,4 @@
     android:id="@+id/recyler_view"
     android:scrollbars="vertical"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context="${packageName}.${activityClass}"/>
+    android:layout_height="match_parent"/>

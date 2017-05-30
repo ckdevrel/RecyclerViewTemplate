@@ -1,4 +1,4 @@
-package ${packageName};
+package ${packageName}.models;
 
 public class ${adapterModelClass} {
 
@@ -21,5 +21,15 @@ public class ${adapterModelClass} {
 
     public void setMessage(String message) {
         this.message = message;
+    }
+
+
+    public ${adapterModelClass}(String title, String message) {
+      this.title = title;
+      this.message = message;
+    }
+
+  public ${adapterModelClass}() {
+  
     }
 }
