@@ -129,7 +129,8 @@
         type="string"
         constraints="layout|nonempty"
         default="item_recycler_header"
-        help="The name of the row layout to use" />
+        help="The name of the row layout to use"
+        visibility="false" />
 
     <parameter
         id="itemLayoutFooterName"
@@ -137,7 +138,8 @@
         type="string"
         constraints="layout|nonempty"
         default="item_recycler_footer"
-        help="The name of the row layout to use" />
+        help="The name of the row layout to use"
+        visibility="false" />
 
     <parameter
         id="itemLayoutGooglePlay"

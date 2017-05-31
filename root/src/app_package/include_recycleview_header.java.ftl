@@ -46,13 +46,6 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.${itemCla
 
             headerHolder.txtTitleHeader.setText(mHeaderTitle);
 
-            headerHolder.txtTitleHeader.setOnClickListener (new View.OnClickListener () {
-                @Override
-                public void onClick (View view) {
-
-
-                }
-            });
         } else if(holder instanceof ${itemClass}) {
             final ${adapterModelClass} model = getItem (position - 1);
             ${itemClass} genericViewHolder = (${itemClass}) holder;
