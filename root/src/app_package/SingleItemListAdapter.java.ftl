@@ -1,4 +1,4 @@
-package ${packageName}.adapters;
+package ${packageName};
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -9,8 +9,9 @@ import android.widget.ImageView;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import ${packageName}.R;
-import ${packageName}.models.${adapterModelClass};
+<#if applicationPackage??>
+import ${applicationPackage}.R;
+</#if>
 
 import java.util.ArrayList;
 

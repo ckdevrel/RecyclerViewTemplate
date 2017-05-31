@@ -1,4 +1,4 @@
-package ${packageName}.activities;
+package ${packageName};
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
@@ -7,13 +7,13 @@ import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import java.util.ArrayList;
 
-<#if applicationPackage??>import ${applicationPackage}.R;</#if>
 <#if isSwipeRefreshLayout>
 import android.support.v4.widget.SwipeRefreshLayout;
 </#if>
-import ${packageName}.R;
-import ${packageName}.adapters.${adapterClass};
-import ${packageName}.models.${adapterModelClass};
+<#if applicationPackage??>
+import ${applicationPackage}.R;
+</#if>
+
 import android.widget.Toast;
 import android.os.Handler;
 

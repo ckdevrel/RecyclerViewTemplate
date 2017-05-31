@@ -69,15 +69,15 @@
 
     <!-- Decide which activity code to add -->
     <instantiate from="src/app_package/RecyclerActivity.java.ftl"
-                       to="${escapeXmlAttribute(srcOut)}/activities/${activityClass}.java" />
+                       to="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
 
     <instantiate from="src/app_package/RecyclerAdapter.java.ftl"
-                       to="${escapeXmlAttribute(srcOut)}/adapters/${adapterClass}.java" />
+                       to="${escapeXmlAttribute(srcOut)}/${adapterClass}.java" />
 
   <#if features == 'googleplay'>
 
    <instantiate from="src/app_package/SingleItemListAdapter.java.ftl"
-                      to="${escapeXmlAttribute(srcOut)}/adapters/${adapterGooglePlayClass}.java" />
+                      to="${escapeXmlAttribute(srcOut)}/${adapterGooglePlayClass}.java" />
 
 
   <instantiate from="res/layout/item_recycler_item_google_play.xml.ftl"
@@ -90,7 +90,7 @@
 
 
     <instantiate from="src/app_package/AbstractModel.java.ftl"
-                       to="${escapeXmlAttribute(srcOut)}/models/${adapterModelClass}.java" />
+                       to="${escapeXmlAttribute(srcOut)}/${adapterModelClass}.java" />
 
 
 

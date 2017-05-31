@@ -1,4 +1,4 @@
-package ${packageName}.models;
+package ${packageName};
 import java.util.ArrayList;
 
 public class ${adapterModelClass} {
