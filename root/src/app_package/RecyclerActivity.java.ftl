@@ -174,7 +174,7 @@ public class ${activityClass} extends AppCompatActivity {
           mAdapter.SetOnMoreClickListener(new ${adapterClass}.OnMoreClickListener() {
                     @Override
                     public void onMoreClick(View view, int position,${adapterModelClass} model) {
-                        Toast.makeText(MainActivity.this, "See more " + position, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(${activityClass}, "See more " + position, Toast.LENGTH_SHORT).show();
 
                   }
               });
