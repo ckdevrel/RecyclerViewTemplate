@@ -15,6 +15,7 @@ import ${packageName}.R;
 import ${packageName}.adapters.${adapterClass};
 import ${packageName}.models.${adapterModelClass};
 import android.widget.Toast;
+import android.os.Handler;
 
 
 public class ${activityClass} extends AppCompatActivity {
