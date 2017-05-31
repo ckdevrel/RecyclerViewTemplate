@@ -14,6 +14,7 @@ import android.support.v4.widget.SwipeRefreshLayout;
 import ${packageName}.R;
 import ${packageName}.adapters.${adapterClass};
 import ${packageName}.models.${adapterModelClass};
+import android.widget.Toast;
 
 
 public class ${activityClass} extends AppCompatActivity {
@@ -87,7 +88,11 @@ public class ${activityClass} extends AppCompatActivity {
          modelList.add(new ${adapterModelClass}("Nougat","Hello "+" Nougat"));
          modelList.add(new ${adapterModelClass}("Android O","Hello "+" Android O"));
 
-          mAdapter = new ${adapterClass}(${activityClass}.this, modelList);
+         <#if features == 'header'>
+         mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Hey Android folks!");
+         <#else>
+         mAdapter = new ${adapterClass}(${activityClass}.this, modelList);
+        </#if>
           recyclerView.setHasFixedSize(true);
           // use a linear layout manager
           mLayoutManager = new LinearLayoutManager(this);
@@ -98,12 +103,27 @@ public class ${activityClass} extends AppCompatActivity {
 
           mAdapter.SetOnItemClickListener(new ${adapterClass}.OnItemClickListener() {
                     @Override
-                    public void onItemClick(View view, int position) {
+                    public void onItemClick(View view, int position,${adapterModelClass} model) {
 
                       //handle item click events here
+                      Toast.makeText(MainActivity.this,"Hey "+model.getTitle(), Toast.LENGTH_SHORT).show();
 
                     }
                 });
+
+          <#if features == 'header'>
+
+          mAdapter.SetOnHeaderClickListener(new ${adapterClass}.OnHeaderClickListener() {
+                    @Override
+                    public void onHeaderClick(View view,String headerTitle) {
+
+                      //handle item click events here
+                      Toast.makeText(MainActivity.this,"Hey I am a header", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+          </#if>
           </#if>
 
     }

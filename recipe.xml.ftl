@@ -29,8 +29,14 @@
               to="${escapeXmlAttribute(resOut)}/layout/${layoutActivityName}.xml" />
 
 
-      <instantiate from="res/layout/item_recycler_list.xml.ftl"
-                        to="${escapeXmlAttribute(resOut)}/layout/${layoutName}.xml" />
+    <instantiate from="res/layout/item_recycler_list.xml.ftl"
+                      to="${escapeXmlAttribute(resOut)}/layout/${itemLayoutName}.xml" />
+
+    <instantiate from="res/layout/item_recycler_header.xml.ftl"
+                      to="${escapeXmlAttribute(resOut)}/layout/${itemLayoutHeaderName}.xml" />
+
+    <instantiate from="res/layout/item_recycler_list.xml.ftl"
+                      to="${escapeXmlAttribute(resOut)}/layout/${itemLayoutFooterName}.xml" />
 
 
     <!-- Decide which activity code to add -->

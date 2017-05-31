@@ -106,12 +106,39 @@
         help="The name of the ViewHolder class to create" />
 
     <parameter
+        id="itemLayoutName"
+        name="Item Layout Name"
+        type="string"
+        constraints="layout|nonempty"
+        default="item_recycler_list"
+        help="The name of the row layout to use" />
+
+    <parameter
+        id="itemLayoutHeaderName"
+        name="Item Layout Header Name"
+        type="string"
+        constraints="layout|nonempty"
+        default="item_recycler_header"
+        help="The name of the row layout to use" />
+
+    <parameter
+        id="itemLayoutFooterName"
+        name="Item Layout Footer Name"
+        type="string"
+        constraints="layout|nonempty"
+        default="item_recycler_footer"
+        help="The name of the row layout to use" />
+
+
+
+    <!-- <parameter
         id="layoutName"
         name="Layout Row Name"
         type="string"
         constraints="layout|nonempty"
         default="item_recycler_list"
-        help="The name of the row layout to use" />
+        help="The name of the row layout to use" /> -->
+
 
 
     <!-- 128x128 thumbnails relative to template.xml -->
