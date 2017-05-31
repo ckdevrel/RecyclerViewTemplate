@@ -53,7 +53,14 @@ public class ${activityClass} extends AppCompatActivity {
            public void onRefresh() {
 
               // Do your stuff on refresh
+              new Handler().postDelayed(new Runnable() {
+               @Override
+               public void run() {
 
+                   if(swipeRefreshRecyclerList.isRefreshing())
+                       swipeRefreshRecyclerList.setRefreshing(false);
+                 }
+             },5000);
 
            }
        });

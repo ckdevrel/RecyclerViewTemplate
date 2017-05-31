@@ -13,5 +13,5 @@
         android:background="@android:color/holo_blue_dark"
         android:gravity="center"
         android:textColor="@android:color/white"
-        android:textSize="@dimen/abc_text_size_large_material"/>
+        android:textSize="16sp"/>
 </LinearLayout>
