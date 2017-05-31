@@ -144,6 +144,10 @@ public class ${activityClass} extends AppCompatActivity {
 
          <#elseif features == 'footer'>
          mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Footer");
+
+         <#elseif features == 'headerandfooter'>
+         mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Header","Footer");
+
          <#else>
          mAdapter = new ${adapterClass}(${activityClass}.this, modelList);
         </#if>
@@ -196,7 +200,29 @@ public class ${activityClass} extends AppCompatActivity {
 
           </#if>
 
+          <#if features == 'headerandfooter'>
 
+          mAdapter.SetOnHeaderClickListener(new ${adapterClass}.OnHeaderClickListener() {
+                    @Override
+                    public void onHeaderClick(View view,String headerTitle) {
+
+                      //handle item click events here
+                      Toast.makeText(${activityClass}.this,"Hey I am a header", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+          mAdapter.SetOnFooterClickListener(new ${adapterClass}.OnFooterClickListener() {
+                    @Override
+                    public void onFooterClick(View view,String footerTitle) {
+
+                      //handle item click events here
+                      Toast.makeText(${activityClass}.this,"Hey I am a footer", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+          </#if>
           <#if features == 'googleplay'>
           mAdapter.SetOnMoreClickListener(new ${adapterClass}.OnMoreClickListener() {
                     @Override

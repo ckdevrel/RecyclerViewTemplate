@@ -55,6 +55,18 @@
 
     </#if>
 
+
+    <#if features == 'headerandfooter'>
+
+      <instantiate from="res/layout/item_recycler_header.xml.ftl"
+                        to="${escapeXmlAttribute(resOut)}/layout/${itemLayoutHeaderName}.xml" />
+
+
+    <instantiate from="res/layout/item_recycler_footer.xml.ftl"
+                      to="${escapeXmlAttribute(resOut)}/layout/${itemLayoutFooterName}.xml" />
+
+    </#if>
+
     <!-- Decide which activity code to add -->
     <instantiate from="src/app_package/RecyclerActivity.java.ftl"
                        to="${escapeXmlAttribute(srcOut)}/activities/${activityClass}.java" />

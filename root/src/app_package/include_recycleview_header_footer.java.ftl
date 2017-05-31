@@ -6,20 +6,25 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.${itemCla
 
     private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
+    private static final int TYPE_FOOTER = 2;
 
     private Context mContext;
     private ArrayList<${adapterModelClass}> modelList;
     private String mHeaderTitle;
+    private String mFooterTitle;
 
     <#if isItemClick>
     private OnItemClickListener mItemClickListener;
     private OnHeaderClickListener mHeaderClickListener;
+    private OnFooterClickListener mFooterClickListener;
+
     </#if>
 
-    public ${adapterClass}(Context context, ArrayList<${adapterModelClass}> modelList, String headerTitle) {
+    public ${adapterClass}(Context context, ArrayList<${adapterModelClass}> modelList, String headerTitle, String footerTitle) {
             this.mContext = context;
             this.modelList = modelList;
             this.mHeaderTitle = headerTitle;
+            this.mFooterTitle = footerTitle;
     }
 
     public void updateList(ArrayList<${adapterModelClass}> modelList) {
@@ -29,13 +34,17 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.${itemCla
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder (ViewGroup parent, int viewType) {
+
         if(viewType == TYPE_HEADER) {
-            View v = LayoutInflater.from (parent.getContext ()).inflate (R.layout.${itemLayoutHeaderName}, parent, false);
-            return new HeaderViewHolder (v);
-        } else if(viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from (parent.getContext ()).inflate (R.layout.${itemLayoutName}, parent, false);
-            return new ${itemClass} (v);
-        }
+          View v = LayoutInflater.from (parent.getContext ()).inflate (R.layout.${itemLayoutHeaderName}, parent, false);
+          return new HeaderViewHolder (v);
+      } else if(viewType == TYPE_FOOTER) {
+          View v = LayoutInflater.from (parent.getContext ()).inflate (R.layout.${itemLayoutFooterName}, parent, false);
+          return new FooterViewHolder (v);
+      } else if(viewType == TYPE_ITEM) {
+          View v = LayoutInflater.from (parent.getContext ()).inflate (R.layout.${itemLayoutName}, parent, false);
+          return new ${itemClass} (v);
+      }
         return null;
     }
 
@@ -46,7 +55,12 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.${itemCla
 
             headerHolder.txtTitleHeader.setText(mHeaderTitle);
 
-        } else if(holder instanceof ${itemClass}) {
+        }else if(holder instanceof FooterViewHolder) {
+            FooterViewHolder footerHolder = (FooterViewHolder) holder;
+
+            footerHolder.txtFooter.setText(mFooterTitle);
+
+          }else if(holder instanceof ${itemClass}) {
             final ${adapterModelClass} model = getItem (position - 1);
             ${itemClass} genericViewHolder = (${itemClass}) holder;
             genericViewHolder.itemTxtTitle.setText (model.getTitle ());
@@ -58,23 +72,30 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.${itemCla
 }
 
             //    need to override this method
-                @Override
-        public int getItemViewType (int position) {
-            if(isPositionHeader (position)) {
-                return TYPE_HEADER;
-            }
-            return TYPE_ITEM;
-        }
+            @Override
+         public int getItemViewType (int position) {
+             if(isPositionHeader (position)) {
+                 return TYPE_HEADER;
+             } else if(isPositionFooter (position)) {
+                 return TYPE_FOOTER;
+             }
+             return TYPE_ITEM;
+         }
+
 
         private boolean isPositionHeader (int position) {
             return position == 0;
+        }
+
+        private boolean isPositionFooter (int position) {
+              return position == modelList.size () + 1;
         }
 
 
     @Override
     public int getItemCount() {
 
-        return modelList.size() + 1;
+        return modelList.size() + 2;
     }
 
 
@@ -120,6 +141,27 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.${itemCla
         }
     }
 
+        class FooterViewHolder extends RecyclerView.ViewHolder {
+            TextView txtFooter;
+
+            public FooterViewHolder (final View itemView) {
+                super (itemView);
+                this.txtFooter = (TextView) itemView.findViewById (R.id.txtFooter);
+
+                <#if isItemClick>
+
+                itemView.setOnClickListener(new View.OnClickListener() {
+                   @Override
+                   public void onClick(View view) {
+
+                       mFooterClickListener.onFooterClick(itemView,mFooterTitle);
+                   }
+               });
+
+               </#if>
+            }
+        }
+
 
         class HeaderViewHolder extends RecyclerView.ViewHolder {
             TextView txtTitleHeader;
@@ -160,6 +202,13 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.${itemCla
                 this.mHeaderClickListener = headerClickListener;
         }
 
+        public interface OnFooterClickListener {
+                void onFooterClick(View view, String headerTitle);
+        }
+
+        public void SetOnFooterClickListener(final OnFooterClickListener footerClickListener) {
+                this.mFooterClickListener = footerClickListener;
+        }
 
     </#if>
 
