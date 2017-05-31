@@ -8,6 +8,7 @@ import android.view.ViewGroup;
 import android.widget.ImageView;
 import android.widget.TextView;
 import java.util.ArrayList;
+import android.support.v7.widget.LinearLayoutManager;
 import ${packageName}.R;
 import ${packageName}.models.${adapterModelClass};
 
@@ -15,6 +16,10 @@ import ${packageName}.models.${adapterModelClass};
 <#if features == 'header'>
 
   <#include "include_recycleview_header.java.ftl"/>
+
+  <#elseif features == 'googleplay'>
+
+  <#include "include_recycleview_google_play.java.ftl"/>
 
 
 <#elseif features == 'footer'>

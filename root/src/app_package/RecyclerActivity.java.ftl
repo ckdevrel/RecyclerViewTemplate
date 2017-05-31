@@ -70,6 +70,47 @@ public class ${activityClass} extends AppCompatActivity {
 
     private void setAdapter(){
 
+      <#if features == 'googleplay'>
+
+             ArrayList<${adapterModelClass}> singleItemList = new ArrayList<>();
+
+             singleItemList.add(new AbstractModel("Android", "Hello " + " Android"));
+             singleItemList.add(new AbstractModel("Beta", "Hello " + " Beta"));
+             singleItemList.add(new AbstractModel("Cupcake", "Hello " + " Cupcake"));
+             singleItemList.add(new AbstractModel("Donut", "Hello " + " Donut"));
+             singleItemList.add(new AbstractModel("Eclair", "Hello " + " Eclair"));
+             singleItemList.add(new AbstractModel("Froyo", "Hello " + " Froyo"));
+             singleItemList.add(new AbstractModel("Gingerbread", "Hello " + " Gingerbread"));
+             singleItemList.add(new AbstractModel("Honeycomb", "Hello " + " Honeycomb"));
+             singleItemList.add(new AbstractModel("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich"));
+             singleItemList.add(new AbstractModel("Jelly Bean", "Hello " + " Jelly Bean"));
+             singleItemList.add(new AbstractModel("KitKat", "Hello " + " KitKat"));
+             singleItemList.add(new AbstractModel("Lollipop", "Hello " + " Lollipop"));
+             singleItemList.add(new AbstractModel("Marshmallow", "Hello " + " Marshmallow"));
+             singleItemList.add(new AbstractModel("Nougat", "Hello " + " Nougat"));
+             singleItemList.add(new AbstractModel("Android O", "Hello " + " Android O"));
+
+             ArrayList<${adapterModelClass}> modelList = new ArrayList<>();
+
+             modelList.add(new AbstractModel("Android", "Hello " + " Android",singleItemList));
+             modelList.add(new AbstractModel("Beta", "Hello " + " Beta",singleItemList));
+             modelList.add(new AbstractModel("Cupcake", "Hello " + " Cupcake",singleItemList));
+             modelList.add(new AbstractModel("Donut", "Hello " + " Donut",singleItemList));
+             modelList.add(new AbstractModel("Eclair", "Hello " + " Eclair",singleItemList));
+             modelList.add(new AbstractModel("Froyo", "Hello " + " Froyo",singleItemList));
+             modelList.add(new AbstractModel("Gingerbread", "Hello " + " Gingerbread",singleItemList));
+             modelList.add(new AbstractModel("Honeycomb", "Hello " + " Honeycomb"));
+             modelList.add(new AbstractModel("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich",singleItemList));
+             modelList.add(new AbstractModel("Jelly Bean", "Hello " + " Jelly Bean",singleItemList));
+             modelList.add(new AbstractModel("KitKat", "Hello " + " KitKat",singleItemList));
+             modelList.add(new AbstractModel("Lollipop", "Hello " + " Lollipop",singleItemList));
+             modelList.add(new AbstractModel("Marshmallow", "Hello " + " Marshmallow",singleItemList));
+             modelList.add(new AbstractModel("Nougat", "Hello " + " Nougat",singleItemList));
+             modelList.add(new AbstractModel("Android O", "Hello " + " Android O",singleItemList));
+
+        <#else>
+
+
           ArrayList<${adapterModelClass}> modelList = new ArrayList<>();
 
          modelList.add(new ${adapterModelClass}("Android", "Hello "+" Android"));
@@ -88,6 +129,8 @@ public class ${activityClass} extends AppCompatActivity {
          modelList.add(new ${adapterModelClass}("Nougat","Hello "+" Nougat"));
          modelList.add(new ${adapterModelClass}("Android O","Hello "+" Android O"));
 
+         </#if>
+
          <#if features == 'header'>
          mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Hey Android folks!");
          <#else>
@@ -99,18 +142,21 @@ public class ${activityClass} extends AppCompatActivity {
           recyclerView.setLayoutManager(mLayoutManager);
           recyclerView.setAdapter(mAdapter);
 
-          <#if isItemClick>
 
+          <#if isItemClick>
+          <#if features != 'googleplay'>
           mAdapter.SetOnItemClickListener(new ${adapterClass}.OnItemClickListener() {
                     @Override
                     public void onItemClick(View view, int position,${adapterModelClass} model) {
 
                       //handle item click events here
-                      Toast.makeText(MainActivity.this,"Hey "+model.getTitle(), Toast.LENGTH_SHORT).show();
+                      Toast.makeText(${activityClass}.this,"Hey "+model.getTitle(), Toast.LENGTH_SHORT).show();
 
                     }
                 });
 
+          </#if>
+          </#if>
           <#if features == 'header'>
 
           mAdapter.SetOnHeaderClickListener(new ${adapterClass}.OnHeaderClickListener() {
@@ -118,12 +164,32 @@ public class ${activityClass} extends AppCompatActivity {
                     public void onHeaderClick(View view,String headerTitle) {
 
                       //handle item click events here
-                      Toast.makeText(MainActivity.this,"Hey I am a header", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(${activityClass}.this,"Hey I am a header", Toast.LENGTH_SHORT).show();
 
                     }
                 });
 
           </#if>
+          <#if features == 'googleplay'>
+          mAdapter.SetOnMoreClickListener(new ${adapterClass}.OnMoreClickListener() {
+                    @Override
+                    public void onMoreClick(View view, int position,${adapterModelClass} model) {
+                        Toast.makeText(MainActivity.this, "See more " + position, Toast.LENGTH_SHORT).show();
+
+                  }
+              });
+
+          mAdapter.SetOnItemClickListener(new ${adapterClass}.OnItemClickListener() {
+                    @Override
+                    public void onItemClick(View view, int absolutePosition, int relativePosition,${adapterModelClass} model) {
+
+                      //handle item click events here
+                      Toast.makeText(${activityClass}.this,"Absolute Pos: "+absolutePosition
+                                    + " Relative Pos: "+relativePosition, Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
           </#if>
 
     }

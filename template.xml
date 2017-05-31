@@ -61,6 +61,15 @@
         help="The name of the adapter class to create" />
 
     <parameter
+        id="adapterGooglePlayClass"
+        name="Adapter Google play Name"
+        type="string"
+        constraints="class|unique|nonempty"
+        default="SingleItemListAdapter"
+        help="The name of the google play adapter class to create"
+        visibility="false"/>
+
+    <parameter
         id="adapterModelClass"
         name="Model Name"
         type="string"
@@ -76,9 +85,10 @@
         default="simple"
         help="Choose your own RecyclerView style" >
         <option id="simple">Simple RecyclerView</option>
-        <option id="header">RecyclerView with Header</option>
-        <option id="footer">RecyclerView with Footer</option>
-        <option id="headerandfooter">RecyclerView with Header and Footer</option>
+        <option id="header">Header Recyclerview</option>
+        <option id="footer">Footer Recyclerview</option>
+        <option id="headerandfooter">Header and Footer Recyclerview</option>
+        <option id="googleplay">GooglePlay like Recyclerview</option>
 
     </parameter>
 
@@ -129,7 +139,24 @@
         default="item_recycler_footer"
         help="The name of the row layout to use" />
 
+    <parameter
+        id="itemLayoutGooglePlay"
+        name="Item Layout Google Play"
+        type="string"
+        constraints="layout|nonempty"
+        visibility="false"
+        default="item_recycler_google_play"
+        help="The name of the Google play row layout to use" />
 
+
+    <parameter
+        id="itemLayoutItemGooglePlay"
+        name="Item Layout for single card Google Play"
+        type="string"
+        constraints="layout|nonempty"
+        visibility="false"
+        default="item_recycler_item_google_play"
+        help="The name of the Google play single row layout to use" />
 
     <!-- <parameter
         id="layoutName"
