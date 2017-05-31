@@ -140,7 +140,10 @@ public class ${activityClass} extends AppCompatActivity {
          </#if>
 
          <#if features == 'header'>
-         mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Hey Android folks!");
+         mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Header");
+
+         <#elseif features == 'footer'>
+         mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Footer");
          <#else>
          mAdapter = new ${adapterClass}(${activityClass}.this, modelList);
         </#if>
@@ -178,6 +181,22 @@ public class ${activityClass} extends AppCompatActivity {
                 });
 
           </#if>
+
+          <#if features == 'footer'>
+
+          mAdapter.SetOnFooterClickListener(new ${adapterClass}.OnFooterClickListener() {
+                    @Override
+                    public void onFooterClick(View view,String footerTitle) {
+
+                      //handle item click events here
+                      Toast.makeText(${activityClass}.this,"Hey I am a footer", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+          </#if>
+
+
           <#if features == 'googleplay'>
           mAdapter.SetOnMoreClickListener(new ${adapterClass}.OnMoreClickListener() {
                     @Override

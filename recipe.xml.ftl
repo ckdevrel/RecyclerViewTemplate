@@ -50,7 +50,7 @@
 
     <#if features == 'footer'>
 
-    <instantiate from="res/layout/item_recycler_list.xml.ftl"
+    <instantiate from="res/layout/item_recycler_footer.xml.ftl"
                       to="${escapeXmlAttribute(resOut)}/layout/${itemLayoutFooterName}.xml" />
 
     </#if>

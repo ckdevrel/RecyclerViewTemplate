@@ -24,6 +24,7 @@ import ${packageName}.models.${adapterModelClass};
 
 <#elseif features == 'footer'>
 
+<#include "include_recycleview_footer.java.ftl"/>
 
 
 <#elseif features == 'headerandfooter'>
