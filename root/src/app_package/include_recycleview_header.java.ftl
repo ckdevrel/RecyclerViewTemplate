@@ -24,6 +24,8 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.${itemCla
 
     public void updateList(ArrayList<${adapterModelClass}> modelList) {
             this.modelList = modelList;
+            notifyDataSetChanged();
+
     }
 
 

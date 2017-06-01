@@ -102,4 +102,7 @@
 
     <open file="${escapeXmlAttribute(srcOut)}/${adapterModelClass}.java" />
 
+
+    <copy from="res/drawable"
+            to="${escapeXmlAttribute(resOut)}/drawable" />
 </recipe>

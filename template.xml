@@ -107,6 +107,14 @@
       default="false"
       help="If true, swipe refresh layout will be enabled" />
 
+  <parameter
+      id="isDivider"
+      name="Need Divider"
+      type="boolean"
+      default="false"
+      help="If true, divider layout will be shown" />
+
+
 	<parameter
         id="itemClass"
         name="Item Name"

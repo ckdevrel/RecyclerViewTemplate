@@ -3,6 +3,8 @@ package ${packageName};
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 import android.support.v7.widget.LinearLayoutManager;
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 import java.util.ArrayList;
@@ -151,10 +153,26 @@ public class ${activityClass} extends AppCompatActivity {
          <#else>
          mAdapter = new ${adapterClass}(${activityClass}.this, modelList);
         </#if>
+
           recyclerView.setHasFixedSize(true);
           // use a linear layout manager
           mLayoutManager = new LinearLayoutManager(this);
           recyclerView.setLayoutManager(mLayoutManager);
+
+
+          <#if isDivider>
+
+          <#if features != 'googleplay'>
+
+          DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), mLayoutManager.getOrientation());
+
+          dividerItemDecoration.setDrawable(ContextCompat.getDrawable(${activityClass}.this, R.drawable.divider_recyclerview));
+
+          recyclerView.addItemDecoration(dividerItemDecoration);
+
+          </#if>
+          </#if>
+
           recyclerView.setAdapter(mAdapter);
 
 
