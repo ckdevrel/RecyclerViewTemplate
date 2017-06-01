@@ -92,7 +92,11 @@
     <instantiate from="src/app_package/AbstractModel.java.ftl"
                        to="${escapeXmlAttribute(srcOut)}/${adapterModelClass}.java" />
 
+  <#if layoutmanager == 'grid'>
 
+   <instantiate from="src/app_package/GridMarginDecoration.java.ftl"
+           to="${escapeXmlAttribute(srcOut)}/GridMarginDecoration.java" />
+  </#if>
 
     <open file="${escapeXmlAttribute(srcOut)}/${adapterClass}.java" />
 

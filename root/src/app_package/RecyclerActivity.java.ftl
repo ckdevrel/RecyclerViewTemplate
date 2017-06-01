@@ -2,7 +2,12 @@ package ${packageName};
 
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
+
+<#if layoutmanager == 'grid'>
+import android.support.v7.widget.GridLayoutManager;
+<#else>
 import android.support.v7.widget.LinearLayoutManager;
+</#if>
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
@@ -37,7 +42,6 @@ public class ${activityClass} extends AppCompatActivity {
 
     private ${adapterClass} mAdapter;
 
-    private LinearLayoutManager mLayoutManager;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -155,16 +159,22 @@ public class ${activityClass} extends AppCompatActivity {
         </#if>
 
           recyclerView.setHasFixedSize(true);
-          // use a linear layout manager
-          mLayoutManager = new LinearLayoutManager(this);
-          recyclerView.setLayoutManager(mLayoutManager);
 
+          <#if layoutmanager == 'grid'>
+          final GridLayoutManager layoutManager = new GridLayoutManager(${activityClass}.this, 2);
+          recyclerView.addItemDecoration(new GridMarginDecoration(${activityClass}.this, 2, 2, 2, 2));
+          recyclerView.setLayoutManager(layoutManager);
+
+          <#else>
+          // use a linear layout manager
+          LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+          recyclerView.setLayoutManager(layoutManager);
 
           <#if isDivider>
 
           <#if features != 'googleplay'>
 
-          DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), mLayoutManager.getOrientation());
+          DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
 
           dividerItemDecoration.setDrawable(ContextCompat.getDrawable(${activityClass}.this, R.drawable.divider_recyclerview));
 
@@ -172,9 +182,9 @@ public class ${activityClass} extends AppCompatActivity {
 
           </#if>
           </#if>
+          </#if>
 
           recyclerView.setAdapter(mAdapter);
-
 
           <#if isItemClick>
           <#if features != 'googleplay'>
