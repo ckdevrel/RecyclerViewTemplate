@@ -18,6 +18,12 @@
         <dependency mavenUrl="com.android.support:cardview-v7:${buildApi}.+"/>
     </#if>
 
+
+    <#if isFAB && !(hasDependency('com.android.support:design'))>
+
+        <dependency mavenUrl="com.android.support:design:${buildApi}.+"/>
+    </#if>
+
     <!-- <dependency mavenUrl="com.jakewharton:butterknife:8.5.1"/> -->
 
     <!-- <dependency mavenUrl="com.jakewharton:butterknife-compiler:8.5.1"/> -->
@@ -105,6 +111,11 @@
   </#if>
   </#if>
 
+  <#if isFAB>
+   <instantiate from="src/app_package/FABScrollBehaviour.java.ftl"
+           to="${escapeXmlAttribute(srcOut)}/FABScrollBehaviour.java" />
+  </#if>
+
   <#if isPagination>
 
    <instantiate from="src/app_package/RecyclerViewScrollListener.java.ftl"
@@ -120,9 +131,12 @@
     <open file="${escapeXmlAttribute(srcOut)}/${adapterModelClass}.java" />
 
 
+    <#if isDivider>
+
     <copy from="res/drawable"
             to="${escapeXmlAttribute(resOut)}/drawable" />
-
+    </#if>
+    
     <#if isSearch>
 
     <copy from="res/menu"

@@ -21,8 +21,9 @@
 </#if>
 
 
+
       <android.support.v7.widget.RecyclerView
-      <#if !isToolbar || isSearch>
+      <#if !isToolbar && !isSearch>
           xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
       </#if>

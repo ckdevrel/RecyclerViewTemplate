@@ -44,6 +44,9 @@ import android.text.InputFilter;
 import android.text.Spanned;
 </#if>
 
+<#if isFAB>
+import android.support.design.widget.FloatingActionButton;
+</#if>
 
 
 public class ${activityClass} extends AppCompatActivity {
@@ -64,9 +67,12 @@ public class ${activityClass} extends AppCompatActivity {
     // SwipeRefreshLayout swipeRefreshRecyclerList;
 
     private SwipeRefreshLayout swipeRefreshRecyclerList;
-
     </#if>
-
+    <#if isFAB>
+    //@BindView(R.id.fab)
+    //FloatingActionButton fab;
+    private FloatingActionButton fab;
+    </#if>
     private ${adapterClass} mAdapter;
     <#if isPagination>
     private RecyclerViewScrollListener scrollListener;
@@ -114,6 +120,9 @@ public class ${activityClass} extends AppCompatActivity {
        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
        <#if isSwipeRefreshLayout>
        swipeRefreshRecyclerList = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_recycler_list);
+        </#if>
+        <#if isFAB>
+       fab = (FloatingActionButton) findViewById(R.id.fab);;
         </#if>
     }
 
@@ -231,7 +240,7 @@ public class ${activityClass} extends AppCompatActivity {
              modelList.add(new AbstractModel("Eclair", "Hello " + " Eclair",singleItemList));
              modelList.add(new AbstractModel("Froyo", "Hello " + " Froyo",singleItemList));
              modelList.add(new AbstractModel("Gingerbread", "Hello " + " Gingerbread",singleItemList));
-             modelList.add(new AbstractModel("Honeycomb", "Hello " + " Honeycomb"));
+             modelList.add(new AbstractModel("Honeycomb", "Hello " + " Honeycomb",singleItemList));
              modelList.add(new AbstractModel("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich",singleItemList));
              modelList.add(new AbstractModel("Jelly Bean", "Hello " + " Jelly Bean",singleItemList));
              modelList.add(new AbstractModel("KitKat", "Hello " + " KitKat",singleItemList));
