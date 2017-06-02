@@ -26,11 +26,11 @@
 
   <parameter id="features" name="RecyclerView Style" type="enum" default="simple" help="Choose your own RecyclerView style">
     <option id="simple">Simple RecyclerView</option>
+    <option id="banner">Banner RecyclerView</option>
     <option id="header">Header Recyclerview</option>
     <option id="footer">Footer Recyclerview</option>
     <option id="headerandfooter">Header and Footer Recyclerview</option>
     <option id="googleplay">GooglePlay like Recyclerview</option>
-
   </parameter>
 
   <parameter id="isItemClick" name="Need ItemClick" type="boolean" default="true" help="If true, recyclerview list item will be clickable"/>
