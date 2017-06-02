@@ -13,6 +13,9 @@ import android.support.v7.widget.LinearLayoutManager;
 import ${applicationPackage}.R;
 </#if>
 
+<#if features == 'radio'>
+import android.widget.RadioButton;
+</#if>
 
 <#if features == 'header'>
 

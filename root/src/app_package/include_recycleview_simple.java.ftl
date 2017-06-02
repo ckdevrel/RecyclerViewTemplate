@@ -10,7 +10,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${item
     <#if isItemClick>
     private OnItemClickListener mItemClickListener;
     </#if>
-
+    <#if features == 'radio'>
+    private int lastCheckedPosition = -1;
+    </#if>
     public ${adapterClass}(Context context, ArrayList<${adapterModelClass}> modelList) {
             this.mContext = context;
             this.modelList = modelList;
@@ -31,16 +33,32 @@ public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${item
     }
 
     @Override
-     public void onBindViewHolder(ViewHolder holder, int position) {
+     public void onBindViewHolder(ViewHolder holder, final int position) {
 
          //Here you can fill your row view
 
            ${adapterModelClass} model = getItem(position);
 
-           if(model != null) {
              holder.itemTxtTitle.setText(model.getTitle());
              holder.itemTxtMessage.setText(model.getMessage());
-           }
+
+             <#if features == 'radio'>
+
+             holder.radioList.setChecked(position == lastCheckedPosition);
+
+             holder.radioList.setOnClickListener(new View.OnClickListener() {
+              @Override
+              public void onClick(View view) {
+
+                  lastCheckedPosition = position;
+                  notifyItemRangeChanged(0, modelList.size());
+
+                  mItemClickListener.onItemClick(view, position,modelList.get(position));
+
+              }
+          });
+          </#if>
+
 
      }
 
@@ -61,6 +79,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${item
         private ImageView imgUser;
         private TextView itemTxtTitle;
         private TextView itemTxtMessage;
+        <#if features == 'radio'>
+        private RadioButton radioList;
+        </#if>
 
         // @BindView(R.id.img_user)
         // ImageView imgUser;
@@ -68,6 +89,8 @@ public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${item
         // TextView itemTxtTitle;
         // @BindView(R.id.item_txt_message)
         // TextView itemTxtMessage;
+        // @BindView(R.id.radio_list)
+        // RadioButton itemTxtMessage;
 
         public ${itemClass}(final View itemView) {
             super(itemView);
@@ -77,13 +100,19 @@ public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${item
             this.imgUser = (ImageView) itemView.findViewById(R.id.img_user);
             this.itemTxtTitle = (TextView) itemView.findViewById(R.id.item_txt_title);
             this.itemTxtMessage = (TextView) itemView.findViewById(R.id.item_txt_message);
+            <#if features == 'radio'>
+            this.radioList = (RadioButton) itemView.findViewById(R.id.radio_list);
+            </#if>
 
             <#if isItemClick>
 
             itemView.setOnClickListener(new View.OnClickListener() {
              @Override
-             public void onClick(View v) {
-
+             public void onClick(View view) {
+            <#if features == 'radio'>
+                 lastCheckedPosition = getAdapterPosition();
+                 notifyItemRangeChanged(0, modelList.size());
+            </#if>
                  mItemClickListener.onItemClick(itemView, getAdapterPosition(),modelList.get(getAdapterPosition()));
              }
          });
