@@ -100,6 +100,12 @@
   </#if>
   </#if>
 
+  <#if isPagination>
+
+   <instantiate from="src/app_package/RecyclerViewScrollListener.java.ftl"
+           to="${escapeXmlAttribute(srcOut)}/RecyclerViewScrollListener.java" />
+  </#if>
+
 
     <open file="${escapeXmlAttribute(srcOut)}/${adapterClass}.java" />
 

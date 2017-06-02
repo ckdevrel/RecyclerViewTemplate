@@ -39,7 +39,7 @@
 
   <parameter id="isDivider" name="Need Divider" type="boolean" default="false" help="If true, divider layout will be shown"/>
 
-  <!-- <parameter id="isPagination" name="Need Pagination" type="boolean" default="false" help="If true, pagination will be enabled for RecyclerView"/> -->
+  <parameter id="isPagination" name="Need Pagination" type="boolean" default="false" help="If true, pagination will be enabled for RecyclerView"/>
 
   <parameter id="itemClass" name="Item Name" type="string" constraints="class|nonempty" default="ViewHolder" help="The name of the ViewHolder class to create"/>
 

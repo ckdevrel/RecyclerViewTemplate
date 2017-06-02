@@ -6,9 +6,9 @@ import android.os.Bundle;
 <#if features != 'googleplay'>
 <#if layoutmanager == 'grid'>
 import android.support.v7.widget.GridLayoutManager;
-</#if>
 <#else>
 import android.support.v7.widget.LinearLayoutManager;
+</#if>
 </#if>
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
@@ -43,7 +43,9 @@ public class ${activityClass} extends AppCompatActivity {
     </#if>
 
     private ${adapterClass} mAdapter;
-
+    <#if isPagination>
+    private RecyclerViewScrollListener scrollListener;
+    </#if>
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -168,12 +170,12 @@ public class ${activityClass} extends AppCompatActivity {
           final GridLayoutManager layoutManager = new GridLayoutManager(${activityClass}.this, 2);
           recyclerView.addItemDecoration(new GridMarginDecoration(${activityClass}.this, 2, 2, 2, 2));
           recyclerView.setLayoutManager(layoutManager);
-          </#if>
+
           <#else>
           // use a linear layout manager
           LinearLayoutManager layoutManager = new LinearLayoutManager(this);
           recyclerView.setLayoutManager(layoutManager);
-
+          </#if>
           <#if isDivider>
 
           <#if features != 'googleplay'>
@@ -189,6 +191,26 @@ public class ${activityClass} extends AppCompatActivity {
           </#if>
 
           recyclerView.setAdapter(mAdapter);
+
+          <#if isPagination>
+
+          scrollListener = new RecyclerViewScrollListener() {
+
+              public void onEndOfScrollReached(RecyclerView rv) {
+
+                Toast.makeText(${activityClass}.this,"End of the RecyclerView reached. Do your pagination stuff here", Toast.LENGTH_SHORT).show();
+
+                scrollListener.disableScrollListener();
+              }
+          };
+          recyclerView.addOnScrollListener(scrollListener);
+          /*
+             Note: The below two methods should be used wisely to handle the pagination enable and disable states based on the use case.
+                     1. scrollListener.disableScrollListener(); - Should be called to disable the scroll state.
+                     2. scrollListener.enableScrollListener(); - Should be called to enable the scroll state.
+          */
+
+          </#if>
 
           <#if isItemClick>
           <#if features != 'googleplay'>
