@@ -29,7 +29,7 @@
     <merge from="res/values/strings.xml.ftl"
              to="${escapeXmlAttribute(resOut)}/values/strings.xml" />
 
-    <#if isToolbar>
+    <#if isToolbar || isSearch>
     <merge from="res/values/styles.xml.ftl"
             to="${escapeXmlAttribute(resOut)}/values/styles.xml" />
     </#if>
@@ -111,7 +111,6 @@
            to="${escapeXmlAttribute(srcOut)}/RecyclerViewScrollListener.java" />
   </#if>
 
-
     <open file="${escapeXmlAttribute(srcOut)}/${adapterClass}.java" />
 
     <open file="${escapeXmlAttribute(srcOut)}/${adapterGooglePlayClass}.java" />
@@ -123,4 +122,11 @@
 
     <copy from="res/drawable"
             to="${escapeXmlAttribute(resOut)}/drawable" />
+
+    <#if isSearch>
+
+    <copy from="res/menu"
+            to="${escapeXmlAttribute(resOut)}/menu" />
+    </#if>
+
 </recipe>
