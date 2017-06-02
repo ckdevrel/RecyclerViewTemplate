@@ -93,10 +93,13 @@
                        to="${escapeXmlAttribute(srcOut)}/${adapterModelClass}.java" />
 
   <#if layoutmanager == 'grid'>
+  <#if features != 'googleplay'>
 
    <instantiate from="src/app_package/GridMarginDecoration.java.ftl"
            to="${escapeXmlAttribute(srcOut)}/GridMarginDecoration.java" />
   </#if>
+  </#if>
+
 
     <open file="${escapeXmlAttribute(srcOut)}/${adapterClass}.java" />
 

@@ -3,8 +3,10 @@ package ${packageName};
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
+<#if features != 'googleplay'>
 <#if layoutmanager == 'grid'>
 import android.support.v7.widget.GridLayoutManager;
+</#if>
 <#else>
 import android.support.v7.widget.LinearLayoutManager;
 </#if>
@@ -160,11 +162,13 @@ public class ${activityClass} extends AppCompatActivity {
 
           recyclerView.setHasFixedSize(true);
 
+          <#if features != 'googleplay'>
           <#if layoutmanager == 'grid'>
+
           final GridLayoutManager layoutManager = new GridLayoutManager(${activityClass}.this, 2);
           recyclerView.addItemDecoration(new GridMarginDecoration(${activityClass}.this, 2, 2, 2, 2));
           recyclerView.setLayoutManager(layoutManager);
-
+          </#if>
           <#else>
           // use a linear layout manager
           LinearLayoutManager layoutManager = new LinearLayoutManager(this);

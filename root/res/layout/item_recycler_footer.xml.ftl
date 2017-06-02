@@ -2,7 +2,12 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
               xmlns:card_view="http://schemas.android.com/apk/res-auto"
               android:layout_width="match_parent"
+              <#if layoutmanager == 'grid'>
+              android:layout_height="180dp"
+              <#else>
               android:layout_height="50dp"
+              </#if>
+
               android:orientation="vertical">
 
 
