@@ -26,7 +26,7 @@
                 android:gravity="center"
                 android:orientation="vertical"
                 android:layout_alignParentBottom="true"
-                android:background="#66000000">
+                android:background="#80000000">
 
             <TextView
                 android:id="@+id/item_txt_title"

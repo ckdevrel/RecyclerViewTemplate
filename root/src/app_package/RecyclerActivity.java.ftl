@@ -10,6 +10,10 @@ import android.support.v7.widget.GridLayoutManager;
 import android.support.v7.widget.LinearLayoutManager;
 </#if>
 </#if>
+
+<#if features == 'googleplay'>
+import android.support.v7.widget.LinearLayoutManager;
+</#if>
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
@@ -164,7 +168,10 @@ public class ${activityClass} extends AppCompatActivity {
 
           recyclerView.setHasFixedSize(true);
 
-          <#if features != 'googleplay'>
+          <#if features == 'googleplay'>
+          LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+          recyclerView.setLayoutManager(layoutManager);
+          <#else>
           <#if layoutmanager == 'grid'>
 
           final GridLayoutManager layoutManager = new GridLayoutManager(${activityClass}.this, 2);
@@ -177,16 +184,9 @@ public class ${activityClass} extends AppCompatActivity {
           recyclerView.setLayoutManager(layoutManager);
           </#if>
           <#if isDivider>
-
-          <#if features != 'googleplay'>
-
           DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
-
           dividerItemDecoration.setDrawable(ContextCompat.getDrawable(${activityClass}.this, R.drawable.divider_recyclerview));
-
           recyclerView.addItemDecoration(dividerItemDecoration);
-
-          </#if>
           </#if>
           </#if>
 
