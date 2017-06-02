@@ -29,6 +29,9 @@ import ${applicationPackage}.R;
 
 import android.widget.Toast;
 import android.os.Handler;
+<#if isToolbar>
+import android.support.v7.widget.Toolbar;
+</#if>
 
 
 public class ${activityClass} extends AppCompatActivity {
@@ -37,6 +40,12 @@ public class ${activityClass} extends AppCompatActivity {
 
     // @BindView(R.id.recycler_view)
     // RecyclerView recyclerView;
+
+    <#if isToolbar>
+    //@BindView(R.id.toolbar)
+    //Toolbar toolbar;
+    private Toolbar toolbar;
+     </#if>
 
     <#if isSwipeRefreshLayout>
     // @BindView(R.id.swipe_refresh_recycler_list)
@@ -57,9 +66,10 @@ public class ${activityClass} extends AppCompatActivity {
         setContentView(R.layout.${layoutActivityName});
 
         // ButterKnife.bind(this);
-
         findViews();
-
+        <#if isToolbar>
+        initToolbar("Takeoff Android");
+        </#if>
         setAdapter();
 
         <#if isSwipeRefreshLayout>
@@ -84,11 +94,24 @@ public class ${activityClass} extends AppCompatActivity {
     }
 
   private void findViews(){
+    <#if isToolbar>
+       toolbar = (Toolbar) findViewById(R.id.toolbar);
+     </#if>
        recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
        <#if isSwipeRefreshLayout>
        swipeRefreshRecyclerList = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_recycler_list);
         </#if>
     }
+
+    <#if isToolbar>
+    public void initToolbar(String title) {
+      setSupportActionBar(toolbar);
+      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
+      getSupportActionBar().setDisplayShowHomeEnabled(true);
+      getSupportActionBar().setTitle(title);
+  }
+   </#if>
+
 
     private void setAdapter(){
 

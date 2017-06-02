@@ -29,6 +29,11 @@
     <merge from="res/values/strings.xml.ftl"
              to="${escapeXmlAttribute(resOut)}/values/strings.xml" />
 
+    <#if isToolbar>
+    <merge from="res/values/styles.xml.ftl"
+            to="${escapeXmlAttribute(resOut)}/values/styles.xml" />
+    </#if>
+
     <!-- Decide what kind of layout(s) to add -->
     <instantiate from="res/layout/activity_recycler_view.xml.ftl"
               to="${escapeXmlAttribute(resOut)}/layout/${layoutActivityName}.xml" />

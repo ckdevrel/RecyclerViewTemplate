@@ -11,6 +11,8 @@
 
   <parameter id="isLauncher" name="Launcher Activity" type="boolean" default="false" help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"/>
 
+  <parameter id="isToolbar" name="Need Toolbar" type="boolean" default="false" help="If true, this activity will have a Toolbar"/>
+
   <parameter id="packageName" name="Package name" type="string" constraints="package" default="com.mycompany.myapp"/>
 
   <parameter id="adapterClass" name="Adapter Name" type="string" constraints="class|unique|nonempty" default="RecyclerViewAdapter" help="The name of the adapter class to create"/>
