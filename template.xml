@@ -37,6 +37,7 @@
     <option id="footer">Footer Recyclerview</option>
     <option id="headerandfooter">Header and Footer Recyclerview</option>
     <option id="radio">RadioButton Recyclerview</option>
+    <option id="multiselect">Multiselect Recyclerview</option>
     <option id="googleplay">GooglePlay like Recyclerview</option>
   </parameter>
 

@@ -80,6 +80,9 @@ public class ${activityClass} extends AppCompatActivity {
 
     private ArrayList<AbstractModel> modelList = new ArrayList<>();
 
+    <#if features == 'multiselect'>
+    private ArrayList<AbstractModel> selectedModelList = new ArrayList<>();
+    </#if>
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -338,6 +341,14 @@ public class ${activityClass} extends AppCompatActivity {
                       //handle item click events here
                       Toast.makeText(${activityClass}.this,"Hey "+model.getTitle(), Toast.LENGTH_SHORT).show();
 
+                      mAdapter.toggleSelection(position);
+
+                            if(mAdapter.isSelected (position)){
+                                modelList.add(model);
+                            }else{
+                                modelList.remove(model);
+
+                            }
                     }
                 });
 

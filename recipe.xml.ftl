@@ -111,6 +111,12 @@
   </#if>
   </#if>
 
+  <#if features == 'multiselect'>
+
+   <instantiate from="src/app_package/SelectableAdapter.java.ftl"
+           to="${escapeXmlAttribute(srcOut)}/SelectableAdapter.java" />
+  </#if>
+
   <#if isFAB>
    <instantiate from="src/app_package/FABScrollBehaviour.java.ftl"
            to="${escapeXmlAttribute(srcOut)}/FABScrollBehaviour.java" />
@@ -136,7 +142,7 @@
     <copy from="res/drawable"
             to="${escapeXmlAttribute(resOut)}/drawable" />
     </#if>
-    
+
     <#if isSearch>
 
     <copy from="res/menu"

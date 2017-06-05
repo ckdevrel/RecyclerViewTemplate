@@ -16,6 +16,10 @@ import ${applicationPackage}.R;
 <#if features == 'radio'>
 import android.widget.RadioButton;
 </#if>
+<#if features == 'multiselect'>
+import android.widget.CheckBox;
+</#if>
+
 
 <#if features == 'header'>
 
@@ -34,6 +38,11 @@ import android.widget.RadioButton;
 <#elseif features == 'headerandfooter'>
 
 <#include "include_recycleview_header_footer.java.ftl"/>
+
+<#elseif features == 'multiselect'>
+
+<#include "include_recycleview_multiselect.java.ftl"/>
+
 
 <#else>
 

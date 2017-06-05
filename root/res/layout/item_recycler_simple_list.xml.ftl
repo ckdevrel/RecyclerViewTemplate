@@ -14,7 +14,7 @@
         android:layout_height="60dp"
         android:background="#16000000"/>
 
- <#if features == 'radio'>
+ <#if features == 'radio' || features == 'multiselect'>
 
   <LinearLayout
       android:layout_width="match_parent"
@@ -66,5 +66,17 @@
 
     </LinearLayout>
 
+
+<#elseif features == 'multiselect'>
+
+<CheckBox
+       android:id="@+id/check_list"
+       android:layout_width="wrap_content"
+       android:layout_height="wrap_content"/>
+
+    </LinearLayout>
+
 </#if>
+
+
 </LinearLayout>
