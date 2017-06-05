@@ -79,8 +79,6 @@ public class ${adapterClass} extends SelectableAdapter<${adapterClass}.ViewHolde
 
         public ${itemClass}(final View itemView) {
             super(itemView);
-            this.listener = listener;
-
             // ButterKnife.bind(this, itemView);
 
             this.imgUser = (ImageView) itemView.findViewById(R.id.img_user);

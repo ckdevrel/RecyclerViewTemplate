@@ -343,12 +343,18 @@ public class ${activityClass} extends AppCompatActivity {
 
                       mAdapter.toggleSelection(position);
 
-                            if(mAdapter.isSelected (position)){
-                                modelList.add(model);
-                            }else{
-                                modelList.remove(model);
+                    <#if features == 'multiselect'>
 
-                            }
+                        mAdapter.toggleSelection(position);
+
+                              if(mAdapter.isSelected (position)){
+                                  modelList.add(model);
+                              }else{
+                                  modelList.remove(model);
+
+                              }
+
+                  </#if>
                     }
                 });
 
