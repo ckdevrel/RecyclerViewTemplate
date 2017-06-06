@@ -41,10 +41,17 @@
     </#if>
 
     <!-- Decide what kind of layout(s) to add -->
+
+    <#if isFragment>
+
+    <instantiate from="res/layout/fragment_recycler_view.xml.ftl"
+            to="${escapeXmlAttribute(resOut)}/layout/${fragmentName}.xml" />
+
+    <#else>
     <instantiate from="res/layout/activity_recycler_view.xml.ftl"
               to="${escapeXmlAttribute(resOut)}/layout/${layoutActivityName}.xml" />
 
-
+    </#if>
     <#if features != 'googleplay'>
 
     <instantiate from="res/layout/item_recycler_list.xml.ftl"
@@ -79,8 +86,17 @@
     </#if>
 
     <!-- Decide which activity code to add -->
+
+    <#if isFragment>
+
+    <instantiate from="src/app_package/RecyclerFragment.java.ftl"
+                           to="${escapeXmlAttribute(srcOut)}/${className}.java" />
+
+    <#else>
     <instantiate from="src/app_package/RecyclerActivity.java.ftl"
                        to="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
+
+    </#if>
 
     <instantiate from="src/app_package/RecyclerAdapter.java.ftl"
                        to="${escapeXmlAttribute(srcOut)}/${adapterClass}.java" />
@@ -132,8 +148,14 @@
 
     <open file="${escapeXmlAttribute(srcOut)}/${adapterGooglePlayClass}.java" />
 
+    <#if isFragment>
+
+    <open file="${escapeXmlAttribute(srcOut)}/${className}.java" />
+
+    <#else>
     <open file="${escapeXmlAttribute(srcOut)}/${activityClass}.java" />
 
+    </#if>
     <open file="${escapeXmlAttribute(srcOut)}/${adapterModelClass}.java" />
 
 

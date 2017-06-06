@@ -1,6 +1,8 @@
 package ${packageName};
 
-import android.support.v7.app.AppCompatActivity;
+<#if includeCallbacks>import android.content.Context;</#if>
+<#if includeCallbacks>import android.net.Uri;</#if>
+
 import android.os.Bundle;
 
 <#if features != 'googleplay'>
@@ -14,6 +16,8 @@ import android.support.v7.widget.LinearLayoutManager;
 <#if features == 'googleplay'>
 import android.support.v7.widget.LinearLayoutManager;
 </#if>
+import android.support.v4.app.Fragment;
+import android.view.LayoutInflater;
 import android.support.v4.content.ContextCompat;
 import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
@@ -29,9 +33,6 @@ import ${applicationPackage}.R;
 
 import android.widget.Toast;
 import android.os.Handler;
-<#if isToolbar || isSearch>
-import android.support.v7.widget.Toolbar;
-</#if>
 
 <#if isSearch>
 import android.view.Menu;
@@ -48,51 +49,126 @@ import android.text.Spanned;
 import android.support.design.widget.FloatingActionButton;
 </#if>
 
+import android.view.ViewGroup;
 
-public class ${activityClass} extends AppCompatActivity {
+/**
+ * A simple {@link Fragment} subclass.
+<#if includeCallbacks>
+ * Activities that contain this fragment must implement the
+ * {@link ${className}.OnFragmentInteractionListener} interface
+ * to handle interaction events.
+</#if>
+<#if includeFactory>
+ * Use the {@link ${className}#newInstance} factory method to
+ * create an instance of this fragment.
+</#if>
+ *
+ */
 
-    private RecyclerView recyclerView;
 
-    // @BindView(R.id.recycler_view)
-    // RecyclerView recyclerView;
 
-    <#if isToolbar || isSearch>
-    //@BindView(R.id.toolbar)
-    //Toolbar toolbar;
-    private Toolbar toolbar;
-     </#if>
+public class ${className} extends Fragment {
 
-    <#if isSwipeRefreshLayout>
-    // @BindView(R.id.swipe_refresh_recycler_list)
-    // SwipeRefreshLayout swipeRefreshRecyclerList;
+  <#if includeFactory>
+      // TODO: Rename parameter arguments, choose names that match
+      // the fragment initialization parameters, e.g. ARG_ITEM_NUMBER
+      private static final String ARG_PARAM1 = "param1";
+      private static final String ARG_PARAM2 = "param2";
 
-    private SwipeRefreshLayout swipeRefreshRecyclerList;
-    </#if>
-    <#if isFAB>
-    //@BindView(R.id.fab)
-    //FloatingActionButton fab;
-    private FloatingActionButton fab;
-    </#if>
-    private ${adapterClass} mAdapter;
-    <#if isPagination>
-    private RecyclerViewScrollListener scrollListener;
-    </#if>
+      // TODO: Rename and change types of parameters
+      private String mParam1;
+      private String mParam2;
+  </#if>
 
-    private ArrayList<AbstractModel> modelList = new ArrayList<>();
+  <#if includeCallbacks>
+      private OnFragmentInteractionListener mListener;
+  </#if>
 
-    <#if features == 'multiselect'>
-    private ArrayList<AbstractModel> selectedModelList = new ArrayList<>();
-    </#if>
-    @Override
-    protected void onCreate(Bundle savedInstanceState) {
-        super.onCreate(savedInstanceState);
-        setContentView(R.layout.${layoutActivityName});
+  private RecyclerView recyclerView;
+
+  // @BindView(R.id.recycler_view)
+  // RecyclerView recyclerView;
+
+
+  <#if isSwipeRefreshLayout>
+  // @BindView(R.id.swipe_refresh_recycler_list)
+  // SwipeRefreshLayout swipeRefreshRecyclerList;
+
+  private SwipeRefreshLayout swipeRefreshRecyclerList;
+  </#if>
+  <#if isFAB>
+  //@BindView(R.id.fab)
+  //FloatingActionButton fab;
+  private FloatingActionButton fab;
+  </#if>
+  private ${adapterClass} mAdapter;
+  <#if isPagination>
+  private RecyclerViewScrollListener scrollListener;
+  </#if>
+
+  private ArrayList<AbstractModel> modelList = new ArrayList<>();
+
+  <#if features == 'multiselect'>
+  private ArrayList<AbstractModel> selectedModelList = new ArrayList<>();
+  </#if>
+
+
+  <#if includeFactory>
+      /**
+       * Use this factory method to create a new instance of
+       * this fragment using the provided parameters.
+       *
+       * @param param1 Parameter 1.
+       * @param param2 Parameter 2.
+       * @return A new instance of fragment ${className}.
+       */
+      // TODO: Rename and change types and number of parameters
+      public static ${className} newInstance(String param1, String param2) {
+          ${className} fragment = new ${className}();
+          Bundle args = new Bundle();
+          args.putString(ARG_PARAM1, param1);
+          args.putString(ARG_PARAM2, param2);
+          fragment.setArguments(args);
+          return fragment;
+      }
+  </#if>
+
+  public ${className}() {
+      // Required empty public constructor
+  }
+
+  <#if includeFactory>
+      @Override
+      public void onCreate(Bundle savedInstanceState) {
+          super.onCreate(savedInstanceState);
+          if (getArguments() != null) {
+              mParam1 = getArguments().getString(ARG_PARAM1);
+              mParam2 = getArguments().getString(ARG_PARAM2);
+          }
+      }
+  </#if>
+
+
+
+
+  @Override
+  public View onCreateView(LayoutInflater inflater, ViewGroup container,
+                           Bundle savedInstanceState) {
+
+        View view = inflater.inflate(R.layout.${fragmentName}, container, false);
 
         // ButterKnife.bind(this);
-        findViews();
-        <#if isToolbar || isSearch>
-        initToolbar("Takeoff Android");
-        </#if>
+        findViews(view);
+
+        return view;
+
+    }
+
+
+    @Override
+    public void onViewCreated(View view, @Nullable Bundle savedInstanceState) {
+        super.onViewCreated(view, savedInstanceState);
+
         setAdapter();
 
         <#if isSwipeRefreshLayout>
@@ -114,28 +190,63 @@ public class ${activityClass} extends AppCompatActivity {
        });
        </#if>
 
+
     }
 
-  private void findViews(){
-    <#if isToolbar || isSearch>
-       toolbar = (Toolbar) findViewById(R.id.toolbar);
-     </#if>
-       recyclerView = (RecyclerView) findViewById(R.id.recycler_view);
+
+
+  private void findViews(View view){
+
+       recyclerView = (RecyclerView) view.findViewById(R.id.recycler_view);
        <#if isSwipeRefreshLayout>
-       swipeRefreshRecyclerList = (SwipeRefreshLayout) findViewById(R.id.swipe_refresh_recycler_list);
+       swipeRefreshRecyclerList = (SwipeRefreshLayout) view.findViewById(R.id.swipe_refresh_recycler_list);
         </#if>
         <#if isFAB>
-       fab = (FloatingActionButton) findViewById(R.id.fab);;
+       fab = (FloatingActionButton) view.findViewById(R.id.fab);;
         </#if>
     }
 
-    <#if isToolbar || isSearch>
-    public void initToolbar(String title) {
-      setSupportActionBar(toolbar);
-      getSupportActionBar().setDisplayHomeAsUpEnabled(true);
-      getSupportActionBar().setDisplayShowHomeEnabled(true);
-      getSupportActionBar().setTitle(title);
-  }
+
+
+   <#if includeCallbacks>
+       // TODO: Rename method, update argument and hook method into UI event
+       public void onButtonPressed(Uri uri) {
+           if (mListener != null) {
+               mListener.onFragmentInteraction(uri);
+           }
+       }
+
+       @Override
+       public void onAttach(Context context) {
+           super.onAttach(context);
+           if (context instanceof OnFragmentInteractionListener) {
+               mListener = (OnFragmentInteractionListener) context;
+           } else {
+               throw new RuntimeException(context.toString()
+                       + " must implement OnFragmentInteractionListener");
+           }
+       }
+
+       @Override
+       public void onDetach() {
+           super.onDetach();
+           mListener = null;
+       }
+
+       /**
+        * This interface must be implemented by activities that contain this
+        * fragment to allow an interaction in this fragment to be communicated
+        * to the activity and potentially other fragments contained in that
+        * activity.
+        * <p>
+        * See the Android Training lesson <a href=
+        * "http://developer.android.com/training/basics/fragments/communicating.html"
+        * >Communicating with Other Fragments</a> for more information.
+        */
+       public interface OnFragmentInteractionListener {
+           // TODO: Update argument type and name
+           void onFragmentInteraction(Uri uri);
+       }
    </#if>
 
      <#if isSearch>
@@ -156,8 +267,8 @@ public class ${activityClass} extends AppCompatActivity {
          //changing edittext color
          EditText searchEdit = ((EditText)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text));
          searchEdit.setTextColor(Color.WHITE);
-         searchEdit.setHintTextColor (Color.WHITE);
-         searchEdit.setBackgroundColor (Color.TRANSPARENT);
+     searchEdit.setHintTextColor (Color.WHITE);
+       searchEdit.setBackgroundColor (Color.TRANSPARENT);
          searchEdit.setHint ("Search");
 
          InputFilter[] fArray = new InputFilter[2];
@@ -274,38 +385,38 @@ public class ${activityClass} extends AppCompatActivity {
          </#if>
 
          <#if features == 'header'>
-         mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Header");
+         mAdapter = new ${adapterClass}(getActivity(), modelList,"Header");
 
          <#elseif features == 'footer'>
-         mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Footer");
+         mAdapter = new ${adapterClass}(getActivity(), modelList,"Footer");
 
          <#elseif features == 'headerandfooter'>
-         mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Header","Footer");
+         mAdapter = new ${adapterClass}(getActivity(), modelList,"Header","Footer");
 
          <#else>
-         mAdapter = new ${adapterClass}(${activityClass}.this, modelList);
+         mAdapter = new ${adapterClass}(getActivity(), modelList);
         </#if>
 
           recyclerView.setHasFixedSize(true);
 
           <#if features == 'googleplay'>
-          LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+          LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
           recyclerView.setLayoutManager(layoutManager);
           <#else>
           <#if layoutmanager == 'grid'>
 
-          final GridLayoutManager layoutManager = new GridLayoutManager(${activityClass}.this, 2);
-          recyclerView.addItemDecoration(new GridMarginDecoration(${activityClass}.this, 2, 2, 2, 2));
+          final GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+          recyclerView.addItemDecoration(new GridMarginDecoration(getActivity(), 2, 2, 2, 2));
           recyclerView.setLayoutManager(layoutManager);
 
           <#else>
           // use a linear layout manager
-          LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+          LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
           recyclerView.setLayoutManager(layoutManager);
           </#if>
           <#if isDivider>
           DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
-          dividerItemDecoration.setDrawable(ContextCompat.getDrawable(${activityClass}.this, R.drawable.divider_recyclerview));
+          dividerItemDecoration.setDrawable(ContextCompat.getDrawable(${className}.this, R.drawable.divider_recyclerview));
           recyclerView.addItemDecoration(dividerItemDecoration);
           </#if>
           </#if>
@@ -318,7 +429,7 @@ public class ${activityClass} extends AppCompatActivity {
 
               public void onEndOfScrollReached(RecyclerView rv) {
 
-                Toast.makeText(${activityClass}.this,"End of the RecyclerView reached. Do your pagination stuff here", Toast.LENGTH_SHORT).show();
+                Toast.makeText(getActivity(),"End of the RecyclerView reached. Do your pagination stuff here", Toast.LENGTH_SHORT).show();
 
                 scrollListener.disableScrollListener();
               }
@@ -339,22 +450,20 @@ public class ${activityClass} extends AppCompatActivity {
                     public void onItemClick(View view, int position,${adapterModelClass} model) {
 
                       //handle item click events here
-                      Toast.makeText(${activityClass}.this,"Hey "+model.getTitle(), Toast.LENGTH_SHORT).show();
+                      Toast.makeText(getActivity(),"Hey "+model.getTitle(), Toast.LENGTH_SHORT).show();
+
+                      <#if features == 'multiselect'>
 
                       mAdapter.toggleSelection(position);
 
-                    <#if features == 'multiselect'>
+                            if(mAdapter.isSelected (position)){
+                                modelList.add(model);
+                            }else{
+                                modelList.remove(model);
 
-                        mAdapter.toggleSelection(position);
+                            }
 
-                              if(mAdapter.isSelected (position)){
-                                  modelList.add(model);
-                              }else{
-                                  modelList.remove(model);
-
-                              }
-
-                    </#if>
+                      </#if>
                     }
                 });
 
@@ -367,7 +476,7 @@ public class ${activityClass} extends AppCompatActivity {
                     public void onHeaderClick(View view,String headerTitle) {
 
                       //handle item click events here
-                      Toast.makeText(${activityClass}.this,"Hey I am a header", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(getActivity(),"Hey I am a header", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -381,7 +490,7 @@ public class ${activityClass} extends AppCompatActivity {
                     public void onFooterClick(View view,String footerTitle) {
 
                       //handle item click events here
-                      Toast.makeText(${activityClass}.this,"Hey I am a footer", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(getActivity(),"Hey I am a footer", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -395,7 +504,7 @@ public class ${activityClass} extends AppCompatActivity {
                     public void onHeaderClick(View view,String headerTitle) {
 
                       //handle item click events here
-                      Toast.makeText(${activityClass}.this,"Hey I am a header", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(getActivity(),"Hey I am a header", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -405,7 +514,7 @@ public class ${activityClass} extends AppCompatActivity {
                     public void onFooterClick(View view,String footerTitle) {
 
                       //handle item click events here
-                      Toast.makeText(${activityClass}.this,"Hey I am a footer", Toast.LENGTH_SHORT).show();
+                      Toast.makeText(getActivity(),"Hey I am a footer", Toast.LENGTH_SHORT).show();
 
                     }
                 });
@@ -415,7 +524,7 @@ public class ${activityClass} extends AppCompatActivity {
           mAdapter.SetOnMoreClickListener(new ${adapterClass}.OnMoreClickListener() {
                     @Override
                     public void onMoreClick(View view, int position,${adapterModelClass} model) {
-                        Toast.makeText(${activityClass}.this, "See more " + position, Toast.LENGTH_SHORT).show();
+                        Toast.makeText(getActivity(), "See more " + position, Toast.LENGTH_SHORT).show();
 
                   }
               });
@@ -425,7 +534,7 @@ public class ${activityClass} extends AppCompatActivity {
                     public void onItemClick(View view, int absolutePosition, int relativePosition,${adapterModelClass} model) {
 
                       //handle item click events here
-                      Toast.makeText(${activityClass}.this,"Absolute Pos: "+absolutePosition
+                      Toast.makeText(getActivity(),"Absolute Pos: "+absolutePosition
                                     + " Relative Pos: "+relativePosition, Toast.LENGTH_SHORT).show();
 
                     }
@@ -434,4 +543,5 @@ public class ${activityClass} extends AppCompatActivity {
           </#if>
 
     }
+
 }

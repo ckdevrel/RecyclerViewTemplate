@@ -1,17 +1,51 @@
 <?xml version="1.0"?>
-<template format="3" revision="1" name="RecyclerViewActivity" minApi="7" minBuildApi="14" description="Creates a new Activity with custom RecyclerView Adapter.">
+<template format="3" revision="1" name="RecyclerViewActivity" minApi="7" minBuildApi="14" description="Creates a new Activity or Fragment with custom RecyclerView Adapter.">
 
-  <category value="Activity"/>
+  <category value="Other"/>
 
-  <parameter id="activityClass" name="Activity Name" type="string" constraints="class|unique|nonempty" suggest="${layoutToActivity(layoutActivityName)}" default="RecyclerViewActivity" help="The name of the activity class to create"/>
 
-  <parameter id="layoutActivityName" name="Layout Name" type="string" constraints="layout|unique|nonempty" suggest="${activityToLayout(activityClass)}" default="activity_recycler_view" help="The name of the layout to create for the activity"/>
+  <parameter id="isFragment" name="Need Fragment code instead of Activitiy?" type="boolean" default="false" help="If true, the fragment code will be created instead of Activity"/>
+
+
+  <parameter id="activityClass" name="Activity Name" type="string" constraints="class|unique|nonempty" visibility="!isFragment" suggest="${layoutToActivity(layoutActivityName)}" default="RecyclerViewActivity" help="The name of the activity class to create"/>
+
+  <parameter id="layoutActivityName" name="Layout Name" type="string" constraints="layout|unique|nonempty" visibility="!isFragment" suggest="${activityToLayout(activityClass)}" default="activity_recycler_view" help="The name of the layout to create for the activity"/>
+
+  <parameter id="className" name="Fragment Class Name" type="string" constraints="class|unique|nonempty" visibility="isFragment" default="RecyclerViewFragment" help="The name of the fragment class to create"/>
+
+    <parameter
+        id="fragmentName"
+        name="Fragment Layout Name"
+        type="string"
+        constraints="layout|nonempty|unique"
+        default="fragment_recycler_view"
+        visibility="isFragment"
+        suggest="fragment_${classToResource(className)}"
+        help="The name of the layout to create" />
+
+
+    <parameter
+        id="includeFactory"
+        name="Include fragment factory methods?"
+        type="boolean"
+        default="true"
+        visibility="isFragment"
+        help="Generate static fragment factory methods for easy instantiation" />
+
+    <parameter
+        id="includeCallbacks"
+        name="Include interface callbacks?"
+        type="boolean"
+        default="true"
+        visibility="isFragment"
+        help="Generate event callbacks for communication with an Activity or other fragments" />
+
 
   <parameter id="activityTitle" name="Title" type="string" constraints="nonempty" default="RecyclerViewActivity" suggest="${activityClass}" help="The name of the activity. For launcher activities, the application title."/>
 
   <parameter id="isLauncher" name="Launcher Activity" type="boolean" default="false" help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"/>
 
-  <parameter id="isToolbar" name="Need Toolbar" type="boolean" default="true" help="If true, this activity will have a Toolbar"/>
+  <parameter id="isToolbar" name="Need Toolbar" type="boolean" default="true" visibility="!isFragment" help="If true, this activity will have a Toolbar"/>
 
   <parameter id="isSearch" name="Need Search in Toolbar" type="boolean" default="false" help="If true, this activity will have a Toolbar with Search"/>
 
@@ -45,7 +79,8 @@
 
   <parameter id="isSwipeRefreshLayout" name="Need SwipeRefreshLayout" type="boolean" default="false" help="If true, swipe refresh layout will be enabled"/>
 
-  <parameter id="isDivider" name="Need Divider" type="boolean" default="false" help="If true, divider layout will be shown"/>
+
+  <parameter id="isDivider" name="Need Divider" type="boolean" default="false" visibility="!(layoutmanager == 'grid' || features=='googleplay')" help="If true, divider layout will be shown"/>
 
   <parameter id="isPagination" name="Need Pagination" type="boolean" default="false" help="If true, pagination will be enabled for RecyclerView"/>
 
