@@ -29,7 +29,7 @@ import ${applicationPackage}.R;
 
 import android.widget.Toast;
 import android.os.Handler;
-<#if isToolbar || isSearch>
+<#if !isFragment && (isToolbar || isSearch)>
 import android.support.v7.widget.Toolbar;
 </#if>
 

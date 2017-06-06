@@ -7,7 +7,7 @@
 
 
 
-    <#if isToolbar || isSearch>
+    <#if !isFragment && (isToolbar || isSearch)>
     <LinearLayout
            android:layout_width="match_parent"
            android:layout_height="match_parent"
@@ -37,7 +37,7 @@
 
     </android.support.v4.widget.SwipeRefreshLayout>
 
-    <#if isToolbar || isSearch>
+    <#if !isFragment && (isToolbar || isSearch)>
     </LinearLayout>
     </#if>
 

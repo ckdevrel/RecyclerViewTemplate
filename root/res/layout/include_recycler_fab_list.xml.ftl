@@ -7,7 +7,7 @@
 
 
 
-<#if isToolbar || isSearch>
+<#if !isFragment && (isToolbar || isSearch)>
 <LinearLayout
 
        android:layout_width="match_parent"
@@ -35,7 +35,7 @@
 
 
 
-<#if isToolbar || isSearch>
+<#if !isFragment && (isToolbar || isSearch)>
 </LinearLayout>
 </#if>
 

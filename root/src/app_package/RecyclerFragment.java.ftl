@@ -50,6 +50,7 @@ import android.support.design.widget.FloatingActionButton;
 </#if>
 
 import android.view.ViewGroup;
+import android.view.MenuInflater;
 
 /**
  * A simple {@link Fragment} subclass.
@@ -148,6 +149,10 @@ public class ${className} extends Fragment {
       @Override
       public void onCreate(Bundle savedInstanceState) {
           super.onCreate(savedInstanceState);
+          <#if isFragment>
+          setHasOptionsMenu(true);
+          </#if>
+
           if (getArguments() != null) {
               mParam1 = getArguments().getString(ARG_PARAM1);
               mParam2 = getArguments().getString(ARG_PARAM2);
@@ -257,20 +262,32 @@ public class ${className} extends Fragment {
    </#if>
 
      <#if isSearch>
+
+     <#if isFragment>
+     @Override
+     public void onCreateOptionsMenu(Menu menu, MenuInflater inflater) {
+        super.onCreateOptionsMenu(menu, inflater);
+        inflater.inflate(R.menu.menu_search, menu);
+     <#else>
      @Override
      public boolean onCreateOptionsMenu(Menu menu) {
          super.onCreateOptionsMenu(menu);
-
          getMenuInflater().inflate(R.menu.menu_search, menu);
-
+    </#if>
 
          // Retrieve the SearchView and plug it into SearchManager
          final SearchView searchView = (SearchView) MenuItemCompat
                  .getActionView (menu.findItem (R.id.action_search));
 
+        <#if isFragment>
+        SearchManager searchManager = (SearchManager) getActivity().getSystemService (getActivity().SEARCH_SERVICE);
+        searchView.setSearchableInfo (searchManager.getSearchableInfo (getActivity().getComponentName ()));
+        <#else>
+
          SearchManager searchManager = (SearchManager) this.getSystemService (this.SEARCH_SERVICE);
          searchView.setSearchableInfo (searchManager.getSearchableInfo (this.getComponentName ()));
 
+         </#if>
          //changing edittext color
          EditText searchEdit = ((EditText)searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text));
          searchEdit.setTextColor(Color.WHITE);
@@ -324,8 +341,9 @@ public class ${className} extends Fragment {
              }
          });
 
-
+         <#if !isFragment>
          return true;
+         </#if>
      }
      </#if>
 

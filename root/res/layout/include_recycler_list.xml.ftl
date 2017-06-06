@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<#if isToolbar || isSearch>
+<#if !isFragment && (isToolbar || isSearch)>
 <LinearLayout
        xmlns:android="http://schemas.android.com/apk/res/android"
        xmlns:tools="http://schemas.android.com/tools"
@@ -23,7 +23,7 @@
 
 
       <android.support.v7.widget.RecyclerView
-      <#if !isToolbar && !isSearch>
+      <#if isFragment || (!isToolbar && !isSearch)>
           xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"
       </#if>
@@ -34,6 +34,6 @@
 
 
 
-<#if isToolbar || isSearch>
+<#if !isFragment && (isToolbar || isSearch)>
 </LinearLayout>
 </#if>
