@@ -123,7 +123,7 @@
     <instantiate from="src/app_package/AbstractModel.java.ftl"
                        to="${escapeXmlAttribute(srcOut)}/${adapterModelClass}.java" />
 
-  <#if layoutmanager == 'grid'>
+  <#if features == 'banner' && layoutmanager == 'grid'>
   <#if features != 'googleplay'>
 
    <instantiate from="src/app_package/GridMarginDecoration.java.ftl"

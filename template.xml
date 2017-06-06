@@ -36,20 +36,22 @@
         id="includeCallbacks"
         name="Include interface callbacks?"
         type="boolean"
-        default="true"
+        default="false"
         visibility="isFragment"
         help="Generate event callbacks for communication with an Activity or other fragments" />
 
 
   <parameter id="activityTitle" name="Title" type="string" constraints="nonempty" default="RecyclerViewActivity" suggest="${activityClass}" help="The name of the activity. For launcher activities, the application title."/>
 
-  <parameter id="isLauncher" name="Launcher Activity" type="boolean" default="false" help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"/>
+  <parameter id="isLauncher" name="Launcher Activity" type="boolean" default="false" visibility="!isFragment" help="If true, this activity will have a CATEGORY_LAUNCHER intent filter, making it visible in the launcher"/>
 
-  <parameter id="isToolbar" name="Need Toolbar" type="boolean" default="true" visibility="!isFragment" help="If true, this activity will have a Toolbar"/>
+  <parameter id="isToolbar" name="Need Toolbar" type="boolean" default="false" visibility="!isFragment" help="If true, this activity will have a Toolbar"/>
 
   <parameter id="isSearch" name="Need Search in Toolbar" type="boolean" default="false" help="If true, this activity will have a Toolbar with Search"/>
 
   <parameter id="isFAB" name="Need FAB with RecyclerView" type="boolean" default="false" help="If true, the recyclerview will have a fab with scroll collapse and expand behaviour"/>
+
+  <parameter id="isCardView" name="Need CardView with RecyclerView" type="boolean" default="false" help="If true, the recyclerview will have a CardView as a item layout"/>
 
   <parameter id="packageName" name="Package name" type="string" constraints="package" default="com.mycompany.myapp"/>
 

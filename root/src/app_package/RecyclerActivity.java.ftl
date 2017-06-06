@@ -291,11 +291,14 @@ public class ${activityClass} extends AppCompatActivity {
           <#if features == 'googleplay'>
           LinearLayoutManager layoutManager = new LinearLayoutManager(this);
           recyclerView.setLayoutManager(layoutManager);
+
           <#else>
           <#if layoutmanager == 'grid'>
 
           final GridLayoutManager layoutManager = new GridLayoutManager(${activityClass}.this, 2);
+          <#if features == 'banner'>
           recyclerView.addItemDecoration(new GridMarginDecoration(${activityClass}.this, 2, 2, 2, 2));
+          </#if>
           recyclerView.setLayoutManager(layoutManager);
 
           <#else>

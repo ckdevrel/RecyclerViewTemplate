@@ -5,7 +5,7 @@
 <#elseif features == 'banner'>
 
 <#if layoutmanager == 'grid'>
-      <#include "item_recycler_simple_grid.xml.ftl"/>
+      <#include "item_recycler_banner_grid.xml.ftl"/>
 
 <#else>
       <#include "item_recycler_banner_list.xml.ftl"/>

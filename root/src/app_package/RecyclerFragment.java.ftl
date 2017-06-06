@@ -131,6 +131,13 @@ public class ${className} extends Fragment {
           fragment.setArguments(args);
           return fragment;
       }
+
+      public static ${className} newInstance() {
+          ${className} fragment = new ${className}();
+          return fragment;
+      }
+
+
   </#if>
 
   public ${className}() {
@@ -406,7 +413,9 @@ public class ${className} extends Fragment {
           <#if layoutmanager == 'grid'>
 
           final GridLayoutManager layoutManager = new GridLayoutManager(getActivity(), 2);
+          <#if features == 'banner'>
           recyclerView.addItemDecoration(new GridMarginDecoration(getActivity(), 2, 2, 2, 2));
+          </#if>
           recyclerView.setLayoutManager(layoutManager);
 
           <#else>

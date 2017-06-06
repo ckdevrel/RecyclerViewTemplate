@@ -1,5 +1,19 @@
 <?xml version="1.0" encoding="utf-8"?>
 
+<#if features != 'banner' || isCardView>
+
+<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    android:layout_width="match_parent"
+    android:layout_height="wrap_content"
+    android:orientation="horizontal"
+    app:cardUseCompatPadding="true"
+    android:layout_marginLeft="10dp"
+    android:layout_marginRight="10dp"
+    android:layout_marginTop="5dp"
+    android:layout_marginBottom="5dp">
+
+</#if>
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
@@ -80,3 +94,9 @@
 
 
 </LinearLayout>
+
+<#if features != 'banner' || isCardView>
+
+</android.support.v7.widget.CardView>
+
+</#if>
