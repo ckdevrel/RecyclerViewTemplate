@@ -29,15 +29,19 @@
     <!-- <dependency mavenUrl="com.jakewharton:butterknife-compiler:8.5.1"/> -->
 
 
+    <#if !isFragment>
     <merge from="AndroidManifest.xml.ftl"
              to="${escapeXmlAttribute(manifestOut)}/AndroidManifest.xml" />
+    </#if>
 
     <merge from="res/values/strings.xml.ftl"
              to="${escapeXmlAttribute(resOut)}/values/strings.xml" />
 
+    <#if !isFragment>
     <#if isToolbar || isSearch>
     <merge from="res/values/styles.xml.ftl"
             to="${escapeXmlAttribute(resOut)}/values/styles.xml" />
+    </#if>
     </#if>
 
     <!-- Decide what kind of layout(s) to add -->

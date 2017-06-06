@@ -55,6 +55,8 @@
 
   <parameter id="adapterClass" name="Adapter Name" type="string" constraints="class|unique|nonempty" default="RecyclerViewAdapter" help="The name of the adapter class to create"/>
 
+  <parameter id="itemLayoutName" name="Adapter Layout Name" type="string" constraints="layout|nonempty" default="item_recycler_list" help="The name of the row layout to use"/>
+
   <parameter id="layoutmanager" name="LayoutManager Type" type="enum" default="list" help="Choose your own LayoutManager Type">
     <option id="list">List (LinearLayoutManager)</option>
     <option id="grid">Grid (GridLayoutManager)</option>
@@ -84,9 +86,7 @@
 
   <parameter id="isPagination" name="Need Pagination" type="boolean" default="false" help="If true, pagination will be enabled for RecyclerView"/>
 
-  <parameter id="itemClass" name="Item Name" type="string" constraints="class|nonempty" default="ViewHolder" help="The name of the ViewHolder class to create"/>
-
-  <parameter id="itemLayoutName" name="Item Layout Name" type="string" constraints="layout|nonempty" default="item_recycler_list" help="The name of the row layout to use"/>
+  <parameter id="itemClass" name="Item Name" type="string" constraints="class|nonempty" default="ViewHolder" visibility="false" help="The name of the ViewHolder class to create"/>
 
   <parameter id="itemLayoutHeaderName" name="Item Layout Header Name" type="string" constraints="layout|nonempty" default="item_recycler_header" help="The name of the row layout to use" visibility="false"/>
 
