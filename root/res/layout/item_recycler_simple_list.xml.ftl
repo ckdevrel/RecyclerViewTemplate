@@ -1,6 +1,6 @@
 <?xml version="1.0" encoding="utf-8"?>
 
-<#if features != 'banner' || isCardView>
+<#if features != 'banner' && isCardView>
 
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
@@ -28,7 +28,7 @@
         android:layout_height="60dp"
         android:background="#16000000"/>
 
- <#if features == 'radio' || features == 'multiselect'>
+ <#if features == 'radio' || features == 'checkbox'>
 
   <LinearLayout
       android:layout_width="match_parent"
@@ -81,7 +81,7 @@
     </LinearLayout>
 
 
-<#elseif features == 'multiselect'>
+<#elseif features == 'checkbox'>
 
 <CheckBox
        android:id="@+id/check_list"
@@ -95,7 +95,7 @@
 
 </LinearLayout>
 
-<#if features != 'banner' || isCardView>
+<#if features != 'banner' && isCardView>
 
 </android.support.v7.widget.CardView>
 

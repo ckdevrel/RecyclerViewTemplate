@@ -63,14 +63,14 @@
 
     </#if>
 
-    <#if features == 'header'>
+    <#if isHeader>
 
     <instantiate from="res/layout/item_recycler_header.xml.ftl"
                       to="${escapeXmlAttribute(resOut)}/layout/${itemLayoutHeaderName}.xml" />
 
     </#if>
 
-    <#if features == 'footer'>
+    <#if isFooter>
 
     <instantiate from="res/layout/item_recycler_footer.xml.ftl"
                       to="${escapeXmlAttribute(resOut)}/layout/${itemLayoutFooterName}.xml" />
@@ -78,7 +78,7 @@
     </#if>
 
 
-    <#if features == 'headerandfooter'>
+    <#if isHeader && isFooter>
 
       <instantiate from="res/layout/item_recycler_header.xml.ftl"
                         to="${escapeXmlAttribute(resOut)}/layout/${itemLayoutHeaderName}.xml" />
@@ -131,11 +131,11 @@
   </#if>
   </#if>
 
-  <#if features == 'multiselect'>
+  <!-- <#if features == 'multiselect'>
 
    <instantiate from="src/app_package/SelectableAdapter.java.ftl"
            to="${escapeXmlAttribute(srcOut)}/SelectableAdapter.java" />
-  </#if>
+  </#if> -->
 
   <#if isFAB>
    <instantiate from="src/app_package/FABScrollBehaviour.java.ftl"

@@ -80,9 +80,7 @@ public class ${activityClass} extends AppCompatActivity {
 
     private ArrayList<AbstractModel> modelList = new ArrayList<>();
 
-    <#if features == 'multiselect'>
-    private ArrayList<AbstractModel> selectedModelList = new ArrayList<>();
-    </#if>
+
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -273,14 +271,15 @@ public class ${activityClass} extends AppCompatActivity {
 
          </#if>
 
-         <#if features == 'header'>
+         <#if isHeader && isFooter>
+         mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Header","Footer");
+
+
+         <#elseif isHeader>
          mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Header");
 
-         <#elseif features == 'footer'>
+         <#elseif isFooter>
          mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Footer");
-
-         <#elseif features == 'headerandfooter'>
-         mAdapter = new ${adapterClass}(${activityClass}.this, modelList,"Header","Footer");
 
          <#else>
          mAdapter = new ${adapterClass}(${activityClass}.this, modelList);
@@ -344,54 +343,14 @@ public class ${activityClass} extends AppCompatActivity {
                       //handle item click events here
                       Toast.makeText(${activityClass}.this,"Hey "+model.getTitle(), Toast.LENGTH_SHORT).show();
 
-                      mAdapter.toggleSelection(position);
-
-                    <#if features == 'multiselect'>
-
-                        mAdapter.toggleSelection(position);
-
-                              if(mAdapter.isSelected (position)){
-                                  modelList.add(model);
-                              }else{
-                                  modelList.remove(model);
-
-                              }
-
-                    </#if>
+              
                     }
                 });
 
           </#if>
           </#if>
-          <#if features == 'header'>
 
-          mAdapter.SetOnHeaderClickListener(new ${adapterClass}.OnHeaderClickListener() {
-                    @Override
-                    public void onHeaderClick(View view,String headerTitle) {
-
-                      //handle item click events here
-                      Toast.makeText(${activityClass}.this,"Hey I am a header", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
-          </#if>
-
-          <#if features == 'footer'>
-
-          mAdapter.SetOnFooterClickListener(new ${adapterClass}.OnFooterClickListener() {
-                    @Override
-                    public void onFooterClick(View view,String footerTitle) {
-
-                      //handle item click events here
-                      Toast.makeText(${activityClass}.this,"Hey I am a footer", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
-          </#if>
-
-          <#if features == 'headerandfooter'>
+          <#if isHeader && isFooter>
 
           mAdapter.SetOnHeaderClickListener(new ${adapterClass}.OnHeaderClickListener() {
                     @Override
@@ -412,6 +371,34 @@ public class ${activityClass} extends AppCompatActivity {
 
                     }
                 });
+
+
+          <#elseif isHeader>
+
+          mAdapter.SetOnHeaderClickListener(new ${adapterClass}.OnHeaderClickListener() {
+                    @Override
+                    public void onHeaderClick(View view,String headerTitle) {
+
+                      //handle item click events here
+                      Toast.makeText(${activityClass}.this,"Hey I am a header", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
+          <#elseif isFooter>
+
+          mAdapter.SetOnFooterClickListener(new ${adapterClass}.OnFooterClickListener() {
+                    @Override
+                    public void onFooterClick(View view,String footerTitle) {
+
+                      //handle item click events here
+                      Toast.makeText(${activityClass}.this,"Hey I am a footer", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
 
           </#if>
           <#if features == 'googleplay'>

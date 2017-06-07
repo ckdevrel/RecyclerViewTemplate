@@ -16,32 +16,19 @@ import ${applicationPackage}.R;
 <#if features == 'radio'>
 import android.widget.RadioButton;
 </#if>
-<#if features == 'multiselect'>
+<#if features == 'checkbox'>
 import android.widget.CheckBox;
+import java.util.HashSet;
+import java.util.Set;
+import android.widget.CompoundButton;
 </#if>
 
 
-<#if features == 'header'>
 
-  <#include "include_recycleview_header.java.ftl"/>
-
-  <#elseif features == 'googleplay'>
+  <#if features == 'googleplay'>
 
   <#include "include_recycleview_google_play.java.ftl"/>
 
-
-<#elseif features == 'footer'>
-
-<#include "include_recycleview_footer.java.ftl"/>
-
-
-<#elseif features == 'headerandfooter'>
-
-<#include "include_recycleview_header_footer.java.ftl"/>
-
-<#elseif features == 'multiselect'>
-
-<#include "include_recycleview_multiselect.java.ftl"/>
 
 
 <#else>

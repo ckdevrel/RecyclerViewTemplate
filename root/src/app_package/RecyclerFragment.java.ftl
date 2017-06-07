@@ -109,9 +109,6 @@ public class ${className} extends Fragment {
 
   private ArrayList<AbstractModel> modelList = new ArrayList<>();
 
-  <#if features == 'multiselect'>
-  private ArrayList<AbstractModel> selectedModelList = new ArrayList<>();
-  </#if>
 
 
   <#if includeFactory>
@@ -409,14 +406,16 @@ public class ${className} extends Fragment {
 
          </#if>
 
-         <#if features == 'header'>
+         <#if isHeader && isFooter>
+         mAdapter = new ${adapterClass}(getActivity(), modelList,"Header","Footer");
+
+
+         <#elseif isHeader>
          mAdapter = new ${adapterClass}(getActivity(), modelList,"Header");
 
-         <#elseif features == 'footer'>
+         <#elseif isFooter>
          mAdapter = new ${adapterClass}(getActivity(), modelList,"Footer");
 
-         <#elseif features == 'headerandfooter'>
-         mAdapter = new ${adapterClass}(getActivity(), modelList,"Header","Footer");
 
          <#else>
          mAdapter = new ${adapterClass}(getActivity(), modelList);
@@ -443,7 +442,7 @@ public class ${className} extends Fragment {
           </#if>
           <#if isDivider>
           DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
-          dividerItemDecoration.setDrawable(ContextCompat.getDrawable(${className}.this, R.drawable.divider_recyclerview));
+          dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.divider_recyclerview));
           recyclerView.addItemDecoration(dividerItemDecoration);
           </#if>
           </#if>
@@ -479,52 +478,14 @@ public class ${className} extends Fragment {
                       //handle item click events here
                       Toast.makeText(getActivity(),"Hey "+model.getTitle(), Toast.LENGTH_SHORT).show();
 
-                      <#if features == 'multiselect'>
-
-                      mAdapter.toggleSelection(position);
-
-                            if(mAdapter.isSelected (position)){
-                                modelList.add(model);
-                            }else{
-                                modelList.remove(model);
-
-                            }
-
-                      </#if>
-                    }
-                });
-
-          </#if>
-          </#if>
-          <#if features == 'header'>
-
-          mAdapter.SetOnHeaderClickListener(new ${adapterClass}.OnHeaderClickListener() {
-                    @Override
-                    public void onHeaderClick(View view,String headerTitle) {
-
-                      //handle item click events here
-                      Toast.makeText(getActivity(),"Hey I am a header", Toast.LENGTH_SHORT).show();
 
                     }
                 });
 
           </#if>
-
-          <#if features == 'footer'>
-
-          mAdapter.SetOnFooterClickListener(new ${adapterClass}.OnFooterClickListener() {
-                    @Override
-                    public void onFooterClick(View view,String footerTitle) {
-
-                      //handle item click events here
-                      Toast.makeText(getActivity(),"Hey I am a footer", Toast.LENGTH_SHORT).show();
-
-                    }
-                });
-
           </#if>
 
-          <#if features == 'headerandfooter'>
+          <#if isHeader && isFooter>
 
           mAdapter.SetOnHeaderClickListener(new ${adapterClass}.OnHeaderClickListener() {
                     @Override
@@ -546,7 +507,34 @@ public class ${className} extends Fragment {
                     }
                 });
 
+          <#elseif isHeader>
+
+          mAdapter.SetOnHeaderClickListener(new ${adapterClass}.OnHeaderClickListener() {
+                    @Override
+                    public void onHeaderClick(View view,String headerTitle) {
+
+                      //handle item click events here
+                      Toast.makeText(getActivity(),"Hey I am a header", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
+
+          <#elseif isFooter>
+
+          mAdapter.SetOnFooterClickListener(new ${adapterClass}.OnFooterClickListener() {
+                    @Override
+                    public void onFooterClick(View view,String footerTitle) {
+
+                      //handle item click events here
+                      Toast.makeText(getActivity(),"Hey I am a footer", Toast.LENGTH_SHORT).show();
+
+                    }
+                });
+
           </#if>
+
+
           <#if features == 'googleplay'>
           mAdapter.SetOnMoreClickListener(new ${adapterClass}.OnMoreClickListener() {
                     @Override

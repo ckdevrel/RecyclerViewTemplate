@@ -49,9 +49,9 @@
 
   <parameter id="isSearch" name="Need Search in Toolbar" type="boolean" default="false" help="If true, this activity will have a Toolbar with Search"/>
 
-  <parameter id="isFAB" name="Need FAB with RecyclerView" type="boolean" default="false" help="If true, the recyclerview will have a fab with scroll collapse and expand behaviour"/>
+  <parameter id="isFAB" name="Need FAB with RecyclerView" type="boolean" default="false" visibility="!isFragment" help="If true, the recyclerview will have a fab with scroll collapse and expand behaviour"/>
 
-  <parameter id="isCardView" name="Need CardView with RecyclerView" type="boolean" default="false" help="If true, the recyclerview will have a CardView as a item layout"/>
+  <parameter id="isCardView" name="Need CardView with RecyclerView" type="boolean" default="false" visibility="!(features=='banner' || features=='googleplay')" help="If true, the recyclerview will have a CardView as a item layout"/>
 
   <parameter id="packageName" name="Package name" type="string" constraints="package" default="com.mycompany.myapp"/>
 
@@ -59,7 +59,7 @@
 
   <parameter id="itemLayoutName" name="Adapter Layout Name" type="string" constraints="layout|nonempty" default="item_recycler_list" help="The name of the row layout to use"/>
 
-  <parameter id="layoutmanager" name="LayoutManager Type" type="enum" default="list" help="Choose your own LayoutManager Type">
+  <parameter id="layoutmanager" name="LayoutManager Type" type="enum" default="list" visibility="!(features=='googleplay')" help="Choose your own LayoutManager Type">
     <option id="list">List (LinearLayoutManager)</option>
     <option id="grid">Grid (GridLayoutManager)</option>
   </parameter>
@@ -71,20 +71,21 @@
   <parameter id="features" name="RecyclerView Style" type="enum" default="simple" help="Choose your own RecyclerView style">
     <option id="simple">Simple RecyclerView</option>
     <option id="banner">Banner RecyclerView</option>
-    <option id="header">Header Recyclerview</option>
-    <option id="footer">Footer Recyclerview</option>
-    <option id="headerandfooter">Header and Footer Recyclerview</option>
     <option id="radio">RadioButton Recyclerview</option>
-    <option id="multiselect">Multiselect Recyclerview</option>
+    <option id="checkbox">Checkbox Recyclerview</option>
     <option id="googleplay">GooglePlay like Recyclerview</option>
   </parameter>
+
+  <parameter id="isHeader" name="Add Header" type="boolean" default="false" visibility="!(features=='googleplay')" help="If true, recyclerview list item will have a header"/>
+
+  <parameter id="isFooter" name="Add Footer" type="boolean" default="false" visibility="!(features=='googleplay')" help="If true, recyclerview list item will have a footer"/>
 
   <parameter id="isItemClick" name="Need ItemClick" type="boolean" default="true" help="If true, recyclerview list item will be clickable"/>
 
   <parameter id="isSwipeRefreshLayout" name="Need SwipeRefreshLayout" type="boolean" default="false" help="If true, swipe refresh layout will be enabled"/>
 
 
-  <parameter id="isDivider" name="Need Divider" type="boolean" default="false" visibility="!(layoutmanager == 'grid' || features=='googleplay')" help="If true, divider layout will be shown"/>
+  <parameter id="isDivider" name="Need Divider" type="boolean" default="false" visibility="!(layoutmanager == 'grid' || features=='googleplay' || isCardView)" help="If true, divider layout will be shown"/>
 
   <parameter id="isPagination" name="Need Pagination" type="boolean" default="false" help="If true, pagination will be enabled for RecyclerView"/>
 
