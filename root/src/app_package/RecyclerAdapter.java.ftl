@@ -23,7 +23,12 @@ import java.util.Set;
 import android.widget.CompoundButton;
 </#if>
 
-
+<#if features == 'toggle'>
+import android.support.v7.widget.SwitchCompat;
+import java.util.HashSet;
+import java.util.Set;
+import android.widget.CompoundButton;
+</#if>
 
   <#if features == 'googleplay'>
 

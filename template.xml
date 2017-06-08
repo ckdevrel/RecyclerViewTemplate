@@ -73,6 +73,7 @@
     <option id="banner">Banner RecyclerView</option>
     <option id="radio">RadioButton Recyclerview</option>
     <option id="checkbox">Checkbox Recyclerview</option>
+    <option id="toggle">Toggle Recyclerview</option>
     <option id="googleplay">GooglePlay like Recyclerview</option>
   </parameter>
 

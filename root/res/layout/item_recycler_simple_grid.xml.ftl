@@ -77,8 +77,17 @@
             android:layout_alignParentTop="true"
             android:layout_margin="5dp"/>
 
+            <#elseif features == 'toggle'>
 
-            <#elseif features == 'checkbox'>
+       <android.support.v7.widget.SwitchCompat
+             android:id="@+id/switch_list"
+             android:layout_width="wrap_content"
+             android:layout_height="wrap_content"
+             android:layout_alignParentRight="true"
+             android:layout_alignParentTop="true"
+             android:layout_margin="5dp"/>
+
+        <#elseif features == 'checkbox'>
 
         <CheckBox
            android:id="@+id/check_list"

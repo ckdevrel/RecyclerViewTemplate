@@ -51,7 +51,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
     private int lastCheckedPosition = -1;
     </#if>
 
-    <#if features == 'checkbox'>
+    <#if features == 'checkbox' || features == 'toggle'>
     private Set<Integer> checkSet = new HashSet<>();
     </#if>
 
@@ -133,6 +133,28 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
           genericViewHolder.itemCheckList.setChecked(checkSet.contains(position));
 
           genericViewHolder.itemCheckList.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+           @Override
+           public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+               if(isChecked){
+                 checkSet.add(position);
+               }else{
+                 checkSet.remove(position);
+               }
+           }
+          });
+
+          </#if>
+
+          <#if features == 'toggle'>
+
+
+          genericViewHolder.itemSwitchList.setOnCheckedChangeListener(null);
+
+          //if true, your checkbox will be selected, else unselected
+          genericViewHolder.itemSwitchList.setChecked(checkSet.contains(position));
+
+          genericViewHolder.itemSwitchList.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
            @Override
            public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
@@ -325,6 +347,29 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
        </#if>
 
+
+       <#if features == 'toggle'>
+
+
+       genericViewHolder.itemSwitchList.setOnCheckedChangeListener(null);
+
+       //if true, your checkbox will be selected, else unselected
+       genericViewHolder.itemSwitchList.setChecked(checkSet.contains(position));
+
+       genericViewHolder.itemSwitchList.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        @Override
+        public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+            if(isChecked){
+              checkSet.add(position);
+            }else{
+              checkSet.remove(position);
+            }
+        }
+       });
+
+       </#if>
+
     }
   }
 
@@ -452,6 +497,28 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
             genericViewHolder.itemCheckList.setChecked(checkSet.contains(position));
 
             genericViewHolder.itemCheckList.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+             @Override
+             public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                 if(isChecked){
+                   checkSet.add(position);
+                 }else{
+                   checkSet.remove(position);
+                 }
+             }
+            });
+
+            </#if>
+
+            <#if features == 'toggle'>
+
+
+            genericViewHolder.itemSwitchList.setOnCheckedChangeListener(null);
+
+            //if true, your checkbox will be selected, else unselected
+            genericViewHolder.itemSwitchList.setChecked(checkSet.contains(position));
+
+            genericViewHolder.itemSwitchList.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
              @Override
              public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
 
@@ -602,6 +669,27 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
      </#if>
 
+     <#if features == 'toggle'>
+
+
+     genericViewHolder.itemSwitchList.setOnCheckedChangeListener(null);
+
+     //if true, your checkbox will be selected, else unselected
+     genericViewHolder.itemSwitchList.setChecked(checkSet.contains(position));
+
+     genericViewHolder.itemSwitchList.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+      @Override
+      public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+          if(isChecked){
+            checkSet.add(position);
+          }else{
+            checkSet.remove(position);
+          }
+      }
+     });
+
+     </#if>
 
 
      }
@@ -653,6 +741,10 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
         private CheckBox itemCheckList;
         </#if>
 
+        <#if features == 'toggle'>
+
+        private SwitchCompat itemSwitchList;
+        </#if>
         // @BindView(R.id.img_user)
         // ImageView imgUser;
         // @BindView(R.id.item_txt_title)
@@ -677,6 +769,11 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
             <#if features == 'checkbox'>
             this.itemCheckList = (CheckBox) itemView.findViewById(R.id.check_list);
             </#if>
+
+            <#if features == 'toggle'>
+            this.itemSwitchList = (SwitchCompat) itemView.findViewById(R.id.switch_list);
+            </#if>
+
 
             <#if isItemClick>
 

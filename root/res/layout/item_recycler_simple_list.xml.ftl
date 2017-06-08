@@ -28,7 +28,7 @@
         android:layout_height="60dp"
         android:background="#16000000"/>
 
- <#if features == 'radio' || features == 'checkbox'>
+ <#if features == 'radio' || features == 'checkbox' || features == 'toggle'>
 
   <LinearLayout
       android:layout_width="match_parent"
@@ -41,7 +41,7 @@
               android:layout_width="0dp"
               android:layout_height="wrap_content"
               android:layout_weight="1"
-              <#if features == 'radio'>
+              <#if features == 'radio' || features == 'checkbox' || features == 'toggle'>
               android:paddingLeft="16dp"
               android:paddingRight="16dp"
               <#else>
@@ -89,6 +89,14 @@
        android:layout_height="wrap_content"/>
 
     </LinearLayout>
+
+    <#elseif features == 'toggle'>
+
+    <android.support.v7.widget.SwitchCompat
+          android:id="@+id/switch_list"
+          android:layout_width="wrap_content"
+          android:layout_height="wrap_content"/>
+        </LinearLayout>
 
 </#if>
 
