@@ -482,6 +482,21 @@ public class ${className} extends Fragment {
                     }
                 });
 
+
+            <#if features == 'checkbox' || features == 'toggle'>
+
+            mAdapter.SetOnCheckedListener(new ${adapterClass}.OnCheckedListener() {
+              @Override
+              public void onChecked(View view, boolean isChecked, int position, ${adapterModelClass} model) {
+
+                  Toast.makeText(getActivity(), (isChecked ? "Checked " : "Unchecked ") + model.getTitle(), Toast.LENGTH_SHORT).show();
+
+
+              }
+          });
+
+            </#if>
+
           </#if>
           </#if>
 

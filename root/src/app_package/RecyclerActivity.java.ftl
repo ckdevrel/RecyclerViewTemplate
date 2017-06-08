@@ -343,9 +343,23 @@ public class ${activityClass} extends AppCompatActivity {
                       //handle item click events here
                       Toast.makeText(${activityClass}.this,"Hey "+model.getTitle(), Toast.LENGTH_SHORT).show();
 
-              
+
                     }
                 });
+
+          <#if features == 'checkbox' || features == 'toggle'>
+
+          mAdapter.SetOnCheckedListener(new ${adapterClass}.OnCheckedListener() {
+            @Override
+            public void onChecked(View view, boolean isChecked, int position, ${adapterModelClass} model) {
+
+                Toast.makeText(${activityClass}.this, isChecked ? "Checked " : "Unchecked " + model.getTitle(), Toast.LENGTH_SHORT).show();
+
+
+            }
+        });
+
+          </#if>
 
           </#if>
           </#if>

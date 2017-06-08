@@ -47,6 +47,11 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
     <#if isItemClick>
     private OnItemClickListener mItemClickListener;
     </#if>
+
+    <#if features == 'checkbox' || features == 'toggle'>
+    private OnCheckedListener mOnCheckedListener;
+    </#if>
+
     <#if features == 'radio'>
     private int lastCheckedPosition = -1;
     </#if>
@@ -141,6 +146,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                }else{
                  checkSet.remove(position);
                }
+
+               mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+
            }
           });
 
@@ -163,6 +171,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                }else{
                  checkSet.remove(position);
                }
+
+               mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+
            }
           });
 
@@ -271,6 +282,18 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
       }
 
 
+      <#if features == 'checkbox' || features == 'toggle'>
+
+      public void SetOnCheckedListener(final OnCheckedListener onCheckedListener) {
+            this.mOnCheckedListener = onCheckedListener;
+
+        }
+
+        public interface OnCheckedListener {
+            void onChecked(View view, boolean isChecked, int position, AbstractModel model);
+        }
+
+      </#if>
 
     </#if>
 
@@ -342,6 +365,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                }else{
                  checkSet.remove(position);
                }
+
+               mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+
            }
        });
 
@@ -365,6 +391,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
             }else{
               checkSet.remove(position);
             }
+
+            mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+
         }
        });
 
@@ -432,6 +461,18 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
             this.mHeaderClickListener = headerClickListener;
     }
 
+    <#if features == 'checkbox' || features == 'toggle'>
+
+    public void SetOnCheckedListener(final OnCheckedListener onCheckedListener) {
+          this.mOnCheckedListener = onCheckedListener;
+
+      }
+
+      public interface OnCheckedListener {
+          void onChecked(View view, boolean isChecked, int position, AbstractModel model);
+      }
+
+    </#if>
 
   </#if>
 
@@ -505,6 +546,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                  }else{
                    checkSet.remove(position);
                  }
+
+                 mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+
              }
             });
 
@@ -527,6 +571,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                  }else{
                    checkSet.remove(position);
                  }
+
+                 mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+
              }
             });
 
@@ -597,6 +644,18 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                       this.mFooterClickListener = footerClickListener;
               }
 
+              <#if features == 'checkbox' || features == 'toggle'>
+
+              public void SetOnCheckedListener(final OnCheckedListener onCheckedListener) {
+                    this.mOnCheckedListener = onCheckedListener;
+
+                }
+
+              public interface OnCheckedListener {
+                  void onChecked(View view, boolean isChecked, int position, AbstractModel model);
+              }
+
+              </#if>
 
           </#if>
 
@@ -664,6 +723,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
              }else{
                checkSet.remove(position);
              }
+
+             mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+
          }
      });
 
@@ -686,6 +748,9 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
           }else{
             checkSet.remove(position);
           }
+
+          mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+
       }
      });
 
@@ -712,6 +777,19 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
          public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
                  this.mItemClickListener = mItemClickListener;
          }
+
+         <#if features == 'checkbox' || features == 'toggle'>
+
+         public void SetOnCheckedListener(final OnCheckedListener onCheckedListener) {
+               this.mOnCheckedListener = onCheckedListener;
+
+           }
+
+         public interface OnCheckedListener {
+             void onChecked(View view, boolean isChecked, int position, AbstractModel model);
+         }
+
+         </#if>
      </#if>
 
 
