@@ -10,14 +10,18 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import com.takeoffandroid.recyclerviewtemplate.R;
+import android.support.v7.widget.LinearLayoutManager;
+
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
+import com.takeoffandroid.recyclerviewtemplate.R;
+
+import android.widget.RadioButton;
 
 
 /**
  * A custom adapter to use with the RecyclerView widget.
  */
-public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class RadioGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
     private ArrayList<AbstractModel> modelList;
@@ -25,7 +29,10 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private OnItemClickListener mItemClickListener;
 
 
-    public SimpleListAdapter(Context context, ArrayList<AbstractModel> modelList) {
+    private int lastCheckedPosition = -1;
+
+
+    public RadioGridAdapter(Context context, ArrayList<AbstractModel> modelList) {
         this.mContext = context;
         this.modelList = modelList;
     }
@@ -39,7 +46,7 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_simple_list, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_radio_grid, viewGroup, false);
 
         return new ViewHolder(view);
     }
@@ -54,6 +61,21 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
             genericViewHolder.itemTxtTitle.setText(model.getTitle());
             genericViewHolder.itemTxtMessage.setText(model.getMessage());
+
+
+            genericViewHolder.radioList.setChecked(position == lastCheckedPosition);
+
+            genericViewHolder.radioList.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    lastCheckedPosition = position;
+                    notifyItemRangeChanged(0, modelList.size());
+
+                    mItemClickListener.onItemClick(view, position, modelList.get(position));
+
+                }
+            });
 
 
         }
@@ -84,6 +106,7 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         private ImageView imgUser;
         private TextView itemTxtTitle;
         private TextView itemTxtMessage;
+        private RadioButton radioList;
 
 
         // @BindView(R.id.img_user)
@@ -96,6 +119,7 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         // RadioButton itemTxtMessage;
         // @BindView(R.id.check_list)
         // CheckBox itemCheckList;
+
         public ViewHolder(final View itemView) {
             super(itemView);
 
@@ -104,11 +128,14 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             this.imgUser = (ImageView) itemView.findViewById(R.id.img_user);
             this.itemTxtTitle = (TextView) itemView.findViewById(R.id.item_txt_title);
             this.itemTxtMessage = (TextView) itemView.findViewById(R.id.item_txt_message);
+            this.radioList = (RadioButton) itemView.findViewById(R.id.radio_list);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
+                    lastCheckedPosition = getAdapterPosition();
+                    notifyItemRangeChanged(0, modelList.size());
                     mItemClickListener.onItemClick(itemView, getAdapterPosition(), modelList.get(getAdapterPosition()));
 
 

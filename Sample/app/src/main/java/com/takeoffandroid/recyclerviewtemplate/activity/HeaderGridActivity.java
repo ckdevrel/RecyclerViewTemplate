@@ -12,11 +12,6 @@ import java.util.ArrayList;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 
-import com.takeoffandroid.recyclerviewtemplate.R;
-import com.takeoffandroid.recyclerviewtemplate.adapter.SimpleGridAdapter;
-import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
-import com.takeoffandroid.recyclerviewtemplate.RecyclerViewScrollListener;
-
 import android.widget.Toast;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
@@ -32,8 +27,13 @@ import android.text.Spanned;
 
 import android.support.design.widget.FloatingActionButton;
 
+import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
+import com.takeoffandroid.recyclerviewtemplate.GridMarginDecoration;
+import com.takeoffandroid.recyclerviewtemplate.adapter.HeaderGridAdapter;
+import com.takeoffandroid.recyclerviewtemplate.R;
 
-public class SimpleGridActivity extends AppCompatActivity {
+
+public class HeaderGridActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -51,8 +51,7 @@ public class SimpleGridActivity extends AppCompatActivity {
     //@BindView(R.id.fab)
     //FloatingActionButton fab;
     private FloatingActionButton fab;
-    private SimpleGridAdapter mAdapter;
-    private RecyclerViewScrollListener scrollListener;
+    private HeaderGridAdapter mAdapter;
 
     private ArrayList<AbstractModel> modelList = new ArrayList<>();
 
@@ -60,7 +59,7 @@ public class SimpleGridActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simple_grid);
+        setContentView(R.layout.activity_header_grid);
 
         // ButterKnife.bind(this);
         findViews();
@@ -193,42 +192,38 @@ public class SimpleGridActivity extends AppCompatActivity {
         modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
 
 
-        mAdapter = new SimpleGridAdapter(SimpleGridActivity.this, modelList);
+        mAdapter = new HeaderGridAdapter(HeaderGridActivity.this, modelList, "Header");
+
 
         recyclerView.setHasFixedSize(true);
 
 
-        final GridLayoutManager layoutManager = new GridLayoutManager(SimpleGridActivity.this, 2);
+        final GridLayoutManager layoutManager = new GridLayoutManager(HeaderGridActivity.this, 2);
+        recyclerView.addItemDecoration(new GridMarginDecoration(HeaderGridActivity.this, 2, 2, 2, 2));
         recyclerView.setLayoutManager(layoutManager);
 
 
         recyclerView.setAdapter(mAdapter);
 
 
-        scrollListener = new RecyclerViewScrollListener() {
-
-            public void onEndOfScrollReached(RecyclerView rv) {
-
-                Toast.makeText(SimpleGridActivity.this, "End of the RecyclerView reached. Do your pagination stuff here", Toast.LENGTH_SHORT).show();
-
-                scrollListener.disableScrollListener();
-            }
-        };
-        recyclerView.addOnScrollListener(scrollListener);
-          /*
-             Note: The below two methods should be used wisely to handle the pagination enable and disable states based on the use case.
-                     1. scrollListener.disableScrollListener(); - Should be called to disable the scroll state.
-                     2. scrollListener.enableScrollListener(); - Should be called to enable the scroll state.
-          */
-
-
-        mAdapter.SetOnItemClickListener(new SimpleGridAdapter.OnItemClickListener() {
+        mAdapter.SetOnItemClickListener(new HeaderGridAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position, AbstractModel model) {
 
                 //handle item click events here
-                Toast.makeText(SimpleGridActivity.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HeaderGridActivity.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
 
+
+            }
+        });
+
+
+        mAdapter.SetOnHeaderClickListener(new HeaderGridAdapter.OnHeaderClickListener() {
+            @Override
+            public void onHeaderClick(View view, String headerTitle) {
+
+                //handle item click events here
+                Toast.makeText(HeaderGridActivity.this, "Hey I am a header", Toast.LENGTH_SHORT).show();
 
             }
         });

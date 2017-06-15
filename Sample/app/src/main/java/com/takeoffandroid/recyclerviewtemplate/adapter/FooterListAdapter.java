@@ -10,14 +10,24 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import com.takeoffandroid.recyclerviewtemplate.R;
+import android.support.v7.widget.LinearLayoutManager;
+
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
+import com.takeoffandroid.recyclerviewtemplate.R;
 
 
 /**
  * A custom adapter to use with the RecyclerView widget.
  */
-public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class FooterListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+
+
+    private static final int TYPE_ITEM = 1;
+    private static final int TYPE_FOOTER = 2;
+    private String mFooterTitle;
+
+    private OnFooterClickListener mFooterClickListener;
+
 
     private Context mContext;
     private ArrayList<AbstractModel> modelList;
@@ -25,9 +35,10 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private OnItemClickListener mItemClickListener;
 
 
-    public SimpleListAdapter(Context context, ArrayList<AbstractModel> modelList) {
+    public FooterListAdapter(Context context, ArrayList<AbstractModel> modelList, String footerTitle) {
         this.mContext = context;
         this.modelList = modelList;
+        this.mFooterTitle = footerTitle;
     }
 
     public void updateList(ArrayList<AbstractModel> modelList) {
@@ -37,21 +48,27 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     @Override
-    public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
-
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_simple_list, viewGroup, false);
-
-        return new ViewHolder(view);
+    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+        if (viewType == TYPE_FOOTER) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_footer, parent, false);
+            return new FooterViewHolder(v);
+        } else if (viewType == TYPE_ITEM) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_footer_list, parent, false);
+            return new ViewHolder(v);
+        }
+        return null;
     }
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+        if (holder instanceof FooterViewHolder) {
+            FooterViewHolder footerHolder = (FooterViewHolder) holder;
 
-        //Here you can fill your row view
-        if (holder instanceof ViewHolder) {
+            footerHolder.txtFooter.setText(mFooterTitle);
+
+        } else if (holder instanceof ViewHolder) {
             final AbstractModel model = getItem(position);
             ViewHolder genericViewHolder = (ViewHolder) holder;
-
             genericViewHolder.itemTxtTitle.setText(model.getTitle());
             genericViewHolder.itemTxtMessage.setText(model.getMessage());
 
@@ -59,24 +76,63 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         }
     }
 
+    //    need to override this method
+    @Override
+    public int getItemViewType(int position) {
+        if (isPositionFooter(position)) {
+            return TYPE_FOOTER;
+        }
+        return TYPE_ITEM;
+    }
+
+    private boolean isPositionFooter(int position) {
+        return position == modelList.size();
+    }
+
 
     @Override
     public int getItemCount() {
 
-        return modelList.size();
+        return modelList.size() + 1;
     }
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
         this.mItemClickListener = mItemClickListener;
     }
 
+    public void SetOnFooterClickListener(final OnFooterClickListener footerClickListener) {
+        this.mFooterClickListener = footerClickListener;
+    }
+
     private AbstractModel getItem(int position) {
         return modelList.get(position);
     }
 
-
     public interface OnItemClickListener {
         void onItemClick(View view, int position, AbstractModel model);
+    }
+
+    public interface OnFooterClickListener {
+        void onFooterClick(View view, String headerTitle);
+    }
+
+    class FooterViewHolder extends RecyclerView.ViewHolder {
+        TextView txtFooter;
+
+        public FooterViewHolder(final View itemView) {
+            super(itemView);
+            this.txtFooter = (TextView) itemView.findViewById(R.id.txtFooter);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    mFooterClickListener.onFooterClick(itemView, mFooterTitle);
+                }
+            });
+
+        }
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {

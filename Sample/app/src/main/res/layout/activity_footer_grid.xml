@@ -47,7 +47,7 @@
         app:fabSize="normal"
         app:layout_anchor="@+id/recycler_view"
         app:layout_anchorGravity="bottom|end"
-        app:layout_behavior="com.takeoffandroid.recyclerviewtemplate.FABScrollBehaviour" />
+        app:layout_behavior="com.takeoffandroid.FABScrollBehaviour" />
 
 
 </android.support.design.widget.CoordinatorLayout>

@@ -66,7 +66,7 @@
 
   <parameter id="adapterGooglePlayClass" name="Adapter Google play Name" type="string" constraints="class|unique|nonempty" default="SingleItemListAdapter" help="The name of the google play adapter class to create" visibility="false"/>
 
-  <parameter id="adapterModelClass" name="Model Name" type="string" constraints="class|unique|nonempty" default="AbstractModel" help="The name of the model class for adapter"/>
+  <parameter id="adapterModelClass" name="Model Name" type="string" constraints="class|nonempty" default="AbstractModel" help="The name of the model class for adapter"/>
 
   <parameter id="features" name="RecyclerView Style" type="enum" default="simple" help="Choose your own RecyclerView style">
     <option id="simple">Simple RecyclerView</option>

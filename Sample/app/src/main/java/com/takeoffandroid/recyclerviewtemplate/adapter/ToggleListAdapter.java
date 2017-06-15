@@ -10,22 +10,37 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import com.takeoffandroid.recyclerviewtemplate.R;
+import android.support.v7.widget.LinearLayoutManager;
+
+
+import android.support.v7.widget.SwitchCompat;
+
+import java.util.HashSet;
+import java.util.Set;
+
+import android.widget.CompoundButton;
+
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
+import com.takeoffandroid.recyclerviewtemplate.R;
 
 
 /**
  * A custom adapter to use with the RecyclerView widget.
  */
-public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class ToggleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
     private ArrayList<AbstractModel> modelList;
 
     private OnItemClickListener mItemClickListener;
 
+    private OnCheckedListener mOnCheckedListener;
 
-    public SimpleListAdapter(Context context, ArrayList<AbstractModel> modelList) {
+
+    private Set<Integer> checkSet = new HashSet<>();
+
+
+    public ToggleListAdapter(Context context, ArrayList<AbstractModel> modelList) {
         this.mContext = context;
         this.modelList = modelList;
     }
@@ -39,7 +54,7 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_simple_list, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_toggle_list, viewGroup, false);
 
         return new ViewHolder(view);
     }
@@ -56,6 +71,27 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             genericViewHolder.itemTxtMessage.setText(model.getMessage());
 
 
+            genericViewHolder.itemSwitchList.setOnCheckedChangeListener(null);
+
+            //if true, your checkbox will be selected, else unselected
+            genericViewHolder.itemSwitchList.setChecked(checkSet.contains(position));
+
+            genericViewHolder.itemSwitchList.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+                @Override
+                public void onCheckedChanged(CompoundButton buttonView, boolean isChecked) {
+
+                    if (isChecked) {
+                        checkSet.add(position);
+                    } else {
+                        checkSet.remove(position);
+                    }
+
+                    mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+
+                }
+            });
+
+
         }
     }
 
@@ -70,13 +106,22 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         this.mItemClickListener = mItemClickListener;
     }
 
+    public void SetOnCheckedListener(final OnCheckedListener onCheckedListener) {
+        this.mOnCheckedListener = onCheckedListener;
+
+    }
+
     private AbstractModel getItem(int position) {
         return modelList.get(position);
     }
 
-
     public interface OnItemClickListener {
         void onItemClick(View view, int position, AbstractModel model);
+    }
+
+
+    public interface OnCheckedListener {
+        void onChecked(View view, boolean isChecked, int position, AbstractModel model);
     }
 
     public class ViewHolder extends RecyclerView.ViewHolder {
@@ -85,6 +130,8 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         private TextView itemTxtTitle;
         private TextView itemTxtMessage;
 
+
+        private SwitchCompat itemSwitchList;
 
         // @BindView(R.id.img_user)
         // ImageView imgUser;
@@ -104,6 +151,8 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             this.imgUser = (ImageView) itemView.findViewById(R.id.img_user);
             this.itemTxtTitle = (TextView) itemView.findViewById(R.id.item_txt_title);
             this.itemTxtMessage = (TextView) itemView.findViewById(R.id.item_txt_message);
+
+            this.itemSwitchList = (SwitchCompat) itemView.findViewById(R.id.switch_list);
 
 
             itemView.setOnClickListener(new View.OnClickListener() {

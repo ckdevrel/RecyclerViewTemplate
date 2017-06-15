@@ -17,7 +17,7 @@ import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
 /**
  * A custom adapter to use with the RecyclerView widget.
  */
-public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class BannerListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
     private ArrayList<AbstractModel> modelList;
@@ -25,7 +25,7 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private OnItemClickListener mItemClickListener;
 
 
-    public SimpleListAdapter(Context context, ArrayList<AbstractModel> modelList) {
+    public BannerListAdapter(Context context, ArrayList<AbstractModel> modelList) {
         this.mContext = context;
         this.modelList = modelList;
     }
@@ -39,7 +39,7 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_simple_list, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_banner_list, viewGroup, false);
 
         return new ViewHolder(view);
     }

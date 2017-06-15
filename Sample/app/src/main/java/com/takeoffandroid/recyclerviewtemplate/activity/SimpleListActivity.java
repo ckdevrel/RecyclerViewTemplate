@@ -3,8 +3,10 @@ package com.takeoffandroid.recyclerviewtemplate.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -13,7 +15,7 @@ import java.util.ArrayList;
 import android.support.v4.widget.SwipeRefreshLayout;
 
 import com.takeoffandroid.recyclerviewtemplate.R;
-import com.takeoffandroid.recyclerviewtemplate.adapter.SimpleGridAdapter;
+import com.takeoffandroid.recyclerviewtemplate.adapter.SimpleListAdapter;
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
 import com.takeoffandroid.recyclerviewtemplate.RecyclerViewScrollListener;
 
@@ -33,7 +35,7 @@ import android.text.Spanned;
 import android.support.design.widget.FloatingActionButton;
 
 
-public class SimpleGridActivity extends AppCompatActivity {
+public class SimpleListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -51,7 +53,7 @@ public class SimpleGridActivity extends AppCompatActivity {
     //@BindView(R.id.fab)
     //FloatingActionButton fab;
     private FloatingActionButton fab;
-    private SimpleGridAdapter mAdapter;
+    private SimpleListAdapter mAdapter;
     private RecyclerViewScrollListener scrollListener;
 
     private ArrayList<AbstractModel> modelList = new ArrayList<>();
@@ -60,7 +62,7 @@ public class SimpleGridActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_simple_grid);
+        setContentView(R.layout.activity_simple_list);
 
         // ButterKnife.bind(this);
         findViews();
@@ -193,14 +195,16 @@ public class SimpleGridActivity extends AppCompatActivity {
         modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
 
 
-        mAdapter = new SimpleGridAdapter(SimpleGridActivity.this, modelList);
+        mAdapter = new SimpleListAdapter(SimpleListActivity.this, modelList);
 
         recyclerView.setHasFixedSize(true);
 
-
-        final GridLayoutManager layoutManager = new GridLayoutManager(SimpleGridActivity.this, 2);
+        // use a linear layout manager
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(SimpleListActivity.this, R.drawable.divider_recyclerview));
+        recyclerView.addItemDecoration(dividerItemDecoration);
 
         recyclerView.setAdapter(mAdapter);
 
@@ -209,7 +213,7 @@ public class SimpleGridActivity extends AppCompatActivity {
 
             public void onEndOfScrollReached(RecyclerView rv) {
 
-                Toast.makeText(SimpleGridActivity.this, "End of the RecyclerView reached. Do your pagination stuff here", Toast.LENGTH_SHORT).show();
+                Toast.makeText(SimpleListActivity.this, "End of the RecyclerView reached. Do your pagination stuff here", Toast.LENGTH_SHORT).show();
 
                 scrollListener.disableScrollListener();
             }
@@ -222,12 +226,12 @@ public class SimpleGridActivity extends AppCompatActivity {
           */
 
 
-        mAdapter.SetOnItemClickListener(new SimpleGridAdapter.OnItemClickListener() {
+        mAdapter.SetOnItemClickListener(new SimpleListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position, AbstractModel model) {
 
                 //handle item click events here
-                Toast.makeText(SimpleGridActivity.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(SimpleListActivity.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
 
 
             }

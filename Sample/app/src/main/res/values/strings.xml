@@ -22,4 +22,19 @@
     <string name="title_activity_maps">Map</string>
     <string name="title_activity_simple_grid_all_cards">SimpleGridAllCardsActivity</string>
     <string name="title_activity_simple_grid">SimpleGridActivity</string>
+    <string name="title_activity_banner_list">BannerListActivity</string>
+    <string name="title_activity_banner_list_cards">BannerListCardsActivity</string>
+    <string name="title_activity_banner_grid">BannerGridActivity</string>
+    <string name="title_activity_banner_grid_cards">BannerGridCardsActivity</string>
+    <string name="title_activity_radio_list">RadioListActivity</string>
+    <string name="title_activity_radio_grid">RadioGridActivity</string>
+    <string name="title_activity_checkbox_list">CheckboxListActivity</string>
+    <string name="title_activity_checkbox_grid">CheckboxGridActivity</string>
+    <string name="title_activity_simple_grid_cards">SimpleGridCardsActivity</string>
+    <string name="title_activity_toggle_list">ToggleListActivity</string>
+    <string name="title_activity_toggle_grid">ToggleGridActivity</string>
+    <string name="title_activity_header_list">HeaderListActivity</string>
+    <string name="title_activity_header_grid">HeaderGridActivity</string>
+    <string name="title_activity_footer_list">FooterListActivity</string>
+    <string name="title_activity_footer_grid">FooterGridActivity</string>
 </resources>

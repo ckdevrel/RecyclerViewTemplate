@@ -10,14 +10,16 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import com.takeoffandroid.recyclerviewtemplate.R;
+import android.support.v7.widget.LinearLayoutManager;
+
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
+import com.takeoffandroid.recyclerviewtemplate.R;
 
 
 /**
  * A custom adapter to use with the RecyclerView widget.
  */
-public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class BannerGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
     private Context mContext;
     private ArrayList<AbstractModel> modelList;
@@ -25,7 +27,7 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private OnItemClickListener mItemClickListener;
 
 
-    public SimpleListAdapter(Context context, ArrayList<AbstractModel> modelList) {
+    public BannerGridAdapter(Context context, ArrayList<AbstractModel> modelList) {
         this.mContext = context;
         this.modelList = modelList;
     }
@@ -39,7 +41,7 @@ public class SimpleListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
-        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_simple_list, viewGroup, false);
+        View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_banner_grid, viewGroup, false);
 
         return new ViewHolder(view);
     }

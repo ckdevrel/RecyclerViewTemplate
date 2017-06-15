@@ -18,28 +18,21 @@
             android:gravity="center">
 
 
+
             <Button
                 android:id="@+id/btn_simple_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="SimpleList" />
+                android:text="Simple List RecyclerView" />
 
 
             <Button
-                android:id="@+id/btn_simple_list_all"
+                android:id="@+id/btn_simple_list_cards"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="SimpleList All" />
-
-
-            <Button
-                android:id="@+id/btn_simple_list_all_cards"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="SimpleList All with Cards" />
+                android:text="Simple List Cards RecyclerView" />
 
 
         </LinearLayout>
@@ -53,31 +46,195 @@
             android:gravity="center">
 
 
+
             <Button
                 android:id="@+id/btn_simple_grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="SimpleGrid" />
+                android:text="Simple Grid RecyclerView" />
 
 
             <Button
-                android:id="@+id/btn_simple_grid_all"
+                android:id="@+id/btn_simple_grid_cards"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="SimpleGrid All" />
-
-
-            <Button
-                android:id="@+id/btn_simple_grid_all_cards"
-                android:layout_width="0dp"
-                android:layout_height="match_parent"
-                android:layout_weight="1"
-                android:text="SimpleGrid All with Cards" />
+                android:text="Simple Grid Cards RecyclerView" />
 
 
         </LinearLayout>
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+
+            <Button
+                android:id="@+id/btn_banner_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Banner List RecyclerView" />
+
+
+
+            <Button
+                android:id="@+id/btn_banner_grid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Banner Grid RecyclerView" />
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+
+            <Button
+                android:id="@+id/btn_radio_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Radio List RecyclerView" />
+
+
+            <Button
+                android:id="@+id/btn_radio_grid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Radio Grid RecyclerView" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+
+            <Button
+                android:id="@+id/btn_check_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Checkbox List RecyclerView" />
+
+
+            <Button
+                android:id="@+id/btn_check_grid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Checkbox Grid RecyclerView" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+
+            <Button
+                android:id="@+id/btn_toggle_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Toggle List RecyclerView" />
+
+
+            <Button
+                android:id="@+id/btn_toggle_grid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Toggle Grid RecyclerView" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+
+            <Button
+                android:id="@+id/btn_header_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Header List RecyclerView" />
+
+
+            <Button
+                android:id="@+id/btn_header_grid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Header Grid RecyclerView" />
+
+
+        </LinearLayout>
+
+
+
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+
+            <Button
+                android:id="@+id/btn_footer_list"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Footer List RecyclerView" />
+
+
+            <Button
+                android:id="@+id/btn_footer_grid"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Footer Grid RecyclerView" />
+
+
+        </LinearLayout>
+
+
+
+
+
 
 
 
