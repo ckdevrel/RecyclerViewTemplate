@@ -37,4 +37,9 @@
     <string name="title_activity_header_grid">HeaderGridActivity</string>
     <string name="title_activity_footer_list">FooterListActivity</string>
     <string name="title_activity_footer_grid">FooterGridActivity</string>
+
+
+    <string name="title_activity_header_footer_list">HeaderFooterListActivity</string>
+    <string name="title_activity_header_footer_grid">HeaderFooterGridActivity</string>
+
 </resources>

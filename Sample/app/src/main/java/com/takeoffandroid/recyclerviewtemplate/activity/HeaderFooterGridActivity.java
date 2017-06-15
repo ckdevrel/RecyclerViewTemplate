@@ -12,11 +12,6 @@ import java.util.ArrayList;
 
 import android.support.v4.widget.SwipeRefreshLayout;
 
-import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
-import com.takeoffandroid.recyclerviewtemplate.GridMarginDecoration;
-import com.takeoffandroid.recyclerviewtemplate.adapter.FooterGridAdapter;
-import com.takeoffandroid.recyclerviewtemplate.R;
-
 import android.widget.Toast;
 import android.os.Handler;
 import android.support.v7.widget.Toolbar;
@@ -32,8 +27,12 @@ import android.text.Spanned;
 
 import android.support.design.widget.FloatingActionButton;
 
+import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
+import com.takeoffandroid.recyclerviewtemplate.adapter.HeaderFooterGridAdapter;
+import com.takeoffandroid.recyclerviewtemplate.R;
 
-public class FooterGridActivity extends AppCompatActivity {
+
+public class HeaderFooterGridActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -51,7 +50,7 @@ public class FooterGridActivity extends AppCompatActivity {
     //@BindView(R.id.fab)
     //FloatingActionButton fab;
     private FloatingActionButton fab;
-    private FooterGridAdapter mAdapter;
+    private HeaderFooterGridAdapter mAdapter;
 
     private ArrayList<AbstractModel> modelList = new ArrayList<>();
 
@@ -59,7 +58,7 @@ public class FooterGridActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_footer_grid);
+        setContentView(R.layout.activity_header_footer_grid);
 
         // ButterKnife.bind(this);
         findViews();
@@ -192,38 +191,47 @@ public class FooterGridActivity extends AppCompatActivity {
         modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
 
 
-        mAdapter = new FooterGridAdapter(FooterGridActivity.this, modelList, "Footer");
+        mAdapter = new HeaderFooterGridAdapter(HeaderFooterGridActivity.this, modelList, "Header", "Footer");
 
 
         recyclerView.setHasFixedSize(true);
 
 
-        final GridLayoutManager layoutManager = new GridLayoutManager(FooterGridActivity.this, 2);
-        recyclerView.addItemDecoration(new GridMarginDecoration(FooterGridActivity.this, 2, 2, 2, 2));
+        final GridLayoutManager layoutManager = new GridLayoutManager(HeaderFooterGridActivity.this, 2);
         recyclerView.setLayoutManager(layoutManager);
 
 
         recyclerView.setAdapter(mAdapter);
 
 
-        mAdapter.SetOnItemClickListener(new FooterGridAdapter.OnItemClickListener() {
+        mAdapter.SetOnItemClickListener(new HeaderFooterGridAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position, AbstractModel model) {
 
                 //handle item click events here
-                Toast.makeText(FooterGridActivity.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HeaderFooterGridActivity.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
 
 
             }
         });
 
 
-        mAdapter.SetOnFooterClickListener(new FooterGridAdapter.OnFooterClickListener() {
+        mAdapter.SetOnHeaderClickListener(new HeaderFooterGridAdapter.OnHeaderClickListener() {
+            @Override
+            public void onHeaderClick(View view, String headerTitle) {
+
+                //handle item click events here
+                Toast.makeText(HeaderFooterGridActivity.this, "Hey I am a header", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        mAdapter.SetOnFooterClickListener(new HeaderFooterGridAdapter.OnFooterClickListener() {
             @Override
             public void onFooterClick(View view, String footerTitle) {
 
                 //handle item click events here
-                Toast.makeText(FooterGridActivity.this, "Hey I am a footer", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HeaderFooterGridActivity.this, "Hey I am a footer", Toast.LENGTH_SHORT).show();
 
             }
         });

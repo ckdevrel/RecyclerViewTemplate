@@ -217,38 +217,38 @@ public class ${activityClass} extends AppCompatActivity {
 
              ArrayList<${adapterModelClass}> singleItemList = new ArrayList<>();
 
-             singleItemList.add(new AbstractModel("Android", "Hello " + " Android"));
-             singleItemList.add(new AbstractModel("Beta", "Hello " + " Beta"));
-             singleItemList.add(new AbstractModel("Cupcake", "Hello " + " Cupcake"));
-             singleItemList.add(new AbstractModel("Donut", "Hello " + " Donut"));
-             singleItemList.add(new AbstractModel("Eclair", "Hello " + " Eclair"));
-             singleItemList.add(new AbstractModel("Froyo", "Hello " + " Froyo"));
-             singleItemList.add(new AbstractModel("Gingerbread", "Hello " + " Gingerbread"));
-             singleItemList.add(new AbstractModel("Honeycomb", "Hello " + " Honeycomb"));
-             singleItemList.add(new AbstractModel("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich"));
-             singleItemList.add(new AbstractModel("Jelly Bean", "Hello " + " Jelly Bean"));
-             singleItemList.add(new AbstractModel("KitKat", "Hello " + " KitKat"));
-             singleItemList.add(new AbstractModel("Lollipop", "Hello " + " Lollipop"));
-             singleItemList.add(new AbstractModel("Marshmallow", "Hello " + " Marshmallow"));
-             singleItemList.add(new AbstractModel("Nougat", "Hello " + " Nougat"));
-             singleItemList.add(new AbstractModel("Android O", "Hello " + " Android O"));
+             singleItemList.add(new ${adapterModelClass}("Android", "Hello " + " Android"));
+             singleItemList.add(new ${adapterModelClass}("Beta", "Hello " + " Beta"));
+             singleItemList.add(new ${adapterModelClass}("Cupcake", "Hello " + " Cupcake"));
+             singleItemList.add(new ${adapterModelClass}("Donut", "Hello " + " Donut"));
+             singleItemList.add(new ${adapterModelClass}("Eclair", "Hello " + " Eclair"));
+             singleItemList.add(new ${adapterModelClass}("Froyo", "Hello " + " Froyo"));
+             singleItemList.add(new ${adapterModelClass}("Gingerbread", "Hello " + " Gingerbread"));
+             singleItemList.add(new ${adapterModelClass}("Honeycomb", "Hello " + " Honeycomb"));
+             singleItemList.add(new ${adapterModelClass}("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich"));
+             singleItemList.add(new ${adapterModelClass}("Jelly Bean", "Hello " + " Jelly Bean"));
+             singleItemList.add(new ${adapterModelClass}("KitKat", "Hello " + " KitKat"));
+             singleItemList.add(new ${adapterModelClass}("Lollipop", "Hello " + " Lollipop"));
+             singleItemList.add(new ${adapterModelClass}("Marshmallow", "Hello " + " Marshmallow"));
+             singleItemList.add(new ${adapterModelClass}("Nougat", "Hello " + " Nougat"));
+             singleItemList.add(new ${adapterModelClass}("Android O", "Hello " + " Android O"));
 
 
-             modelList.add(new AbstractModel("Android", "Hello " + " Android",singleItemList));
-             modelList.add(new AbstractModel("Beta", "Hello " + " Beta",singleItemList));
-             modelList.add(new AbstractModel("Cupcake", "Hello " + " Cupcake",singleItemList));
-             modelList.add(new AbstractModel("Donut", "Hello " + " Donut",singleItemList));
-             modelList.add(new AbstractModel("Eclair", "Hello " + " Eclair",singleItemList));
-             modelList.add(new AbstractModel("Froyo", "Hello " + " Froyo",singleItemList));
-             modelList.add(new AbstractModel("Gingerbread", "Hello " + " Gingerbread",singleItemList));
-             modelList.add(new AbstractModel("Honeycomb", "Hello " + " Honeycomb",singleItemList));
-             modelList.add(new AbstractModel("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich",singleItemList));
-             modelList.add(new AbstractModel("Jelly Bean", "Hello " + " Jelly Bean",singleItemList));
-             modelList.add(new AbstractModel("KitKat", "Hello " + " KitKat",singleItemList));
-             modelList.add(new AbstractModel("Lollipop", "Hello " + " Lollipop",singleItemList));
-             modelList.add(new AbstractModel("Marshmallow", "Hello " + " Marshmallow",singleItemList));
-             modelList.add(new AbstractModel("Nougat", "Hello " + " Nougat",singleItemList));
-             modelList.add(new AbstractModel("Android O", "Hello " + " Android O",singleItemList));
+             modelList.add(new ${adapterModelClass}("Android", "Hello " + " Android",singleItemList));
+             modelList.add(new ${adapterModelClass}("Beta", "Hello " + " Beta",singleItemList));
+             modelList.add(new ${adapterModelClass}("Cupcake", "Hello " + " Cupcake",singleItemList));
+             modelList.add(new ${adapterModelClass}("Donut", "Hello " + " Donut",singleItemList));
+             modelList.add(new ${adapterModelClass}("Eclair", "Hello " + " Eclair",singleItemList));
+             modelList.add(new ${adapterModelClass}("Froyo", "Hello " + " Froyo",singleItemList));
+             modelList.add(new ${adapterModelClass}("Gingerbread", "Hello " + " Gingerbread",singleItemList));
+             modelList.add(new ${adapterModelClass}("Honeycomb", "Hello " + " Honeycomb",singleItemList));
+             modelList.add(new ${adapterModelClass}("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich",singleItemList));
+             modelList.add(new ${adapterModelClass}("Jelly Bean", "Hello " + " Jelly Bean",singleItemList));
+             modelList.add(new ${adapterModelClass}("KitKat", "Hello " + " KitKat",singleItemList));
+             modelList.add(new ${adapterModelClass}("Lollipop", "Hello " + " Lollipop",singleItemList));
+             modelList.add(new ${adapterModelClass}("Marshmallow", "Hello " + " Marshmallow",singleItemList));
+             modelList.add(new ${adapterModelClass}("Nougat", "Hello " + " Nougat",singleItemList));
+             modelList.add(new ${adapterModelClass}("Android O", "Hello " + " Android O",singleItemList));
 
         <#else>
 

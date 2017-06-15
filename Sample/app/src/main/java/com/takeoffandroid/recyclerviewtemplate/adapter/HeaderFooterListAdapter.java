@@ -10,8 +10,6 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import android.support.v7.widget.LinearLayoutManager;
-
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
 import com.takeoffandroid.recyclerviewtemplate.R;
 
@@ -19,15 +17,18 @@ import com.takeoffandroid.recyclerviewtemplate.R;
 /**
  * A custom adapter to use with the RecyclerView widget.
  */
-public class FooterGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
+public class HeaderFooterListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHolder> {
 
 
+    private static final int TYPE_HEADER = 0;
     private static final int TYPE_ITEM = 1;
     private static final int TYPE_FOOTER = 2;
+
+    private String mHeaderTitle;
     private String mFooterTitle;
 
+    private OnHeaderClickListener mHeaderClickListener;
     private OnFooterClickListener mFooterClickListener;
-
 
     private Context mContext;
     private ArrayList<AbstractModel> modelList;
@@ -35,9 +36,10 @@ public class FooterGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     private OnItemClickListener mItemClickListener;
 
 
-    public FooterGridAdapter(Context context, ArrayList<AbstractModel> modelList, String footerTitle) {
+    public HeaderFooterListAdapter(Context context, ArrayList<AbstractModel> modelList, String headerTitle, String footerTitle) {
         this.mContext = context;
         this.modelList = modelList;
+        this.mHeaderTitle = headerTitle;
         this.mFooterTitle = footerTitle;
     }
 
@@ -49,11 +51,15 @@ public class FooterGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
-        if (viewType == TYPE_FOOTER) {
+
+        if (viewType == TYPE_HEADER) {
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_header, parent, false);
+            return new HeaderViewHolder(v);
+        } else if (viewType == TYPE_FOOTER) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_footer, parent, false);
             return new FooterViewHolder(v);
         } else if (viewType == TYPE_ITEM) {
-            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_footer_grid, parent, false);
+            View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_header_footer_list, parent, false);
             return new ViewHolder(v);
         }
         return null;
@@ -61,13 +67,18 @@ public class FooterGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     @Override
     public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-        if (holder instanceof FooterViewHolder) {
+        if (holder instanceof HeaderViewHolder) {
+            HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
+
+            headerHolder.txtTitleHeader.setText(mHeaderTitle);
+
+        } else if (holder instanceof FooterViewHolder) {
             FooterViewHolder footerHolder = (FooterViewHolder) holder;
 
             footerHolder.txtFooter.setText(mFooterTitle);
 
         } else if (holder instanceof ViewHolder) {
-            final AbstractModel model = getItem(position);
+            final AbstractModel model = getItem(position - 1);
             ViewHolder genericViewHolder = (ViewHolder) holder;
             genericViewHolder.itemTxtTitle.setText(model.getTitle());
             genericViewHolder.itemTxtMessage.setText(model.getMessage());
@@ -79,25 +90,36 @@ public class FooterGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     //    need to override this method
     @Override
     public int getItemViewType(int position) {
-        if (isPositionFooter(position)) {
+        if (isPositionHeader(position)) {
+            return TYPE_HEADER;
+        } else if (isPositionFooter(position)) {
             return TYPE_FOOTER;
         }
         return TYPE_ITEM;
     }
 
+
+    private boolean isPositionHeader(int position) {
+        return position == 0;
+    }
+
     private boolean isPositionFooter(int position) {
-        return position == modelList.size();
+        return position == modelList.size() + 1;
     }
 
 
     @Override
     public int getItemCount() {
 
-        return modelList.size() + 1;
+        return modelList.size() + 2;
     }
 
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
         this.mItemClickListener = mItemClickListener;
+    }
+
+    public void SetOnHeaderClickListener(final OnHeaderClickListener headerClickListener) {
+        this.mHeaderClickListener = headerClickListener;
     }
 
     public void SetOnFooterClickListener(final OnFooterClickListener footerClickListener) {
@@ -110,6 +132,10 @@ public class FooterGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position, AbstractModel model);
+    }
+
+    public interface OnHeaderClickListener {
+        void onHeaderClick(View view, String headerTitle);
     }
 
     public interface OnFooterClickListener {
@@ -129,6 +155,25 @@ public class FooterGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
                 public void onClick(View view) {
 
                     mFooterClickListener.onFooterClick(itemView, mFooterTitle);
+                }
+            });
+
+        }
+    }
+
+    class HeaderViewHolder extends RecyclerView.ViewHolder {
+        TextView txtTitleHeader;
+
+        public HeaderViewHolder(final View itemView) {
+            super(itemView);
+            this.txtTitleHeader = (TextView) itemView.findViewById(R.id.txtHeader);
+
+
+            itemView.setOnClickListener(new View.OnClickListener() {
+                @Override
+                public void onClick(View view) {
+
+                    mHeaderClickListener.onHeaderClick(itemView, mHeaderTitle);
                 }
             });
 
@@ -165,7 +210,8 @@ public class FooterGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
             itemView.setOnClickListener(new View.OnClickListener() {
                 @Override
                 public void onClick(View view) {
-                    mItemClickListener.onItemClick(itemView, getAdapterPosition(), modelList.get(getAdapterPosition()));
+
+                    mItemClickListener.onItemClick(itemView, getAdapterPosition(), modelList.get(getAdapterPosition() - 1));
 
 
                 }

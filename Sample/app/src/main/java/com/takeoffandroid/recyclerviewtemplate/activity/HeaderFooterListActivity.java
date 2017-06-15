@@ -3,19 +3,16 @@ package com.takeoffandroid.recyclerviewtemplate.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.support.v7.widget.GridLayoutManager;
+import android.support.v7.widget.LinearLayoutManager;
 
+import android.support.v4.content.ContextCompat;
+import android.support.v7.widget.DividerItemDecoration;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
 import java.util.ArrayList;
 
 import android.support.v4.widget.SwipeRefreshLayout;
-
-import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
-import com.takeoffandroid.recyclerviewtemplate.GridMarginDecoration;
-import com.takeoffandroid.recyclerviewtemplate.adapter.FooterGridAdapter;
-import com.takeoffandroid.recyclerviewtemplate.R;
 
 import android.widget.Toast;
 import android.os.Handler;
@@ -32,8 +29,12 @@ import android.text.Spanned;
 
 import android.support.design.widget.FloatingActionButton;
 
+import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
+import com.takeoffandroid.recyclerviewtemplate.adapter.HeaderFooterListAdapter;
+import com.takeoffandroid.recyclerviewtemplate.R;
 
-public class FooterGridActivity extends AppCompatActivity {
+
+public class HeaderFooterListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -51,7 +52,7 @@ public class FooterGridActivity extends AppCompatActivity {
     //@BindView(R.id.fab)
     //FloatingActionButton fab;
     private FloatingActionButton fab;
-    private FooterGridAdapter mAdapter;
+    private HeaderFooterListAdapter mAdapter;
 
     private ArrayList<AbstractModel> modelList = new ArrayList<>();
 
@@ -59,7 +60,7 @@ public class FooterGridActivity extends AppCompatActivity {
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_footer_grid);
+        setContentView(R.layout.activity_header_footer_list);
 
         // ButterKnife.bind(this);
         findViews();
@@ -192,38 +193,49 @@ public class FooterGridActivity extends AppCompatActivity {
         modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
 
 
-        mAdapter = new FooterGridAdapter(FooterGridActivity.this, modelList, "Footer");
+        mAdapter = new HeaderFooterListAdapter(HeaderFooterListActivity.this, modelList, "Header", "Footer");
 
 
         recyclerView.setHasFixedSize(true);
 
-
-        final GridLayoutManager layoutManager = new GridLayoutManager(FooterGridActivity.this, 2);
-        recyclerView.addItemDecoration(new GridMarginDecoration(FooterGridActivity.this, 2, 2, 2, 2));
+        // use a linear layout manager
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
-
+        DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
+        dividerItemDecoration.setDrawable(ContextCompat.getDrawable(HeaderFooterListActivity.this, R.drawable.divider_recyclerview));
+        recyclerView.addItemDecoration(dividerItemDecoration);
 
         recyclerView.setAdapter(mAdapter);
 
 
-        mAdapter.SetOnItemClickListener(new FooterGridAdapter.OnItemClickListener() {
+        mAdapter.SetOnItemClickListener(new HeaderFooterListAdapter.OnItemClickListener() {
             @Override
             public void onItemClick(View view, int position, AbstractModel model) {
 
                 //handle item click events here
-                Toast.makeText(FooterGridActivity.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(HeaderFooterListActivity.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
 
 
             }
         });
 
 
-        mAdapter.SetOnFooterClickListener(new FooterGridAdapter.OnFooterClickListener() {
+        mAdapter.SetOnHeaderClickListener(new HeaderFooterListAdapter.OnHeaderClickListener() {
+            @Override
+            public void onHeaderClick(View view, String headerTitle) {
+
+                //handle item click events here
+                Toast.makeText(HeaderFooterListActivity.this, "Hey I am a header", Toast.LENGTH_SHORT).show();
+
+            }
+        });
+
+        mAdapter.SetOnFooterClickListener(new HeaderFooterListAdapter.OnFooterClickListener() {
             @Override
             public void onFooterClick(View view, String footerTitle) {
 
                 //handle item click events here
-                Toast.makeText(FooterGridActivity.this, "Hey I am a footer", Toast.LENGTH_SHORT).show();
+                Toast.makeText(HeaderFooterListActivity.this, "Hey I am a footer", Toast.LENGTH_SHORT).show();
 
             }
         });
