@@ -56,5 +56,4 @@
      app:layout_behavior="${packageName}.FABScrollBehaviour"/>
 
 
-
 </android.support.design.widget.CoordinatorLayout>

@@ -1,4 +1,3 @@
-
 <#if isSwipeRefreshLayout>
 
       <#if isFAB>

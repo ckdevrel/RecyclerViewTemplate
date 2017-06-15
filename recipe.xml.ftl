@@ -138,8 +138,11 @@
   </#if> -->
 
   <#if isFAB>
+
    <instantiate from="src/app_package/FABScrollBehaviour.java.ftl"
-           to="${escapeXmlAttribute(srcOut)}/FABScrollBehaviour.java" />
+           to="${escapeXmlAttribute(srcOut)}/FABScrollBehaviour.java"/>
+
+
   </#if>
 
   <#if isPagination>

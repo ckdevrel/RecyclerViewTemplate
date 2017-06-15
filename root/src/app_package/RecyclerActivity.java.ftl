@@ -353,7 +353,7 @@ public class ${activityClass} extends AppCompatActivity {
             @Override
             public void onChecked(View view, boolean isChecked, int position, ${adapterModelClass} model) {
 
-                Toast.makeText(${activityClass}.this, isChecked ? "Checked " : "Unchecked " + model.getTitle(), Toast.LENGTH_SHORT).show();
+                Toast.makeText(${activityClass}.this, (isChecked ? "Checked " : "Unchecked ") + model.getTitle(), Toast.LENGTH_SHORT).show();
 
 
             }
@@ -438,4 +438,6 @@ public class ${activityClass} extends AppCompatActivity {
           </#if>
 
     }
+
+
 }

@@ -6,7 +6,11 @@
             android:label="@string/app_name"
             <#else>
             android:label="@string/title_${activityToLayout(activityClass)}"
-            <#if isToolbar || isSearch>android:theme="@style/AppTheme.Template.Base"</#if>
+            <#if isToolbar || isSearch>
+            android:theme="@style/AppTheme.Template.Base"
+            <#else>
+            android:theme="@style/AppTheme"
+            </#if>
             </#if>>
             <#if isLauncher>
             <intent-filter>

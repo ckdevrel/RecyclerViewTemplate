@@ -6,6 +6,8 @@
     <!-- e.g. getSupportActionBar vs. getActionBar -->
     <global id="Support" value="${(minApiLevel lt 14)?string('Support','')}" />
     <global id="srcOut" value="${srcDir}/${slashedPackageName(packageName)}" />
+    <global id="srcOutPackage" value="${srcDir}" />
+
     <global id="resOut" value="${resDir}" />
     <global id="menuName" value="${classToResource(activityClass)}" />
 

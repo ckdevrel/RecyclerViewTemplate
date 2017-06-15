@@ -1,0 +1,25 @@
+<resources>
+    <string name="app_name">AndroidStuidoTemplateTester</string>
+    <string name="title_activity_recycler_view">RecyclerViewActivity</string>
+
+    <string name="hello_world">Hello world!</string>
+    <string name="title_activity_main2">Main2Activity</string>
+    <string name="title_activity_main3">Main3Activity</string>
+    <string name="title_activity_ram">RamActivity</string>
+    <string name="title_activity_main">MainActivity</string>
+    <string name="title_activity_google_play">GooglePlayActivity</string>
+    <string name="title_activity_header">HeaderActivity</string>
+    <string name="title_activity_google">GoogleActivity</string>
+    <string name="action_settings">Settings</string>
+    <string name="section_format">Hello World from section: %1$d</string>
+    <string name="tab_text_1">Tab 1</string>
+    <string name="tab_text_2">Tab 2</string>
+    <string name="tab_text_3">Tab 3</string>
+    <string name="title_activity_simple_list_toolbar">SimpleListToolbarActivity</string>
+    <string name="title_activity_simple_list_all">SimpleListAllActivity</string>
+    <string name="title_activity_simple_list_all_cards">SimpleListAllCardsActivity</string>
+    <string name="title_activity_simple_grid_all">SimpleGridAllActivity</string>
+    <string name="title_activity_maps">Map</string>
+    <string name="title_activity_simple_grid_all_cards">SimpleGridAllCardsActivity</string>
+    <string name="title_activity_simple_grid">SimpleGridActivity</string>
+</resources>
