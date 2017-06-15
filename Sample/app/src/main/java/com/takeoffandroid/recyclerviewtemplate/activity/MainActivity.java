@@ -55,6 +55,8 @@ public class MainActivity extends AppCompatActivity {
     Button btnHeaderFooterList;
     @BindView(R.id.btn_header_footer_grid)
     Button btnHeaderFooterGrid;
+    @BindView(R.id.btn_google_play)
+    Button btnGooglePlay;
 
 
     @Override
@@ -74,7 +76,7 @@ public class MainActivity extends AppCompatActivity {
 //    }
 
 
-    @OnClick({R.id.btn_simple_list, R.id.btn_simple_list_cards, R.id.btn_simple_grid, R.id.btn_simple_grid_cards, R.id.btn_banner_list, R.id.btn_banner_grid, R.id.btn_radio_list, R.id.btn_radio_grid, R.id.btn_check_list, R.id.btn_check_grid, R.id.btn_toggle_list, R.id.btn_toggle_grid, R.id.btn_header_list, R.id.btn_header_grid, R.id.btn_footer_list, R.id.btn_footer_grid, R.id.btn_header_footer_list, R.id.btn_header_footer_grid})
+    @OnClick({R.id.btn_simple_list, R.id.btn_simple_list_cards, R.id.btn_simple_grid, R.id.btn_simple_grid_cards, R.id.btn_banner_list, R.id.btn_banner_grid, R.id.btn_radio_list, R.id.btn_radio_grid, R.id.btn_check_list, R.id.btn_check_grid, R.id.btn_toggle_list, R.id.btn_toggle_grid, R.id.btn_header_list, R.id.btn_header_grid, R.id.btn_footer_list, R.id.btn_footer_grid, R.id.btn_header_footer_list, R.id.btn_header_footer_grid, R.id.btn_google_play})
     public void onClick(View v) {
         switch (v.getId()) {
             case R.id.btn_simple_list:
@@ -170,6 +172,11 @@ public class MainActivity extends AppCompatActivity {
             case R.id.btn_header_footer_grid:
 
                 startActivity(new Intent(MainActivity.this, HeaderFooterGridActivity.class));
+
+                break;
+            case R.id.btn_google_play:
+
+                startActivity(new Intent(MainActivity.this, GooglePlayActivity.class));
 
                 break;
         }

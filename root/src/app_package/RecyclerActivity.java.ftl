@@ -78,7 +78,7 @@ public class ${activityClass} extends AppCompatActivity {
     private RecyclerViewScrollListener scrollListener;
     </#if>
 
-    private ArrayList<AbstractModel> modelList = new ArrayList<>();
+    private ArrayList<${adapterModelClass}> modelList = new ArrayList<>();
 
 
     @Override
@@ -188,7 +188,7 @@ public class ${activityClass} extends AppCompatActivity {
 
              @Override
              public boolean onQueryTextChange (String s) {
-                 ArrayList<AbstractModel> filterList = new ArrayList<AbstractModel> ();
+                 ArrayList<${adapterModelClass}> filterList = new ArrayList<${adapterModelClass}> ();
                  if(s.length()>0){
                      for(int i = 0; i < modelList.size();i++){
                          if(modelList.get(i).getTitle ().toLowerCase().contains(s.toString().toLowerCase())){

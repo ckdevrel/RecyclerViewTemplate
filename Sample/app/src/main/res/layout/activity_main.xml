@@ -260,6 +260,28 @@
 
 
 
+        <LinearLayout
+            android:layout_width="match_parent"
+            android:layout_height="150dp"
+            android:orientation="horizontal"
+            android:gravity="center">
+
+
+
+            <Button
+                android:id="@+id/btn_google_play"
+                android:layout_width="0dp"
+                android:layout_height="match_parent"
+                android:layout_weight="1"
+                android:text="Google Play RecyclerView" />
+
+
+
+
+        </LinearLayout>
+
+
+
 
 
 

@@ -1,4 +1,4 @@
-package com.takeoffandroid.recyclerviewtemplate.adapter;
+package com.takeoffandroid.recyclerviewtemplate;
 
 import android.content.Context;
 import android.support.v7.widget.RecyclerView;
@@ -10,8 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
-import com.takeoffandroid.recyclerviewtemplate.R;
+import android.support.v7.widget.LinearLayoutManager;
 
 
 /**

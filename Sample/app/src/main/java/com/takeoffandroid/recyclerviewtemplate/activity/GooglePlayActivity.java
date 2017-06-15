@@ -3,8 +3,8 @@ package com.takeoffandroid.recyclerviewtemplate.activity;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.support.v7.widget.GridLayoutManager;
 
+import android.support.v7.widget.LinearLayoutManager;
 import android.support.v7.widget.RecyclerView;
 import android.view.View;
 
@@ -27,13 +27,12 @@ import android.text.Spanned;
 
 import android.support.design.widget.FloatingActionButton;
 
-import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
-import com.takeoffandroid.recyclerviewtemplate.GridMarginDecoration;
-import com.takeoffandroid.recyclerviewtemplate.HeaderFooterGridAdapter;
+import com.takeoffandroid.recyclerviewtemplate.AbstractGooglePlay;
 import com.takeoffandroid.recyclerviewtemplate.R;
+import com.takeoffandroid.recyclerviewtemplate.adapter.GooglePlayAdapter;
 
 
-public class HeaderFooterGridActivity extends AppCompatActivity {
+public class GooglePlayActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
@@ -51,15 +50,15 @@ public class HeaderFooterGridActivity extends AppCompatActivity {
     //@BindView(R.id.fab)
     //FloatingActionButton fab;
     private FloatingActionButton fab;
-    private HeaderFooterGridAdapter mAdapter;
+    private GooglePlayAdapter mAdapter;
 
-    private ArrayList<AbstractModel> modelList = new ArrayList<>();
+    private ArrayList<AbstractGooglePlay> modelList = new ArrayList<>();
 
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
-        setContentView(R.layout.activity_header_footer_grid);
+        setContentView(R.layout.activity_google_play);
 
         // ButterKnife.bind(this);
         findViews();
@@ -151,7 +150,7 @@ public class HeaderFooterGridActivity extends AppCompatActivity {
 
             @Override
             public boolean onQueryTextChange(String s) {
-                ArrayList<AbstractModel> filterList = new ArrayList<AbstractModel>();
+                ArrayList<AbstractGooglePlay> filterList = new ArrayList<AbstractGooglePlay>();
                 if (s.length() > 0) {
                     for (int i = 0; i < modelList.size(); i++) {
                         if (modelList.get(i).getTitle().toLowerCase().contains(s.toString().toLowerCase())) {
@@ -175,65 +174,68 @@ public class HeaderFooterGridActivity extends AppCompatActivity {
     private void setAdapter() {
 
 
-        modelList.add(new AbstractModel("Android", "Hello " + " Android"));
-        modelList.add(new AbstractModel("Beta", "Hello " + " Beta"));
-        modelList.add(new AbstractModel("Cupcake", "Hello " + " Cupcake"));
-        modelList.add(new AbstractModel("Donut", "Hello " + " Donut"));
-        modelList.add(new AbstractModel("Eclair", "Hello " + " Eclair"));
-        modelList.add(new AbstractModel("Froyo", "Hello " + " Froyo"));
-        modelList.add(new AbstractModel("Gingerbread", "Hello " + " Gingerbread"));
-        modelList.add(new AbstractModel("Honeycomb", "Hello " + " Honeycomb"));
-        modelList.add(new AbstractModel("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich"));
-        modelList.add(new AbstractModel("Jelly Bean", "Hello " + " Jelly Bean"));
-        modelList.add(new AbstractModel("KitKat", "Hello " + " KitKat"));
-        modelList.add(new AbstractModel("Lollipop", "Hello " + " Lollipop"));
-        modelList.add(new AbstractModel("Marshmallow", "Hello " + " Marshmallow"));
-        modelList.add(new AbstractModel("Nougat", "Hello " + " Nougat"));
-        modelList.add(new AbstractModel("Android O", "Hello " + " Android O"));
+        ArrayList<AbstractGooglePlay> singleItemList = new ArrayList<>();
+
+        singleItemList.add(new AbstractGooglePlay("Android", "Hello " + " Android"));
+        singleItemList.add(new AbstractGooglePlay("Beta", "Hello " + " Beta"));
+        singleItemList.add(new AbstractGooglePlay("Cupcake", "Hello " + " Cupcake"));
+        singleItemList.add(new AbstractGooglePlay("Donut", "Hello " + " Donut"));
+        singleItemList.add(new AbstractGooglePlay("Eclair", "Hello " + " Eclair"));
+        singleItemList.add(new AbstractGooglePlay("Froyo", "Hello " + " Froyo"));
+        singleItemList.add(new AbstractGooglePlay("Gingerbread", "Hello " + " Gingerbread"));
+        singleItemList.add(new AbstractGooglePlay("Honeycomb", "Hello " + " Honeycomb"));
+        singleItemList.add(new AbstractGooglePlay("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich"));
+        singleItemList.add(new AbstractGooglePlay("Jelly Bean", "Hello " + " Jelly Bean"));
+        singleItemList.add(new AbstractGooglePlay("KitKat", "Hello " + " KitKat"));
+        singleItemList.add(new AbstractGooglePlay("Lollipop", "Hello " + " Lollipop"));
+        singleItemList.add(new AbstractGooglePlay("Marshmallow", "Hello " + " Marshmallow"));
+        singleItemList.add(new AbstractGooglePlay("Nougat", "Hello " + " Nougat"));
+        singleItemList.add(new AbstractGooglePlay("Android O", "Hello " + " Android O"));
 
 
-        mAdapter = new HeaderFooterGridAdapter(HeaderFooterGridActivity.this, modelList, "Header", "Footer");
+        modelList.add(new AbstractGooglePlay("Android", "Hello " + " Android", singleItemList));
+        modelList.add(new AbstractGooglePlay("Beta", "Hello " + " Beta", singleItemList));
+        modelList.add(new AbstractGooglePlay("Cupcake", "Hello " + " Cupcake", singleItemList));
+        modelList.add(new AbstractGooglePlay("Donut", "Hello " + " Donut", singleItemList));
+        modelList.add(new AbstractGooglePlay("Eclair", "Hello " + " Eclair", singleItemList));
+        modelList.add(new AbstractGooglePlay("Froyo", "Hello " + " Froyo", singleItemList));
+        modelList.add(new AbstractGooglePlay("Gingerbread", "Hello " + " Gingerbread", singleItemList));
+        modelList.add(new AbstractGooglePlay("Honeycomb", "Hello " + " Honeycomb", singleItemList));
+        modelList.add(new AbstractGooglePlay("Ice Cream Sandwich", "Hello " + " Ice Cream Sandwich", singleItemList));
+        modelList.add(new AbstractGooglePlay("Jelly Bean", "Hello " + " Jelly Bean", singleItemList));
+        modelList.add(new AbstractGooglePlay("KitKat", "Hello " + " KitKat", singleItemList));
+        modelList.add(new AbstractGooglePlay("Lollipop", "Hello " + " Lollipop", singleItemList));
+        modelList.add(new AbstractGooglePlay("Marshmallow", "Hello " + " Marshmallow", singleItemList));
+        modelList.add(new AbstractGooglePlay("Nougat", "Hello " + " Nougat", singleItemList));
+        modelList.add(new AbstractGooglePlay("Android O", "Hello " + " Android O", singleItemList));
 
+
+        mAdapter = new GooglePlayAdapter(GooglePlayActivity.this, modelList);
 
         recyclerView.setHasFixedSize(true);
 
-
-        final GridLayoutManager layoutManager = new GridLayoutManager(HeaderFooterGridActivity.this, 2);
-        recyclerView.addItemDecoration(new GridMarginDecoration(HeaderFooterGridActivity.this, 2, 2, 2, 2));
+        LinearLayoutManager layoutManager = new LinearLayoutManager(this);
         recyclerView.setLayoutManager(layoutManager);
 
 
         recyclerView.setAdapter(mAdapter);
 
 
-        mAdapter.SetOnItemClickListener(new HeaderFooterGridAdapter.OnItemClickListener() {
+        mAdapter.SetOnMoreClickListener(new GooglePlayAdapter.OnMoreClickListener() {
             @Override
-            public void onItemClick(View view, int position, AbstractModel model) {
-
-                //handle item click events here
-                Toast.makeText(HeaderFooterGridActivity.this, "Hey " + model.getTitle(), Toast.LENGTH_SHORT).show();
-
+            public void onMoreClick(View view, int position, AbstractGooglePlay model) {
+                Toast.makeText(GooglePlayActivity.this, "See more " + position, Toast.LENGTH_SHORT).show();
 
             }
         });
 
-
-        mAdapter.SetOnHeaderClickListener(new HeaderFooterGridAdapter.OnHeaderClickListener() {
+        mAdapter.SetOnItemClickListener(new GooglePlayAdapter.OnItemClickListener() {
             @Override
-            public void onHeaderClick(View view, String headerTitle) {
+            public void onItemClick(View view, int absolutePosition, int relativePosition, AbstractGooglePlay model) {
 
                 //handle item click events here
-                Toast.makeText(HeaderFooterGridActivity.this, "Hey I am a header", Toast.LENGTH_SHORT).show();
-
-            }
-        });
-
-        mAdapter.SetOnFooterClickListener(new HeaderFooterGridAdapter.OnFooterClickListener() {
-            @Override
-            public void onFooterClick(View view, String footerTitle) {
-
-                //handle item click events here
-                Toast.makeText(HeaderFooterGridActivity.this, "Hey I am a footer", Toast.LENGTH_SHORT).show();
+                Toast.makeText(GooglePlayActivity.this, "Absolute Pos: " + absolutePosition
+                        + " Relative Pos: " + relativePosition, Toast.LENGTH_SHORT).show();
 
             }
         });

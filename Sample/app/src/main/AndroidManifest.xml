@@ -97,15 +97,15 @@
         <activity
             android:name=".activity.FooterGridActivity"
             android:label="@string/title_activity_footer_grid"
-            android:theme="@style/AppTheme.Template.Base"></activity>
-
-
+            android:theme="@style/AppTheme.Template.Base" />
         <activity
             android:name=".activity.HeaderFooterListActivity"
             android:label="@string/title_activity_header_footer_list"
-            android:theme="@style/AppTheme.Template.Base"></activity>
-
-
+            android:theme="@style/AppTheme.Template.Base" />
+        <activity
+            android:name=".activity.GooglePlayActivity"
+            android:label="@string/title_activity_google_play"
+            android:theme="@style/AppTheme.Template.Base" />
         <activity
             android:name=".activity.HeaderFooterGridActivity"
             android:label="@string/title_activity_header_footer_grid"
