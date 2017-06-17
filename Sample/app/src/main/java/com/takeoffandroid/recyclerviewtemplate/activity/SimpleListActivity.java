@@ -1,5 +1,6 @@
 package com.takeoffandroid.recyclerviewtemplate.activity;
 
+import android.graphics.drawable.GradientDrawable;
 import android.support.v7.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -66,7 +67,25 @@ public class SimpleListActivity extends AppCompatActivity {
 
         // ButterKnife.bind(this);
         findViews();
+
+
+
         initToolbar("Takeoff Android");
+
+
+        //Color.parseColor() method allow us to convert
+        // a hexadecimal color string to an integer value (int color)
+        int[] colors = {Color.parseColor("#ED5565"),Color.parseColor("#D62739")};
+
+        //create a new gradient color
+        GradientDrawable gd = new GradientDrawable(
+                GradientDrawable.Orientation.TOP_BOTTOM, colors);
+
+        gd.setCornerRadius(0f);
+        //apply the button background to newly created drawable gradient
+        fab.setBackgroundDrawable(gd);
+
+
         setAdapter();
 
         swipeRefreshRecyclerList.setOnRefreshListener(new SwipeRefreshLayout.OnRefreshListener() {

@@ -29,7 +29,7 @@ import android.support.design.widget.FloatingActionButton;
 
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
 import com.takeoffandroid.recyclerviewtemplate.GridMarginDecoration;
-import com.takeoffandroid.recyclerviewtemplate.HeaderFooterGridAdapter;
+import com.takeoffandroid.recyclerviewtemplate.adapter.HeaderFooterGridAdapter;
 import com.takeoffandroid.recyclerviewtemplate.R;
 
 

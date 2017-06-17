@@ -109,7 +109,7 @@
         <activity
             android:name=".activity.HeaderFooterGridActivity"
             android:label="@string/title_activity_header_footer_grid"
-            android:theme="@style/AppTheme.Template.Base"></activity>
+            android:theme="@style/AppTheme.Template.Base" />
     </application>
 
 </manifest>

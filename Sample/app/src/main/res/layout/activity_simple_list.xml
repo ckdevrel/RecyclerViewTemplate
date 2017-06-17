@@ -41,7 +41,6 @@
         android:layout_height="wrap_content"
         android:layout_margin="24dp"
         android:src="@drawable/abc_ic_search_api_material"
-        app:backgroundTint="#6CC887"
         app:borderWidth="0dp"
         app:elevation="6dp"
         app:fabSize="normal"

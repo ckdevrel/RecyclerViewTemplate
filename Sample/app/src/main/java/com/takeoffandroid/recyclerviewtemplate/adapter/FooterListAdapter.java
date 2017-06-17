@@ -96,6 +96,12 @@ public class FooterListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         return modelList.size() + 1;
     }
 
+
+    private AbstractModel getItem(int position) {
+        return modelList.get(position);
+    }
+
+
     public void SetOnItemClickListener(final OnItemClickListener mItemClickListener) {
         this.mItemClickListener = mItemClickListener;
     }
@@ -104,9 +110,7 @@ public class FooterListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         this.mFooterClickListener = footerClickListener;
     }
 
-    private AbstractModel getItem(int position) {
-        return modelList.get(position);
-    }
+
 
     public interface OnItemClickListener {
         void onItemClick(View view, int position, AbstractModel model);
