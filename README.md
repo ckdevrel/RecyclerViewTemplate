@@ -1,3 +1,3 @@
 # RecyclerViewTemplate
 
-<a href="http://imgur.com/lRMtRez"><img src="http://i.imgur.com/lRMtRez.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/36XedsY"><img src="http://i.imgur.com/36XedsY.png" title="source: imgur.com" /></a>
