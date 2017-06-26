@@ -31,7 +31,7 @@ C:\Program Files\Android\Android Studio\
 
 > Navigate to Plugins - android - lib - templates - other - paste the downloaded RecyclerViewTemplate folder
 
-<a href="http://imgur.com/g6vPucq"><img src="http://i.imgur.com/g6vPucq.png" title="source: imgur.com" height="203" width="300"/></a>  <a href="http://imgur.com/16P1k0s"><img src="http://i.imgur.com/16P1k0s.png" title="source: imgur.com" height="203" width="300"/></a>
+<a href="http://imgur.com/g6vPucq"><img src="http://i.imgur.com/g6vPucq.png" title="source: imgur.com" height="203" width="250"/></a>  <a href="http://imgur.com/16P1k0s"><img src="http://i.imgur.com/16P1k0s.png" title="source: imgur.com" height="203" width="300"/></a>
 
 <a href="http://imgur.com/JIg6iwM"><img src="http://i.imgur.com/JIg6iwM.png" title="source: imgur.com" height="203" width="300"/></a>
 
