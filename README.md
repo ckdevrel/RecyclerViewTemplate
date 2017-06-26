@@ -78,7 +78,7 @@ It is easy and pretty straight forward
 
 Yeah! Cool! Now Template wizard is up, Just play with it to generate code snippets for your requirement.
 
-<a href="http://imgur.com/JJLxTvp"><center><img src="http://i.imgur.com/JJLxTvp.png" title="source: imgur.com" height="203" width="300"/></center></a>
+<a href="http://imgur.com/JJLxTvp"><img src="http://i.imgur.com/JJLxTvp.png" title="source: imgur.com" height="203" width="300"/></a>
 
 
 Add on's
