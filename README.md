@@ -21,7 +21,7 @@ Go to Applications, Choose Android Studio, Right click and select **Show Package
 
 Navigate to > Contents - Plugins - android - lib - templates - other - paste the downloaded RecyclerViewTemplate folder
 
-<a href="http://imgur.com/g6vPucq"><img src="http://i.imgur.com/g6vPucq.png" title="source: imgur.com" /></a><a href="http://imgur.com/16P1k0s"><img src="http://i.imgur.com/16P1k0s.png" title="source: imgur.com" /></a><a href="http://imgur.com/JIg6iwM"><img src="http://i.imgur.com/JIg6iwM.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/g6vPucq"><img src="http://i.imgur.com/g6vPucq.png" title="source: imgur.com" height="203" width="400"/></a><a href="http://imgur.com/16P1k0s"><img src="http://i.imgur.com/16P1k0s.png" title="source: imgur.com" height="203" width="400"/></a><a href="http://imgur.com/JIg6iwM"><img src="http://i.imgur.com/JIg6iwM.png" title="source: imgur.com" height="203" width="400"/></a>
 
 
 Simple RecyclerView (List & Grid)
