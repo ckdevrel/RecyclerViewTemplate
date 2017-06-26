@@ -29,7 +29,7 @@ Navigate to > Contents - Plugins - android - lib - templates - other - paste the
 Simple RecyclerView (List & Grid)
 ---------------------------------
 
-<a href="http://imgur.com/O82WCuh"><img src="http://i.imgur.com/O82WCuh.png" title="source: imgur.com" height="403" width="150" /></a> <a href="http://imgur.com/ODaJwUJ"><img src="http://i.imgur.com/ODaJwUJ.png" title="source: imgur.com" height="353" width="150" /></a> <a href="http://imgur.com/kuSP6oi"><img src="http://i.imgur.com/kuSP6oi.png" title="source: imgur.com" height="353" width="150" /></a> <a href="http://imgur.com/7skEIav"><img src="http://i.imgur.com/7skEIav.png" title="source: imgur.com" height="353" width="200"/></a>
+<a href="http://imgur.com/O82WCuh"><img src="http://i.imgur.com/O82WCuh.png" title="source: imgur.com" height="403" width="200"/></a> <a href="http://imgur.com/ODaJwUJ"><img src="http://i.imgur.com/ODaJwUJ.png" title="source: imgur.com" height="403" width="200" /></a> <a href="http://imgur.com/kuSP6oi"><img src="http://i.imgur.com/kuSP6oi.png" title="source: imgur.com" height="403" width="200" /></a> <a href="http://imgur.com/7skEIav"><img src="http://i.imgur.com/7skEIav.png" title="source: imgur.com" height="403" width="200"/></a>
 
 
 Header, Footer and Header-Footer RecyclerView (List & Grid)
