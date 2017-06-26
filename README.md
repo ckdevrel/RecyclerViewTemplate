@@ -9,7 +9,7 @@ Usages
 
 2. Rename the downloaded folder to RecyclerViewTemplate and copy the complete folder.
 
-<a href="http://imgur.com/bMZ2ljK"><img src="http://i.imgur.com/bMZ2ljK.png" title="source: imgur.com" height="103" width="400" /></a>
+<a href="http://imgur.com/bMZ2ljK"><img src="http://i.imgur.com/bMZ2ljK.png" title="source: imgur.com" height="203" width="400" /></a>
 
 Paste the selected files into 
 
