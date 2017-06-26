@@ -82,7 +82,7 @@ Yeah! Cool! Now Template wizard is up, Just play with it to generate code snippe
 
 <a href="http://imgur.com/IHgvPKu"><img src="http://i.imgur.com/IHgvPKu.png" title="source: imgur.com" height="403" width="500"/></a>
 
-<a href="http://imgur.com/LKpzlYF"><img src="http://i.imgur.com/LKpzlYF.png" title="source: imgur.com" height="403" width="500"/></a>
+<a href="http://imgur.com/P0bSDy4"><img src="http://i.imgur.com/P0bSDy4.png" title="source: imgur.com" height="403" width="500"/></a>
 
 Add on's
 --------
