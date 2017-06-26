@@ -16,10 +16,9 @@ Header, Footer and Header-Footer RecyclerView (List & Grid)
 Checkbox, Radiobutton, Toggle Switch RecyclerView (List & Grid)
 ---------------------------------------------------------------
 
-<a href="http://imgur.com/Ss0mQBs"><img src="http://i.imgur.com/Ss0mQBs.png" title="source: imgur.com" /></a> <a href="http://imgur.com/DBMdyhx"><img src="http://i.imgur.com/DBMdyhx.png" title="source: imgur.com" /></a> <a href="http://imgur.com/3VUsHnN"><img src="http://i.imgur.com/3VUsHnN.png" title="source: imgur.com" /></a> <a href="http://imgur.com/17oai4e"><img src="http://i.imgur.com/17oai4e.png" title="source: imgur.com" /></a> <a href="http://imgur.com/kdYg2OF"><img src="http://i.imgur.com/kdYg2OF.png" title="source: imgur.com" /></a> <a href="http://imgur.com/vXbwUSR"><img src="http://i.imgur.com/vXbwUSR.png" title="source: imgur.com" /></a>
-
+<a href="http://imgur.com/6l0K3ku"><img src="http://imgur.com/6l0K3ku.png" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/Igfxrzk"><img src="http://imgur.com/Igfxrzk.png" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/d9oVKbm"><img src="http://imgur.com/d9oVKbm.png" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/l8t8vTm"><img src="http://imgur.com/l8t8vTm.png" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/wmrlVAm"><img src="http://imgur.com/wmrlVAm.png" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/hn0NoGI"><img src="http://imgur.com/hn0NoGI.png" title="source: imgur.com" height="403" width="200"/></a>
 
 Google Play Like RecyclerView
 -----------------------------
 
-<a href="http://imgur.com/dayfl1q"><img src="http://i.imgur.com/dayfl1q.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/NbZOHjY"><img src="http://imgur.com/NbZOHjY.png" title="source: imgur.com" height="403" width="200"/></a>
