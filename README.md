@@ -74,5 +74,5 @@ It is easy and pretty straight forward
 > - Right click on your project root package.
 > - Navigate to New - Other - RecyclerViewTemplate
 
-<a href="http://imgur.com/uLRdJOC"><img src="http://i.imgur.com/uLRdJOC.png" title="source: imgur.com" height="403" width="200" /></a>
+<a href="http://imgur.com/uLRdJOC"><img src="http://i.imgur.com/uLRdJOC.png" title="source: imgur.com" height="303" width="500" /></a>
 
