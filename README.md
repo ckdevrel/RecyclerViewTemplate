@@ -1,6 +1,25 @@
 # RecyclerViewTemplate
 
+Usages
+------
 
+Download or clone this repo
+
+<a href="http://imgur.com/Fpn5F1Q"><img src="http://i.imgur.com/Fpn5F1Q.png" title="source: imgur.com" /></a>
+
+Copy all the files and folders except sample (It contains the sample demo android studio project. So kindly ignore this folder)
+
+<a href="http://imgur.com/i9P9pB1"><img src="http://i.imgur.com/i9P9pB1.png" title="source: imgur.com" /></a>
+
+Paste the selected files into 
+
+**For Mac**
+
+Go to Applications, Choose Android Studio, Right click and select **Show Package Contents** options.
+
+<a href="http://imgur.com/6jkayYm"><img src="http://i.imgur.com/6jkayYm.png" title="source: imgur.com" /></a>
+
+Navigate to > Contents - Plugins - android - lib - templates - other - paste the downloaded RecyclerView template folder
 
 Simple RecyclerView (List & Grid)
 ---------------------------------
