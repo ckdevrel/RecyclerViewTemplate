@@ -17,7 +17,7 @@ Paste the selected files into
 
 Go to Applications, Choose Android Studio, Right click and select **Show Package Contents** options.
 
-<a href="http://imgur.com/6jkayYm"><img src="http://i.imgur.com/6jkayYm.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/6jkayYm"><img src="http://i.imgur.com/6jkayYm.png" title="source: imgur.com" height="203" width="400"/></a>
 
 Navigate to > Contents - Plugins - android - lib - templates - other - paste the downloaded RecyclerViewTemplate folder
 
