@@ -1,7 +1,6 @@
 # RecyclerViewTemplate
 
 
-<a href="http://imgur.com/izpFm5a"><img src="http://i.imgur.com/izpFm5a.png" title="source: imgur.com" height="403" width="200"/></a>
 
 Simple RecyclerView (List & Grid)
 ---------------------------------
@@ -12,7 +11,7 @@ Simple RecyclerView (List & Grid)
 Header, Footer and Header-Footer RecyclerView (List & Grid)
 ----------------------------------------------
 
-<a href="http://imgur.com/xuNRVGb"><img src="http://i.imgur.com/xuNRVGb.png" title="source: imgur.com" /></a> <a href="http://imgur.com/yY9f3IE"><img src="http://i.imgur.com/yY9f3IE.png" title="source: imgur.com" /></a> <a href="http://imgur.com/aMVME9D"><img src="http://i.imgur.com/aMVME9D.png" title="source: imgur.com" /></a> <a href="http://imgur.com/uRu7HRi"><img src="http://i.imgur.com/uRu7HRi.png" title="source: imgur.com" /></a> <a href="http://imgur.com/yZSBkCm"><img src="http://i.imgur.com/yZSBkCm.png" title="source: imgur.com" /></a> <a href="http://imgur.com/RxxEk5j"><img src="http://i.imgur.com/RxxEk5j.png" title="source: imgur.com" /></a>
+<a href="http://imgur.com/izpFm5a"><img src="http://imgur.com/N4xHlWU" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/izpFm5a"><img src="http://imgur.com/7dlO9ow" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/izpFm5a"><img src="http://imgur.com/2JQJRfF" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/izpFm5a"><img src="http://imgur.com/byRiepd" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/izpFm5a"><img src="http://imgur.com/uXc9Q2A" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/izpFm5a"><img src="http://imgur.com/PAabrBs" title="source: imgur.com" height="403" width="200"/></a>
 
 Checkbox, Radiobutton, Toggle Switch RecyclerView (List & Grid)
 ---------------------------------------------------------------
