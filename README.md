@@ -5,7 +5,7 @@ Usages
 
 1. Download or clone this repo
 
-<a href="http://imgur.com/Fpn5F1Q"><img src="http://i.imgur.com/Fpn5F1Q.png" title="source: imgur.com" height="203" width="400"/></a>
+<a href="http://imgur.com/Fpn5F1Q"><img src="http://i.imgur.com/Fpn5F1Q.png" title="source: imgur.com" height="103" width="400"/></a>
 
 2. Rename the downloaded folder to RecyclerViewTemplate and copy the complete folder.
 
