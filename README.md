@@ -99,7 +99,7 @@ Yes of course there's a way for that too! According to the benchmark of this tem
 Contributions
 -------------
 
-You're most welcome. Though I have manually tasted most of the scenarios there might be some cases I would have missed out. Please let us know and pull request are really appreciable.
+Pull requests and contributions are most welcome.
 
 > Any type of RecyclerView in mind? You can always drop a mail!.
 
