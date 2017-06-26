@@ -87,4 +87,26 @@ Yeah! Cool! Now Template wizard is up, Just play with it to generate code snippe
 Add on's
 --------
 
-Hat
+Hate working with FAB, toolbar, search, cardview, fragment, swiperefresh layout, pagination, divider, header, footer?
+
+Now it's just a checkbox away. This template provides an option of enabling/disabling the states of add on's in an easy with checkboxes. 
+
+Customizations
+--------------
+
+Yes of course there's a way for that too! According to the benchmark of this template there are more than 250+ combinations of RecyclerView's can be made without even writing a single piece of code. Still you can modify source of the template from ``` RecyclerViewTemplate/root/src/app_package/``` files.
+
+Contributions
+-------------
+
+You're most welcome. Though I have manually tasted most of the scenarios there might be some cases I would have missed out. Please let us know and pull request are really appreciable.
+
+Credits and References?
+-----------------------
+
+https://github.com/gabrielemariotti/AndroidStudioTemplate
+
+https://github.com/benoitletondor/Android-Studio-MVP-template
+
+
+
