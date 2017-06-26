@@ -101,6 +101,9 @@ Contributions
 
 You're most welcome. Though I have manually tasted most of the scenarios there might be some cases I would have missed out. Please let us know and pull request are really appreciable.
 
+> Any type of RecyclerView in mind? You can always drop a mail!.
+
+
 Credits and References?
 -----------------------
 
