@@ -1,5 +1,8 @@
 # RecyclerViewTemplate
 
+
+<a href="http://imgur.com/izpFm5a"><img src="http://i.imgur.com/izpFm5a.png" title="source: imgur.com" height="403" width="200"/></a>
+
 Simple RecyclerView (List & Grid)
 ---------------------------------
 
