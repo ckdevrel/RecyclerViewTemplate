@@ -77,7 +77,7 @@ It is easy and pretty straight forward
 > - Right click on your project root package.
 > - Navigate to New - Other - RecyclerViewTemplate
 
-<a href="http://imgur.com/uLRdJOC"><img src="http://i.imgur.com/uLRdJOC.png" title="source: imgur.com" height="303" width="500" /></a>
+<a href="http://imgur.com/o1FYRmU"><img src="http://i.imgur.com/o1FYRmU.png" title="source: imgur.com" /></a>
 
 Yeah! Cool! Now Template wizard is up, Just play with it to generate code snippets for your requirement.
 
