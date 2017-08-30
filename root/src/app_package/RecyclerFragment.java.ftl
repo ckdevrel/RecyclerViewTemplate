@@ -5,7 +5,7 @@ package ${packageName};
 
 import android.os.Bundle;
 
-<#if features != 'googleplay'>
+<#if features != 'googleplay' || features != 'section'>
 <#if layoutmanager == 'grid'>
 import android.support.v7.widget.GridLayoutManager;
 <#else>
@@ -13,7 +13,7 @@ import android.support.v7.widget.LinearLayoutManager;
 </#if>
 </#if>
 
-<#if features == 'googleplay'>
+<#if features == 'googleplay' || features == 'section'>
 import android.support.v7.widget.LinearLayoutManager;
 </#if>
 import android.support.v4.app.Fragment;
@@ -348,7 +348,7 @@ public class ${className} extends Fragment {
 
     private void setAdapter(){
 
-      <#if features == 'googleplay'>
+      <#if features == 'googleplay' || features == 'section'>
 
              ArrayList<${adapterModelClass}> singleItemList = new ArrayList<>();
 
@@ -423,7 +423,7 @@ public class ${className} extends Fragment {
 
           recyclerView.setHasFixedSize(true);
 
-          <#if features == 'googleplay'>
+          <#if features == 'googleplay' || features == 'section'>
           LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
           recyclerView.setLayoutManager(layoutManager);
           <#else>
@@ -440,11 +440,13 @@ public class ${className} extends Fragment {
           LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
           recyclerView.setLayoutManager(layoutManager);
           </#if>
-          <#if isDivider>
+
+          </#if>
+
+          <#if features != 'googleplay' && isDivider>
           DividerItemDecoration dividerItemDecoration = new DividerItemDecoration(recyclerView.getContext(), layoutManager.getOrientation());
           dividerItemDecoration.setDrawable(ContextCompat.getDrawable(getActivity(), R.drawable.divider_recyclerview));
           recyclerView.addItemDecoration(dividerItemDecoration);
-          </#if>
           </#if>
 
           recyclerView.setAdapter(mAdapter);

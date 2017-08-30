@@ -34,6 +34,9 @@ import android.widget.CompoundButton;
 
   <#include "include_recycleview_google_play.java.ftl"/>
 
+  <#elseif features == 'section'>
+
+  <#include "include_recyclerview_section.java.ftl"/>
 
 
 <#else>

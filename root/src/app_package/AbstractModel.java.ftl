@@ -7,7 +7,7 @@ public class ${adapterModelClass} {
 
     private String message;
 
-    <#if features == 'googleplay'>
+    <#if features == 'googleplay' || features == 'section'>
     private ArrayList<${adapterModelClass}> singleItemModelArrayList;
     </#if>
 
@@ -28,7 +28,7 @@ public class ${adapterModelClass} {
         this.message = message;
     }
 
-    <#if features == 'googleplay'>
+    <#if features == 'googleplay' || features == 'section'>
 
     public ArrayList<${adapterModelClass}> getSingleItemArrayList() {
          return singleItemModelArrayList;
@@ -46,7 +46,7 @@ public class ${adapterModelClass} {
       this.message = message;
     }
 
-    <#if features == 'googleplay'>
+    <#if features == 'googleplay' || features == 'section'>
 
     public ${adapterModelClass}(String title,  String message, ArrayList<${adapterModelClass}> singleItemModelArrayList) {
      this.title = title;

@@ -59,11 +59,6 @@
 
   <parameter id="itemLayoutName" name="Adapter Layout Name" type="string" constraints="layout|nonempty" default="item_recycler_list" help="The name of the row layout to use"/>
 
-  <parameter id="layoutmanager" name="LayoutManager Type" type="enum" default="list" visibility="!(features=='googleplay')" help="Choose your own LayoutManager Type">
-    <option id="list">List (LinearLayoutManager)</option>
-    <option id="grid">Grid (GridLayoutManager)</option>
-  </parameter>
-
   <parameter id="adapterGooglePlayClass" name="Adapter Google play Name" type="string" constraints="class|unique|nonempty" default="SingleItemListAdapter" help="The name of the google play adapter class to create" visibility="false"/>
 
   <parameter id="adapterModelClass" name="Model Name" type="string" constraints="class|unique|nonempty" default="AbstractModel" help="The name of the model class for adapter"/>
@@ -75,11 +70,17 @@
     <option id="checkbox">Checkbox Recyclerview</option>
     <option id="toggle">Toggle Recyclerview</option>
     <option id="googleplay">GooglePlay like Recyclerview</option>
+    <option id="section">Section Recyclerview</option>
   </parameter>
 
-  <parameter id="isHeader" name="Add Header" type="boolean" default="false" visibility="!(features=='googleplay')" help="If true, recyclerview list item will have a header"/>
+  <parameter id="layoutmanager" name="LayoutManager Type" type="enum" default="list" visibility="!(features=='googleplay' || features=='section')" help="Choose your own LayoutManager Type">
+    <option id="list">List (LinearLayoutManager)</option>
+    <option id="grid">Grid (GridLayoutManager)</option>
+  </parameter>
 
-  <parameter id="isFooter" name="Add Footer" type="boolean" default="false" visibility="!(features=='googleplay')" help="If true, recyclerview list item will have a footer"/>
+  <parameter id="isHeader" name="Add Header" type="boolean" default="false" visibility="!(features=='googleplay' || features=='section')" help="If true, recyclerview list item will have a header"/>
+
+  <parameter id="isFooter" name="Add Footer" type="boolean" default="false" visibility="!(features=='googleplay' || features=='section')" help="If true, recyclerview list item will have a footer"/>
 
   <parameter id="isItemClick" name="Need ItemClick" type="boolean" default="true" help="If true, recyclerview list item will be clickable"/>
 

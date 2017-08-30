@@ -63,6 +63,9 @@
 
     </#if>
 
+
+
+
     <#if isHeader>
 
     <instantiate from="res/layout/item_recycler_header.xml.ftl"
@@ -116,6 +119,20 @@
 
   <instantiate from="res/layout/item_recycler_google_play.xml.ftl"
                     to="${escapeXmlAttribute(resOut)}/layout/${itemLayoutGooglePlay}.xml" />
+
+  </#if>
+
+
+  <#if features == 'section'>
+
+
+  <instantiate from="res/layout/item_recycler_section.xml.ftl"
+                    to="${escapeXmlAttribute(resOut)}/layout/item_recycler_section.xml" />
+
+
+  <instantiate from="src/app_package/SectionedRecyclerViewAdapter.java.ftl"
+                     to="${escapeXmlAttribute(srcOut)}/SectionedRecyclerViewAdapter.java" />
+
 
   </#if>
 
