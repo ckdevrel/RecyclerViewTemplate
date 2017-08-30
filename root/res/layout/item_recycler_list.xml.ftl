@@ -2,6 +2,11 @@
 
       <#include "item_recycler_google_play.xml.ftl"/>
 
+
+<#elseif features == 'section'>
+      <#include "item_recycler_section_content_list.xml.ftl"/>
+
+
 <#elseif features == 'banner'>
 
 <#if layoutmanager == 'grid'>

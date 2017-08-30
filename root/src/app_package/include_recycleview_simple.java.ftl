@@ -122,7 +122,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                  lastCheckedPosition = position;
                  notifyItemRangeChanged(0, modelList.size());
 
-                 mItemClickListener.onItemClick(view, position,modelList.get(position));
+                 mItemClickListener.onItemClick(view, position,model);
 
              }
           });
@@ -147,7 +147,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                  checkSet.remove(position);
                }
 
-               mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+               mOnCheckedListener.onChecked(buttonView, isChecked, position, model);
 
            }
           });
@@ -172,7 +172,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                  checkSet.remove(position);
                }
 
-               mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+               mOnCheckedListener.onChecked(buttonView, isChecked, position, model);
 
            }
           });
@@ -238,7 +238,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         public HeaderViewHolder (final View itemView) {
             super (itemView);
-            this.txtTitleHeader = (TextView) itemView.findViewById (R.id.txtHeader);
+            this.txtTitleHeader = (TextView) itemView.findViewById (R.id.txt_header);
 
             <#if isItemClick>
 
@@ -341,7 +341,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                  lastCheckedPosition = position;
                  notifyItemRangeChanged(0, modelList.size());
 
-                 mItemClickListener.onItemClick(view, position,modelList.get(position));
+                 mItemClickListener.onItemClick(view, position,model);
 
              }
          });
@@ -366,7 +366,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                  checkSet.remove(position);
                }
 
-               mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+               mOnCheckedListener.onChecked(buttonView, isChecked, position, model);
 
            }
        });
@@ -392,7 +392,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
               checkSet.remove(position);
             }
 
-            mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+            mOnCheckedListener.onChecked(buttonView, isChecked, position, model);
 
         }
        });
@@ -427,7 +427,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
 
         public HeaderViewHolder (final View itemView) {
             super (itemView);
-            this.txtTitleHeader = (TextView) itemView.findViewById (R.id.txtHeader);
+            this.txtTitleHeader = (TextView) itemView.findViewById (R.id.txt_header);
 
             <#if isItemClick>
 
@@ -522,7 +522,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                    lastCheckedPosition = position;
                    notifyItemRangeChanged(0, modelList.size());
 
-                   mItemClickListener.onItemClick(view, position,modelList.get(position));
+                   mItemClickListener.onItemClick(view, position,model);
 
                }
             });
@@ -547,7 +547,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                    checkSet.remove(position);
                  }
 
-                 mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+                 mOnCheckedListener.onChecked(buttonView, isChecked, position, model);
 
              }
             });
@@ -572,7 +572,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                    checkSet.remove(position);
                  }
 
-                 mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+                 mOnCheckedListener.onChecked(buttonView, isChecked, position, model);
 
              }
             });
@@ -698,7 +698,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                   lastCheckedPosition = position;
                   notifyItemRangeChanged(0, modelList.size());
 
-                  mItemClickListener.onItemClick(view, position,modelList.get(position));
+                  mItemClickListener.onItemClick(view, position,model);
 
               }
           });
@@ -724,7 +724,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
                checkSet.remove(position);
              }
 
-             mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+             mOnCheckedListener.onChecked(buttonView, isChecked, position, model);
 
          }
      });
@@ -749,7 +749,7 @@ public class ${adapterClass} extends RecyclerView.Adapter<RecyclerView.ViewHolde
             checkSet.remove(position);
           }
 
-          mOnCheckedListener.onChecked(buttonView, isChecked, position, modelList.get(position));
+          mOnCheckedListener.onChecked(buttonView, isChecked, position, model);
 
       }
      });

@@ -12,8 +12,10 @@
     </style>
 
     <style name="ToolbarStyle" parent="@style/ThemeOverlay.AppCompat.ActionBar">
+
       <!-- Customize color of navigation drawer icon and back arrow -->
       <item name="colorControlNormal">@android:color/white</item>
+
     </style>
 
 
