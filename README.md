@@ -1,3 +1,5 @@
+<a href='https://ko-fi.com/A302HW7' target='_blank'><img height='36' style='border:0px;height:36px;' src='https://az743702.vo.msecnd.net/cdn/kofi4.png?v=f' border='0' alt='Buy Me a Coffee at ko-fi.com' /></a>
+
 # RecyclerViewTemplate
 
 The main purpose of this repo is to reduce the boiler plate code used in RecyclerViewTemplate. Yeah! All you have to just mark the fields in the template wizards. Now, you're good to go.
@@ -11,7 +13,7 @@ This template supports RecyclerView customziations like list, grid, header, foot
 RecyclerView Style
 ------------------
 
-The following are the different types of RecyclerView styles and pattern made from this template. 
+The following are the different types of RecyclerView styles and pattern made from this template.
 
 #### Simple RecyclerView (List & Grid)
 
@@ -41,7 +43,7 @@ Implementation
 
 <a href="http://imgur.com/bMZ2ljK"><img src="http://i.imgur.com/bMZ2ljK.png" title="source: imgur.com" height="203" width="400" /></a>
 
-Paste the selected files into 
+Paste the selected files into
 
 **For Mac**
 
@@ -74,5 +76,39 @@ It is easy and pretty straight forward
 > - Right click on your project root package.
 > - Navigate to New - Other - RecyclerViewTemplate
 
-<a href="http://imgur.com/uLRdJOC"><img src="http://i.imgur.com/uLRdJOC.png" title="source: imgur.com" height="303" width="500" /></a>
+<a href="http://imgur.com/o1FYRmU"><img src="http://i.imgur.com/o1FYRmU.png" title="source: imgur.com" /></a>
 
+Yeah! Cool! Now Template wizard is up, Just play with it to generate code snippets for your requirement.
+
+<a href="http://imgur.com/JJLxTvp"><img src="http://i.imgur.com/JJLxTvp.png" title="source: imgur.com" height="403" width="500"/></a>
+
+<a href="http://imgur.com/IHgvPKu"><img src="http://i.imgur.com/IHgvPKu.png" title="source: imgur.com" height="403" width="500"/></a>
+
+<a href="http://imgur.com/P0bSDy4"><img src="http://i.imgur.com/P0bSDy4.png" title="source: imgur.com" height="403" width="500"/></a>
+
+Add on's
+--------
+
+Hate working with FAB, toolbar, search, cardview, fragment, swiperefresh layout, pagination, divider, header, footer?
+
+Now it's just a checkbox away. This template provides an option of enabling/disabling the states of add on's in an easy with checkboxes.
+
+Customizations
+--------------
+
+Yes of course there's a way for that too! According to the benchmark of this template there are more than 250+ combinations of RecyclerView's can be made without even writing a single piece of code. Still you can modify source of the template from ``` RecyclerViewTemplate/root/src/app_package/``` files.
+
+Contributions
+-------------
+
+Pull requests and contributions are most welcome.
+
+> Any type of RecyclerView in mind? You can always drop a mail!.
+
+
+Credits and References?
+-----------------------
+
+https://github.com/gabrielemariotti/AndroidStudioTemplate
+
+https://github.com/benoitletondor/Android-Studio-MVP-template
