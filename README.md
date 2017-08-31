@@ -34,8 +34,7 @@ The following are the different types of RecyclerView styles and pattern made fr
 
 #### Section RecyclerView
 
-<a href="http://imgur.com/xEX5N"><img src="http://imgur.com/a/xEX5N.png" title="source: imgur.com" height="403" width="200"/></a>
-
+<a href="http://imgur.com/nuxlFdK"><img src="http://i.imgur.com/nuxlFdK.jpg" title="source: imgur.com" height="403" width="200" /></a>
 
 Implementation
 --------------
