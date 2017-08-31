@@ -7,7 +7,7 @@ The main purpose of this repo is to reduce the boiler plate code used in Recycle
 Supports
 --------
 
-This template supports RecyclerView customziations like list, grid, header, footer, header-footer, toggle, checkbox, radio, google play like RecyclerView
+This template supports RecyclerView customziations like list, grid, header, footer, header-footer, toggle, checkbox, radio, google play like RecyclerView and Section RecyclerView.
 
 
 RecyclerView Style
