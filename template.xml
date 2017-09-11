@@ -119,7 +119,7 @@
   <!-- 128x128 thumbnails relative to template.xml -->
   <thumbs>
     <!-- default thumbnail is required -->
-    <thumb>templates_adapter.png</thumb>
+    <thumb>templates_adapter_list.png</thumb>
 
   </thumbs>
 
