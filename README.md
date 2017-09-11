@@ -2,7 +2,7 @@
 
 # RecyclerViewTemplate
 
-The main purpose of this repo is to reduce the boiler plate code used in RecyclerViewTemplate. Yeah! All you have to just mark the fields in the template wizards. Now, you're good to go.
+The main purpose of this repo is to reduce the boiler plate code used in RecylerView's for different views and use cases. Yeah! All you have to just mark the fields in the template wizards. Now, you're good to go.
 
 Supports
 --------
