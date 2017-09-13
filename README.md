@@ -111,7 +111,7 @@ Contributions
 
 Pull requests and contributions are most welcome.
 
-> Any type of RecyclerView in mind? You can always drop a mail!.
+> Any type of RecyclerView on mind? You can always drop a mail!.
 
 
 Credits and References?
