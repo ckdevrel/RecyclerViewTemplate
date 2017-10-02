@@ -17,11 +17,24 @@ The following are the different types of RecyclerView styles and pattern made fr
 
 #### Simple RecyclerView (List & Grid)
 
+#### VERTICAL:
+
 <a href="http://imgur.com/O82WCuh"><img src="http://i.imgur.com/O82WCuh.png" title="source: imgur.com" height="403" width="200"/></a> <a href="http://imgur.com/ODaJwUJ"><img src="http://i.imgur.com/ODaJwUJ.png" title="source: imgur.com" height="403" width="200" /></a> <a href="http://imgur.com/kuSP6oi"><img src="http://i.imgur.com/kuSP6oi.png" title="source: imgur.com" height="403" width="200" /></a> <a href="http://imgur.com/7skEIav"><img src="http://i.imgur.com/7skEIav.png" title="source: imgur.com" height="403" width="200"/></a>
+
+#### HORIZONTAL:
+
+<a href="https://imgur.com/fBn0pjm"><img src="https://i.imgur.com/fBn0pjm.png" title="source: imgur.com" height="403" width="200" /><a href="https://imgur.com/AzPUfkY"><img src="https://i.imgur.com/AzPUfkY.png" title="source: imgur.com" height="403" width="200"/></a>
+
 
 #### Banner RecyclerView (List & Grid)
 
+#### VERTICAL:
+
 <a href="https://imgur.com/RaNfYKd"><img src="https://i.imgur.com/RaNfYKd.png" title="source: imgur.com" height="403" width="200" /></a><a href="https://imgur.com/ahIYXNd"><img src="https://i.imgur.com/ahIYXNd.png" title="source: imgur.com" height="403" width="200"/></a>
+
+#### HORIZONTAL:
+
+<a href="https://imgur.com/Ese7xAW"><img src="https://i.imgur.com/Ese7xAW.png" title="source: imgur.com" height="403" width="200"/></a>
 
 #### Header, Footer and Header-Footer RecyclerView (List & Grid)
 
@@ -29,8 +42,13 @@ The following are the different types of RecyclerView styles and pattern made fr
 
 #### Checkbox, Radiobutton, Toggle Switch RecyclerView (List & Grid)
 
+#### VERTICAL:
+
 <a href="http://imgur.com/6l0K3ku"><img src="http://imgur.com/6l0K3ku.png" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/Igfxrzk"><img src="http://imgur.com/Igfxrzk.png" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/d9oVKbm"><img src="http://imgur.com/d9oVKbm.png" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/l8t8vTm"><img src="http://imgur.com/l8t8vTm.png" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/wmrlVAm"><img src="http://imgur.com/wmrlVAm.png" title="source: imgur.com" height="403" width="200"/></a><a href="http://imgur.com/hn0NoGI"><img src="http://imgur.com/hn0NoGI.png" title="source: imgur.com" height="403" width="200"/></a>
 
+#### HORIZONTAL:
+
+<a href="https://imgur.com/9WTee9I"><img src="https://i.imgur.com/9WTee9I.png" title="source: imgur.com" height="403" width="200"/></a><a href="https://imgur.com/2Z8Gsu6"><img src="https://i.imgur.com/2Z8Gsu6.png" title="source: imgur.com" height="403" width="200" /></a><a href="https://imgur.com/3uFsEQ8"><img src="https://i.imgur.com/3uFsEQ8.png" title="source: imgur.com" height="403" width="200" /></a><a href="https://imgur.com/SCFMxJ4"><img src="https://i.imgur.com/SCFMxJ4.png" title="source: imgur.com" height="403" width="200" /></a><a href="https://imgur.com/v0NoAJf"><img src="https://i.imgur.com/v0NoAJf.png" title="source: imgur.com" height="403" width="200" /></a><a href="https://imgur.com/teNKd3D"><img src="https://i.imgur.com/teNKd3D.png" title="source: imgur.com" height="403" width="200" /></a>
 #### Google Play Like RecyclerView
 
 <a href="http://imgur.com/NbZOHjY"><img src="http://imgur.com/NbZOHjY.png" title="source: imgur.com" height="403" width="200"/></a>
