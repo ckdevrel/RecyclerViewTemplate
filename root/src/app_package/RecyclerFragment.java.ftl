@@ -437,7 +437,11 @@ public class ${className} extends Fragment {
 
           <#else>
           // use a linear layout manager
+          <#if layoutorientation == 'horizontal'>
+          LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity(), LinearLayoutManager.HORIZONTAL, false);
+          <#else>
           LinearLayoutManager layoutManager = new LinearLayoutManager(getActivity());
+          </#if>
           recyclerView.setLayoutManager(layoutManager);
           </#if>
 

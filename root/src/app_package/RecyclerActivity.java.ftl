@@ -302,7 +302,13 @@ public class ${activityClass} extends AppCompatActivity {
 
           <#else>
           // use a linear layout manager
+
+          <#if layoutorientation == 'horizontal'>
+          LinearLayoutManager layoutManager = new LinearLayoutManager(this, LinearLayoutManager.HORIZONTAL, false);
+          <#else>
           LinearLayoutManager layoutManager = new LinearLayoutManager(this);
+          </#if>
+
           recyclerView.setLayoutManager(layoutManager);
           </#if>
 

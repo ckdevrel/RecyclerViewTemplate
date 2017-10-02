@@ -78,6 +78,12 @@
     <option id="grid">Grid (GridLayoutManager)</option>
   </parameter>
 
+  <parameter id="layoutorientation" name="Layout Orientation" type="enum" default="vertical" visibility="!(features=='googleplay' || features =='section' || layoutmanager =='grid')" help="Vertical is default, Choose horizontal if you want Horizonatal Scrollview like RecyclerView">
+    <option id="vertical">Vertical</option>
+    <option id="horizontal">Horizontal (HorizontalScrollView style)</option>
+  </parameter>
+
+
   <parameter id="isHeader" name="Add Header" type="boolean" default="false" visibility="!(features=='googleplay' || features=='section')" help="If true, recyclerview list item will have a header"/>
 
   <parameter id="isFooter" name="Add Footer" type="boolean" default="false" visibility="!(features=='googleplay' || features=='section')" help="If true, recyclerview list item will have a footer"/>
