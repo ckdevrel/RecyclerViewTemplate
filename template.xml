@@ -79,8 +79,8 @@
   </parameter>
 
   <parameter id="layoutorientation" name="Layout Orientation" type="enum" default="vertical" visibility="!(features=='googleplay' || features =='section' || layoutmanager =='grid')" help="Vertical is default, Choose horizontal if you want Horizonatal Scrollview like RecyclerView">
-    <option id="vertical">List (LinearLayoutManager)</option>
-    <option id="horizontal">Grid (GridLayoutManager)</option>
+    <option id="vertical">Vertical</option>
+    <option id="horizontal">Horizontal (HorizontalScrollView style)</option>
   </parameter>
 
 

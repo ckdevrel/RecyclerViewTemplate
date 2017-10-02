@@ -9,7 +9,7 @@
 
 <#elseif features == 'banner'>
 
-<#if layoutmanager == 'grid'>
+<#if layoutmanager == 'grid' || layoutorientation == 'horizontal'>
       <#include "item_recycler_banner_grid.xml.ftl"/>
 
 <#else>
@@ -19,7 +19,7 @@
 
 <#else>
 
-<#if layoutmanager == 'grid'>
+<#if layoutmanager == 'grid' || layoutorientation == 'horizontal'>
       <#include "item_recycler_simple_grid.xml.ftl"/>
 <#else>
       <#include "item_recycler_simple_list.xml.ftl"/>

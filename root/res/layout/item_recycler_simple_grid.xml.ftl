@@ -4,7 +4,11 @@
 
 <android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
+    <#if layoutorientation == 'horizontal'>
     android:layout_width="match_parent"
+    <#else>
+    android:layout_width="200dp"
+    </#if>
     android:layout_height="wrap_content"
     android:orientation="horizontal"
     app:cardUseCompatPadding="true"
@@ -17,7 +21,11 @@
 
     <RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
         xmlns:app="http://schemas.android.com/apk/res-auto"
+        <#if layoutorientation == 'horizontal'>
         android:layout_width="match_parent"
+        <#else>
+        android:layout_width="200dp"
+        </#if>
         android:layout_height="180dp"
         android:gravity="center"
         android:padding="12dp"
