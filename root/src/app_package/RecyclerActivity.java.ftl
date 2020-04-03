@@ -1,27 +1,27 @@
 package ${packageName};
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
 <#if features != 'googleplay' || features != 'section'>
 <#if layoutmanager == 'grid'>
-import android.support.v7.widget.GridLayoutManager;
+import androidx.recyclerview.widget.GridLayoutManager;
 <#else>
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 </#if>
 </#if>
 
 <#if features == 'googleplay' || features == 'section'>
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 </#if>
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 import java.util.ArrayList;
 
 <#if isSwipeRefreshLayout>
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 </#if>
 <#if applicationPackage??>
 import ${applicationPackage}.R;
@@ -30,13 +30,13 @@ import ${applicationPackage}.R;
 import android.widget.Toast;
 import android.os.Handler;
 <#if !isFragment && (isToolbar || isSearch)>
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 </#if>
 
 <#if isSearch>
 import android.view.Menu;
-import android.support.v7.widget.SearchView;
-import android.support.v4.view.MenuItemCompat;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
 import android.app.SearchManager;
 import android.widget.EditText;
 import android.graphics.Color;
@@ -45,7 +45,7 @@ import android.text.Spanned;
 </#if>
 
 <#if isFAB>
-import android.support.design.widget.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 </#if>
 
 
@@ -53,24 +53,14 @@ public class ${activityClass} extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
-    // @BindView(R.id.recycler_view)
-    // RecyclerView recyclerView;
-
     <#if isToolbar || isSearch>
-    //@BindView(R.id.toolbar)
-    //Toolbar toolbar;
     private Toolbar toolbar;
      </#if>
 
     <#if isSwipeRefreshLayout>
-    // @BindView(R.id.swipe_refresh_recycler_list)
-    // SwipeRefreshLayout swipeRefreshRecyclerList;
-
     private SwipeRefreshLayout swipeRefreshRecyclerList;
     </#if>
     <#if isFAB>
-    //@BindView(R.id.fab)
-    //FloatingActionButton fab;
     private FloatingActionButton fab;
     </#if>
     private ${adapterClass} mAdapter;
@@ -86,7 +76,6 @@ public class ${activityClass} extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.${layoutActivityName});
 
-        // ButterKnife.bind(this);
         findViews();
         <#if isToolbar || isSearch>
         initToolbar("Takeoff Android");

@@ -1,7 +1,7 @@
 package com.takeoffandroid.recyclerviewtemplate.adapter;
 
 import android.content.Context;
-import android.support.v7.widget.RecyclerView;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.LayoutInflater;
 import android.view.View;
 import android.view.ViewGroup;
@@ -10,7 +10,7 @@ import android.widget.TextView;
 
 import java.util.ArrayList;
 
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
 import com.takeoffandroid.recyclerviewtemplate.R;
@@ -142,20 +142,10 @@ public class FooterGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
         private TextView itemTxtMessage;
 
 
-        // @BindView(R.id.img_user)
-        // ImageView imgUser;
-        // @BindView(R.id.item_txt_title)
-        // TextView itemTxtTitle;
-        // @BindView(R.id.item_txt_message)
-        // TextView itemTxtMessage;
-        // @BindView(R.id.radio_list)
-        // RadioButton itemTxtMessage;
-        // @BindView(R.id.check_list)
-        // CheckBox itemCheckList;
+        
         public ViewHolder(final View itemView) {
             super(itemView);
 
-            // ButterKnife.bind(this, itemView);
 
             this.imgUser = (ImageView) itemView.findViewById(R.id.img_user);
             this.itemTxtTitle = (TextView) itemView.findViewById(R.id.item_txt_title);

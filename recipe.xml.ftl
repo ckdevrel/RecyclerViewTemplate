@@ -1,10 +1,6 @@
 <?xml version="1.0"?>
 <recipe>
 
-    <!-- <#if appCompat?has_content>
-      <dependency mavenUrl="com.android.support:appcompat-v7:${buildApi}.+"/>
-    </#if> -->
-
     <#if !(hasDependency('com.android.support:appcompat-v7'))>
         <dependency mavenUrl="com.android.support:appcompat-v7:${buildApi}.+"/>
     </#if>
@@ -23,10 +19,6 @@
 
         <dependency mavenUrl="com.android.support:design:${buildApi}.+"/>
     </#if>
-
-    <!-- <dependency mavenUrl="com.jakewharton:butterknife:8.5.1"/> -->
-
-    <!-- <dependency mavenUrl="com.jakewharton:butterknife-compiler:8.5.1"/> -->
 
 
     <#if !isFragment>

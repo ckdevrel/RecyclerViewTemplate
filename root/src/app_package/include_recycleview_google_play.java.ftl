@@ -99,7 +99,6 @@ public class ${adapterClass} extends RecyclerView.Adapter<${adapterClass}.${item
         public ${itemClass}(final View itemView) {
             super(itemView);
 
-            // ButterKnife.bind(this, itemView);
 
           this.itemTxtTitle = (TextView) itemView.findViewById(R.id.item_txt_title);
           this.recyclerViewHorizontalList = (RecyclerView) itemView.findViewById(R.id.recycler_view_horizontal_list);

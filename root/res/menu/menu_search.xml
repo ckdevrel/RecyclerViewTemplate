@@ -6,6 +6,6 @@
     android:title="Search"
     android:icon="@drawable/abc_ic_search_api_material"
     compat:showAsAction="collapseActionView|always"
-    compat:actionViewClass="android.support.v7.widget.SearchView"/>
+    compat:actionViewClass="androidx.appcompat.widget.SearchView"/>
 
 </menu>

@@ -1,18 +1,18 @@
 package com.takeoffandroid.recyclerviewtemplate.activity;
 
-import android.support.v7.app.AppCompatActivity;
+import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-import android.support.v7.widget.LinearLayoutManager;
+import androidx.recyclerview.widget.LinearLayoutManager;
 
-import android.support.v4.content.ContextCompat;
-import android.support.v7.widget.DividerItemDecoration;
-import android.support.v7.widget.RecyclerView;
+import androidx.core.content.ContextCompat;
+import androidx.recyclerview.widget.DividerItemDecoration;
+import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
 import java.util.ArrayList;
 
-import android.support.v4.widget.SwipeRefreshLayout;
+import androidx.swiperefreshlayout.widget.SwipeRefreshLayout;
 
 import com.takeoffandroid.recyclerviewtemplate.R;
 import com.takeoffandroid.recyclerviewtemplate.adapter.BannerListAdapter;
@@ -20,37 +20,31 @@ import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
 
 import android.widget.Toast;
 import android.os.Handler;
-import android.support.v7.widget.Toolbar;
+import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
-import android.support.v7.widget.SearchView;
-import android.support.v4.view.MenuItemCompat;
+import androidx.appcompat.widget.SearchView;
+import androidx.core.view.MenuItemCompat;
 import android.app.SearchManager;
 import android.widget.EditText;
 import android.graphics.Color;
 import android.text.InputFilter;
 import android.text.Spanned;
 
-import android.support.design.widget.FloatingActionButton;
+import com.google.android.material.floatingactionbutton.FloatingActionButton;
 
 
 public class BannerListActivity extends AppCompatActivity {
 
     private RecyclerView recyclerView;
 
-    // @BindView(R.id.recycler_view)
-    // RecyclerView recyclerView;
-
-    //@BindView(R.id.toolbar)
-    //Toolbar toolbar;
+    
     private Toolbar toolbar;
 
-    // @BindView(R.id.swipe_refresh_recycler_list)
-    // SwipeRefreshLayout swipeRefreshRecyclerList;
+   
 
     private SwipeRefreshLayout swipeRefreshRecyclerList;
-    //@BindView(R.id.fab)
-    //FloatingActionButton fab;
+    
     private FloatingActionButton fab;
     private BannerListAdapter mAdapter;
 
@@ -62,7 +56,7 @@ public class BannerListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_banner_list);
 
-        // ButterKnife.bind(this);
+        
         findViews();
         initToolbar("Takeoff Android");
         setAdapter();
