@@ -9,7 +9,7 @@
        android:layout_height="match_parent"
        android:orientation="vertical">
 
-       <android.support.v7.widget.Toolbar
+       <androidx.appcompat.widget.Toolbar
            android:id="@+id/toolbar"
            android:layout_width="match_parent"
            android:layout_height="?attr/actionBarSize"
@@ -22,7 +22,7 @@
 
 
 
-      <android.support.v7.widget.RecyclerView
+      <androidx.recyclerview.widget.RecyclerView
       <#if isFragment || (!isToolbar && !isSearch)>
           xmlns:android="http://schemas.android.com/apk/res/android"
           xmlns:tools="http://schemas.android.com/tools"

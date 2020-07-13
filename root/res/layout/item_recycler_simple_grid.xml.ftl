@@ -2,7 +2,7 @@
 
 <#if features != 'banner' && isCardView>
 
-<android.support.v7.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
+<androidx.cardview.widget.CardView xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     <#if layoutorientation == 'horizontal'>
     android:layout_width="200dp"
@@ -87,7 +87,7 @@
 
             <#elseif features == 'toggle'>
 
-       <android.support.v7.widget.SwitchCompat
+       <androidx.appcompat.widget.SwitchCompat
              android:id="@+id/switch_list"
              android:layout_width="wrap_content"
              android:layout_height="wrap_content"
@@ -112,6 +112,6 @@
 
 <#if features != 'banner' && isCardView>
 
-</android.support.v7.widget.CardView>
+</androidx.cardview.widget.CardView>
 
 </#if>

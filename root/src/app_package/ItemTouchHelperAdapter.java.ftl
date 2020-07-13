@@ -1,8 +1,8 @@
 package ${packageName};
 
 
-import android.support.v7.widget.RecyclerView;
-import android.support.v7.widget.helper.ItemTouchHelper;
+import androidx.recyclerview.widget.RecyclerView;
+import androidx.recyclerview.widget.ItemTouchHelper;
 
 
 public interface ItemTouchHelperAdapter {

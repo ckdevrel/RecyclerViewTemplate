@@ -65,21 +65,8 @@ public class ${adapterClass} extends SelectableAdapter<${adapterClass}.ViewHolde
         private CheckBox itemCheckList;
 
 
-        // @BindView(R.id.img_user)
-        // ImageView imgUser;
-        // @BindView(R.id.item_txt_title)
-        // TextView itemTxtTitle;
-        // @BindView(R.id.item_txt_message)
-        // TextView itemTxtMessage;
-        // @BindView(R.id.radio_list)
-        // RadioButton itemTxtMessage;
-        //@BindView(R.id.check_list)
-        //CheckBox itemCheckList;
-
-
         public ${itemClass}(final View itemView) {
             super(itemView);
-            // ButterKnife.bind(this, itemView);
 
             this.imgUser = (ImageView) itemView.findViewById(R.id.img_user);
             this.itemTxtTitle = (TextView) itemView.findViewById(R.id.item_txt_title);
