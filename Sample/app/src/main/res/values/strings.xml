@@ -1,31 +1,12 @@
 <resources>
     <string name="app_name">AndroidStudioTemplateTester</string>
-    <string name="title_activity_recycler_view">RecyclerViewActivity</string>
 
-    <string name="hello_world">Hello world!</string>
-    <string name="title_activity_main2">Main2Activity</string>
-    <string name="title_activity_main3">Main3Activity</string>
-    <string name="title_activity_ram">RamActivity</string>
-    <string name="title_activity_main">MainActivity</string>
     <string name="title_activity_google_play">GooglePlayActivity</string>
-    <string name="title_activity_header">HeaderActivity</string>
-    <string name="title_activity_google">GoogleActivity</string>
-    <string name="action_settings">Settings</string>
-    <string name="section_format">Hello World from section: %1$d</string>
-    <string name="tab_text_1">Tab 1</string>
-    <string name="tab_text_2">Tab 2</string>
-    <string name="tab_text_3">Tab 3</string>
-    <string name="title_activity_simple_list_toolbar">SimpleListToolbarActivity</string>
     <string name="title_activity_simple_list_all">SimpleListAllActivity</string>
     <string name="title_activity_simple_list_all_cards">SimpleListAllCardsActivity</string>
     <string name="title_activity_simple_grid_all">SimpleGridAllActivity</string>
-    <string name="title_activity_maps">Map</string>
-    <string name="title_activity_simple_grid_all_cards">SimpleGridAllCardsActivity</string>
-    <string name="title_activity_simple_grid">SimpleGridActivity</string>
     <string name="title_activity_banner_list">BannerListActivity</string>
-    <string name="title_activity_banner_list_cards">BannerListCardsActivity</string>
     <string name="title_activity_banner_grid">BannerGridActivity</string>
-    <string name="title_activity_banner_grid_cards">BannerGridCardsActivity</string>
     <string name="title_activity_radio_list">RadioListActivity</string>
     <string name="title_activity_radio_grid">RadioGridActivity</string>
     <string name="title_activity_checkbox_list">CheckboxListActivity</string>
