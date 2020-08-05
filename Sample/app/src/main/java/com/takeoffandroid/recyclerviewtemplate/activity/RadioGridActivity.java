@@ -6,6 +6,8 @@ import android.os.Bundle;
 import androidx.recyclerview.widget.GridLayoutManager;
 
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -22,7 +24,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import androidx.appcompat.widget.SearchView;
-import androidx.core.view.MenuItemCompat;
 import android.app.SearchManager;
 import android.widget.EditText;
 import android.graphics.Color;
@@ -96,13 +97,12 @@ public class RadioGridActivity extends AppCompatActivity {
         super.onCreateOptionsMenu(menu);
 
         getMenuInflater().inflate(R.menu.menu_search, menu);
-
+        MenuItem searchMenuItem = menu.findItem(R.id.action_search);
 
         // Retrieve the SearchView and plug it into SearchManager
-        final SearchView searchView = (SearchView) MenuItemCompat
-                .getActionView(menu.findItem(R.id.action_search));
+        SearchView searchView = (SearchView) searchMenuItem.getActionView();
 
-        SearchManager searchManager = (SearchManager) this.getSystemService(this.SEARCH_SERVICE);
+        SearchManager searchManager = (SearchManager) this.getSystemService(SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(this.getComponentName()));
 
         //changing edittext color

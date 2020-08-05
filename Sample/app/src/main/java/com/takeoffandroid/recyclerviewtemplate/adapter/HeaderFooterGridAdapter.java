@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
 import com.takeoffandroid.recyclerviewtemplate.R;
 
+import org.jetbrains.annotations.NotNull;
+
 
 /**
  * A custom adapter to use with the RecyclerView widget.
@@ -51,8 +53,9 @@ public class HeaderFooterGridAdapter extends RecyclerView.Adapter<RecyclerView.V
 
     }
 
+    @NotNull
     @Override
-    public RecyclerView.ViewHolder onCreateViewHolder(ViewGroup parent, int viewType) {
+    public RecyclerView.ViewHolder onCreateViewHolder(@NotNull ViewGroup parent, int viewType) {
 
         if (viewType == TYPE_HEADER) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_header, parent, false);
@@ -60,15 +63,14 @@ public class HeaderFooterGridAdapter extends RecyclerView.Adapter<RecyclerView.V
         } else if (viewType == TYPE_FOOTER) {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_recycler_footer, parent, false);
             return new FooterViewHolder(v);
-        } else if (viewType == TYPE_ITEM) {
+        } else {
             View v = LayoutInflater.from(parent.getContext()).inflate(R.layout.item_header_footer_grid, parent, false);
             return new ViewHolder(v);
         }
-        return null;
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NotNull RecyclerView.ViewHolder holder, final int position) {
         if (holder instanceof HeaderViewHolder) {
             HeaderViewHolder headerHolder = (HeaderViewHolder) holder;
 

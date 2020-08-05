@@ -3,6 +3,8 @@ package com.takeoffandroid.recyclerviewtemplate;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
+import org.jetbrains.annotations.NotNull;
+
 public abstract class RecyclerViewScrollListener extends RecyclerView.OnScrollListener {
 
     private int firstVisibleItem, visibleItemCount, totalItemCount;
@@ -11,7 +13,7 @@ public abstract class RecyclerViewScrollListener extends RecyclerView.OnScrollLi
     private int mPreLoadCount = 0;
 
     @Override
-    public void onScrolled(RecyclerView recyclerView, int dx, int dy) {
+    public void onScrolled(@NotNull RecyclerView recyclerView, int dx, int dy) {
         super.onScrolled(recyclerView, dx, dy);
 
         if (mEnabled) {

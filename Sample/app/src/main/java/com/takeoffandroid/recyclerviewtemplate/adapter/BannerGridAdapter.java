@@ -15,6 +15,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
 import com.takeoffandroid.recyclerviewtemplate.R;
 
+import org.jetbrains.annotations.NotNull;
+
 
 /**
  * A custom adapter to use with the RecyclerView widget.
@@ -38,6 +40,7 @@ public class BannerGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
 
     }
 
+    @NotNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
@@ -47,8 +50,7 @@ public class BannerGridAdapter extends RecyclerView.Adapter<RecyclerView.ViewHol
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
-
+    public void onBindViewHolder(@NotNull RecyclerView.ViewHolder holder, final int position) {
         //Here you can fill your row view
         if (holder instanceof ViewHolder) {
             final AbstractModel model = getItem(position);

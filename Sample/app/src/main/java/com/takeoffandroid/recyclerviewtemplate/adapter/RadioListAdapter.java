@@ -17,6 +17,8 @@ import android.widget.RadioButton;
 import com.takeoffandroid.recyclerviewtemplate.AbstractModel;
 import com.takeoffandroid.recyclerviewtemplate.R;
 
+import org.jetbrains.annotations.NotNull;
+
 
 /**
  * A custom adapter to use with the RecyclerView widget.
@@ -43,6 +45,7 @@ public class RadioListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
 
     }
 
+    @NotNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 
@@ -52,7 +55,7 @@ public class RadioListAdapter extends RecyclerView.Adapter<RecyclerView.ViewHold
     }
 
     @Override
-    public void onBindViewHolder(RecyclerView.ViewHolder holder, final int position) {
+    public void onBindViewHolder(@NotNull RecyclerView.ViewHolder holder, final int position) {
 
         //Here you can fill your row view
         if (holder instanceof ViewHolder) {
