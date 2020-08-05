@@ -127,7 +127,7 @@ public class SimpleListActivity extends AppCompatActivity {
         searchView.setSearchableInfo(searchManager.getSearchableInfo(this.getComponentName()));
 
         //changing edittext color
-        EditText searchEdit = ((EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text));
+        EditText searchEdit = ((EditText) searchView.findViewById(R.id.search_src_text));
         searchEdit.setTextColor(Color.WHITE);
         searchEdit.setHintTextColor(Color.WHITE);
         searchEdit.setBackgroundColor(Color.TRANSPARENT);
@@ -152,7 +152,7 @@ public class SimpleListActivity extends AppCompatActivity {
             }
         };
         searchEdit.setFilters(fArray);
-        View v = searchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
+        View v = searchView.findViewById(R.id.search_plate);
         v.setBackgroundColor(Color.TRANSPARENT);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
