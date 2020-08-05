@@ -1,5 +1,5 @@
 <resources>
-    <string name="app_name">AndroidStuidoTemplateTester</string>
+    <string name="app_name">AndroidStudioTemplateTester</string>
     <string name="title_activity_recycler_view">RecyclerViewActivity</string>
 
     <string name="hello_world">Hello world!</string>
