@@ -1,264 +1,233 @@
 <?xml version="1.0" encoding="utf-8"?>
 <ScrollView xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    tools:ignore="HardcodedText,ButtonStyle">
 
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:orientation="vertical"
+        android:background="@color/colorBackground"
         android:padding="16dp">
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:gravity="center">
-
-
 
             <Button
                 android:id="@+id/btn_simple_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Simple List RecyclerView" />
-
+                android:text="Simple List RecyclerView"
+                android:onClick="onClick" />
 
             <Button
                 android:id="@+id/btn_simple_list_cards"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Simple List Cards RecyclerView" />
-
+                android:text="Simple List Cards RecyclerView"
+                android:onClick="onClick" />
 
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:gravity="center">
-
-
 
             <Button
                 android:id="@+id/btn_simple_grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Simple Grid RecyclerView" />
-
+                android:text="Simple Grid RecyclerView"
+                android:onClick="onClick" />
 
             <Button
                 android:id="@+id/btn_simple_grid_cards"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Simple Grid Cards RecyclerView" />
-
+                android:text="Simple Grid Cards RecyclerView"
+                android:onClick="onClick" />
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:gravity="center">
-
-
 
             <Button
                 android:id="@+id/btn_banner_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Banner List RecyclerView" />
-
-
+                android:text="Banner List RecyclerView"
+                android:onClick="onClick" />
 
             <Button
                 android:id="@+id/btn_banner_grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Banner Grid RecyclerView" />
+                android:text="Banner Grid RecyclerView"
+                android:onClick="onClick" />
+
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:gravity="center">
-
-
 
             <Button
                 android:id="@+id/btn_radio_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Radio List RecyclerView" />
-
+                android:text="Radio List RecyclerView"
+                android:onClick="onClick" />
 
             <Button
                 android:id="@+id/btn_radio_grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Radio Grid RecyclerView" />
-
+                android:text="Radio Grid RecyclerView"
+                android:onClick="onClick" />
 
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:gravity="center">
-
-
 
             <Button
                 android:id="@+id/btn_check_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Checkbox List RecyclerView" />
-
+                android:text="Checkbox List RecyclerView"
+                android:onClick="onClick" />
 
             <Button
                 android:id="@+id/btn_check_grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Checkbox Grid RecyclerView" />
-
+                android:text="Checkbox Grid RecyclerView"
+                android:onClick="onClick" />
 
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:gravity="center">
-
-
 
             <Button
                 android:id="@+id/btn_toggle_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Toggle List RecyclerView" />
-
+                android:text="Toggle List RecyclerView"
+                android:onClick="onClick" />
 
             <Button
                 android:id="@+id/btn_toggle_grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Toggle Grid RecyclerView" />
-
+                android:text="Toggle Grid RecyclerView"
+                android:onClick="onClick" />
 
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:gravity="center">
-
-
 
             <Button
                 android:id="@+id/btn_header_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Header List RecyclerView" />
-
+                android:text="Header List RecyclerView"
+                android:onClick="onClick" />
 
             <Button
                 android:id="@+id/btn_header_grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Header Grid RecyclerView" />
-
+                android:text="Header Grid RecyclerView"
+                android:onClick="onClick" />
 
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:gravity="center">
-
-
 
             <Button
                 android:id="@+id/btn_footer_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Footer List RecyclerView" />
-
+                android:text="Footer List RecyclerView"
+                android:onClick="onClick" />
 
             <Button
                 android:id="@+id/btn_footer_grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Footer Grid RecyclerView" />
-
+                android:text="Footer Grid RecyclerView"
+                android:onClick="onClick" />
 
         </LinearLayout>
-
 
         <LinearLayout
             android:layout_width="match_parent"
             android:layout_height="150dp"
             android:orientation="horizontal"
             android:gravity="center">
-
-
 
             <Button
                 android:id="@+id/btn_header_footer_list"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Header Footer List RecyclerView" />
-
+                android:text="Header Footer List RecyclerView"
+                android:onClick="onClick" />
 
             <Button
                 android:id="@+id/btn_header_footer_grid"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Header Footer Grid RecyclerView" />
-
+                android:text="Header Footer Grid RecyclerView"
+                android:onClick="onClick" />
 
         </LinearLayout>
-
-
 
         <LinearLayout
             android:layout_width="match_parent"
@@ -266,29 +235,16 @@
             android:orientation="horizontal"
             android:gravity="center">
 
-
-
             <Button
                 android:id="@+id/btn_google_play"
                 android:layout_width="0dp"
                 android:layout_height="match_parent"
                 android:layout_weight="1"
-                android:text="Google Play RecyclerView" />
-
-
-
+                android:text="Google Play RecyclerView"
+                android:onClick="onClick" />
 
         </LinearLayout>
 
-
-
-
-
-
-
-
-
     </LinearLayout>
-
 
 </ScrollView>
