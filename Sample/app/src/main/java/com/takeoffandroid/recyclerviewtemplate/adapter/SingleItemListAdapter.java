@@ -12,6 +12,8 @@ import android.widget.TextView;
 import com.takeoffandroid.recyclerviewtemplate.AbstractGooglePlay;
 import com.takeoffandroid.recyclerviewtemplate.R;
 
+import org.jetbrains.annotations.NotNull;
+
 import java.util.ArrayList;
 
 
@@ -26,6 +28,7 @@ public class SingleItemListAdapter extends RecyclerView.Adapter<SingleItemListAd
         this.mContext = context;
     }
 
+    @NotNull
     @Override
     public SingleItemRowHolder onCreateViewHolder(ViewGroup viewGroup, int i) {
         View view = LayoutInflater.from(viewGroup.getContext()).inflate(R.layout.item_recycler_item_google_play, viewGroup, false);

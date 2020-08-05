@@ -14,6 +14,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import com.takeoffandroid.recyclerviewtemplate.AbstractGooglePlay;
 import com.takeoffandroid.recyclerviewtemplate.R;
 
+import org.jetbrains.annotations.NotNull;
+
 
 /**
  * A custom adapter to use with the RecyclerView widget.
@@ -37,6 +39,7 @@ public class GooglePlayAdapter extends RecyclerView.Adapter<GooglePlayAdapter.Vi
 
     }
 
+    @NotNull
     @Override
     public ViewHolder onCreateViewHolder(ViewGroup viewGroup, int viewType) {
 

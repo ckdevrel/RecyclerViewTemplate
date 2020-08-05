@@ -5,6 +5,8 @@ import android.graphics.Rect;
 import androidx.recyclerview.widget.RecyclerView;
 import android.view.View;
 
+import org.jetbrains.annotations.NotNull;
+
 public class GridMarginDecoration extends RecyclerView.ItemDecoration {
     private int left;
     private int right;
@@ -21,7 +23,7 @@ public class GridMarginDecoration extends RecyclerView.ItemDecoration {
 
     @Override
     public void getItemOffsets(
-            Rect outRect, View view, RecyclerView parent, RecyclerView.State state) {
+            Rect outRect, @NotNull View view, @NotNull RecyclerView parent, @NotNull RecyclerView.State state) {
         outRect.set(left, top, right, bottom);
     }
 }

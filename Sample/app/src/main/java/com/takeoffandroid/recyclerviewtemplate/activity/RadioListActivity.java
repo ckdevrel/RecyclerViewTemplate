@@ -1,5 +1,6 @@
 package com.takeoffandroid.recyclerviewtemplate.activity;
 
+import androidx.annotation.NonNull;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
@@ -8,6 +9,8 @@ import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.core.content.ContextCompat;
 import androidx.recyclerview.widget.DividerItemDecoration;
 import androidx.recyclerview.widget.RecyclerView;
+
+import android.view.MenuItem;
 import android.view.View;
 
 import java.util.ArrayList;
@@ -20,7 +23,6 @@ import androidx.appcompat.widget.Toolbar;
 
 import android.view.Menu;
 import androidx.appcompat.widget.SearchView;
-import androidx.core.view.MenuItemCompat;
 import android.app.SearchManager;
 import android.widget.EditText;
 import android.graphics.Color;
@@ -96,17 +98,16 @@ public class RadioListActivity extends AppCompatActivity {
         super.onCreateOptionsMenu(menu);
 
         getMenuInflater().inflate(R.menu.menu_search, menu);
-
+        MenuItem searchMenuItem = menu.findItem(R.id.action_search);
 
         // Retrieve the SearchView and plug it into SearchManager
-        final SearchView searchView = (SearchView) MenuItemCompat
-                .getActionView(menu.findItem(R.id.action_search));
+        SearchView searchView = (SearchView) searchMenuItem.getActionView();
 
-        SearchManager searchManager = (SearchManager) this.getSystemService(this.SEARCH_SERVICE);
+        SearchManager searchManager = (SearchManager) this.getSystemService(SEARCH_SERVICE);
         searchView.setSearchableInfo(searchManager.getSearchableInfo(this.getComponentName()));
 
         //changing edittext color
-        EditText searchEdit = ((EditText) searchView.findViewById(android.support.v7.appcompat.R.id.search_src_text));
+        EditText searchEdit = ((EditText) searchView.findViewById(R.id.search_src_text));
         searchEdit.setTextColor(Color.WHITE);
         searchEdit.setHintTextColor(Color.WHITE);
         searchEdit.setBackgroundColor(Color.TRANSPARENT);
@@ -131,7 +132,7 @@ public class RadioListActivity extends AppCompatActivity {
             }
         };
         searchEdit.setFilters(fArray);
-        View v = searchView.findViewById(android.support.v7.appcompat.R.id.search_plate);
+        View v = searchView.findViewById(R.id.search_plate);
         v.setBackgroundColor(Color.TRANSPARENT);
 
         searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
@@ -211,5 +212,12 @@ public class RadioListActivity extends AppCompatActivity {
 
     }
 
-
+    @Override
+    public boolean onOptionsItemSelected(@NonNull MenuItem item) {
+        if (item.getItemId() == android.R.id.home) {
+            finish();
+            return super.onOptionsItemSelected(item);
+        }
+        return false;
+    }
 }
